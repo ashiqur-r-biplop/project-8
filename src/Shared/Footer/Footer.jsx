@@ -15,9 +15,9 @@ import BusRoute from "../BusRoute/BusRoute";
 const Footer = () => {
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container mx-auto bg-gray-900 text-white">
         {/* Footer for Large Screens */}
-        <footer className="text-black lg:my-10 py-5">
+        <footer className="lg:my-10 py-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-2 gap-2 ">
             {/* Legal Section */}
             <div className="">
@@ -39,16 +39,16 @@ const Footer = () => {
                 </p>
 
                 <div className="py-4 flex gap-5">
-                  <FaFacebook className="w-7 h-7 cursor-pointer text-blue-500 bg-white rounded"></FaFacebook>
-                  <FaTwitterSquare className="w-7 h-7 cursor-pointer text-blue-500 bg-white rounded"></FaTwitterSquare>
-                  <FaLinkedin className="w-7 h-7 cursor-pointer text-blue-500 bg-white rounded"></FaLinkedin>
+                  <FaFacebook className="w-7 h-7 cursor-pointer brand-color  rounded"></FaFacebook>
+                  <FaTwitterSquare className="w-7 h-7 cursor-pointer brand-color  rounded"></FaTwitterSquare>
+                  <FaLinkedin className="w-7 h-7 cursor-pointer brand-color  rounded"></FaLinkedin>
                 </div>
               </div>
             </div>
 
             {/* About us Section */}
             <div className="md:mx-auto">
-              <span className="footer-title text-xl block mb-4">About us</span>
+              <span className="text-xl brand-color block mb-4">About us</span>
               <div className="mt-2">
                 <a className="link link-hover block text-base py-1 lg:text-lg">
                   Our Team
@@ -67,7 +67,7 @@ const Footer = () => {
 
             {/* Services Section */}
             <div className="md:mx-auto">
-              <span className="footer-title text-xl block mb-4">Services</span>
+              <span className="text-xl block mb-4 brand-color">Services</span>
               <div className="mt-2">
                 <a className="link link-hover block text-base py-1 lg:text-lg">
                   Bus Tickets
@@ -85,7 +85,7 @@ const Footer = () => {
             </div>
             {/* Quick links Section */}
             <div className="md:mx-auto">
-              <span className="footer-title text-xl block mb-4">
+              <span className="brand-color text-xl block mb-4">
                 Quick links
               </span>
               <div className="mt-2">
