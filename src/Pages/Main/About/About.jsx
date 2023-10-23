@@ -1,7 +1,17 @@
 import React from "react";
 
+
 const About = () => {
-  return <div></div>;
+  return (
+    <div className="container mx-auto">
+      <div className="flex justify-center items-center">
+        <div>
+         
+        </div>
+        <div></div>
+      </div>
+    </div>
+  );
 };
 
 export default About;
