@@ -7,10 +7,11 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import BusRoute from "../BusRoute/BusRoute";
+import AllUsers from "../../Pages/Main/AllUsers/AllUsers";
 // import { FaGooglePlay, FaSquareXTwitter } from "react-icons/fa6";
 // import { GrFacebook } from "react-icons/gr";
 
-import logo from "../../assets/img/logo-without-bg.png";
+// import logo from "../../assets/img/logo-without-bg.png";
 
 const Footer = () => {
   return (
@@ -22,7 +23,7 @@ const Footer = () => {
             {/* Legal Section */}
             <div className="">
               <div className="py-1 flex items-center justify-start">
-                <img src={logo} className="w-12 h-12" alt="" />
+                {/* <img src={logo} className="w-12 h-12" alt="" /> */}
                 <h1 className="text-3xl font-bold">
                   <span className="text-green-500 uppercase">T</span>icket
                   <span className="text-green-500 uppercase italic">Q</span>uest
@@ -112,6 +113,7 @@ const Footer = () => {
           Copyright © 2023 - All rights reserved
         </p>
       </footer>
+      <AllUsers></AllUsers>
     </>
   );
 };
