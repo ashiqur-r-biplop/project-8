@@ -1,0 +1,26 @@
+.bus {
+    text-align: center;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    /* display: inline-block; */
+    background-color: #bdc3c7;
+    cursor: pointer;
+  }
+  
+  .seat.selected {
+    background-color: #e74c3c;
+  }
+  
+  .seat.reserved {
+    background-color: #3498db;
+    cursor: not-allowed;
+  }
+  
+  .seat.disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
