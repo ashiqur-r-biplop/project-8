@@ -1,25 +1,26 @@
-import React from 'react'
+import React from "react";
 
 const UserProfile = () => {
-
   const time = new Date();
   const year = time.getFullYear();
   const month = time.getMonth();
-  const date = time.getDate()
+  const date = time.getDate();
   const dateInfo = {
-    date,month,year
-  }
+    date,
+    month,
+    year,
+  };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-     const form = e.target;
-     const name = form.name.value;
-     const email = form.email.value;
-     const phone = form.phone.value;
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
     console.log(name, email, phone);
-  }
+  };
   return (
     <>
-      <div className="container mx-auto w-[80%] grid md:grid-cols-2">
+      <div className="max-w-[1200px] mx-auto w-[80%] grid md:grid-cols-2 pt-[100px]">
         <div className="md:w-4/5 w-full gird grid-cols-1 items-center">
           <div className="max-w-xs h-100 px-4 py-3 rounded-md shadow-md bg-gray-50 text-gray-800">
             <img
@@ -123,5 +124,5 @@ const UserProfile = () => {
       </dialog>
     </>
   );
-}
-export default UserProfile
+};
+export default UserProfile;

@@ -14,7 +14,12 @@ const Register = () => {
     reset,
   } = useForm();
 
-  const { createUserWithEmail, updateUserProfileName, createUserWithGoogle, user } = useContext(AuthContext);
+  const {
+    createUserWithEmail,
+    updateUserProfileName,
+    createUserWithGoogle,
+    user,
+  } = useContext(AuthContext);
 
   const [isAgreed, setIsAgreed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -144,8 +149,14 @@ const Register = () => {
   return (
     <div className="bg-gray-100 flex justify-center items-center h-[100vh] relative ">
       <div className="w-full h-auto absolute z-50 lg:max-w-md lg:mx-auto p-4 border rounded-md border-gray-400 bg-orange-50">
-        <form name="loginForm" onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div className="text-center text-3xl font-bold text-black mb-4">Create New Account</div>
+        <form
+          name="loginForm"
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-4"
+        >
+          <div className="text-center text-3xl font-bold text-black mb-4">
+            Create New Account
+          </div>
           <div className="flex flex-col">
             <input
               type="text"
@@ -156,7 +167,9 @@ const Register = () => {
               {...register("name", { required: "Your Name is required" })}
               placeholder="Your Name"
             />
-            {errors.name && <span className="text-red-500">{errors.name.message}</span>}
+            {errors.name && (
+              <span className="text-red-500">{errors.name.message}</span>
+            )}
           </div>
 
           <div className="flex flex-col">
@@ -166,10 +179,16 @@ const Register = () => {
               className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${
                 errors.loginPassword && "border-red-500"
               }`}
-              {...register("loginPassword", { required: "Password is required" })}
+              {...register("loginPassword", {
+                required: "Password is required",
+              })}
               placeholder="Password"
             />
-            {errors.loginPassword && <span className="text-red-500">{errors.loginPassword.message}</span>}
+            {errors.loginPassword && (
+              <span className="text-red-500">
+                {errors.loginPassword.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col">
             <input
@@ -180,11 +199,16 @@ const Register = () => {
               }`}
               {...register("confirmPassword", {
                 required: "Confirm Password is required",
-                validate: (value) => value === password || "Passwords do not match",
+                validate: (value) =>
+                  value === password || "Passwords do not match",
               })}
               placeholder="Confirm Password"
             />
-            {errors.confirmPassword && <span className="text-red-500">{errors.confirmPassword.message}</span>}
+            {errors.confirmPassword && (
+              <span className="text-red-500">
+                {errors.confirmPassword.message}
+              </span>
+            )}
           </div>
           <div className="flex flex-col">
             <input
@@ -196,7 +220,9 @@ const Register = () => {
               {...register("email", { required: "Email is required" })}
               placeholder="Email or Username"
             />
-            {errors.email && <span className="text-red-500">{errors.email.message}</span>}
+            {errors.email && (
+              <span className="text-red-500">{errors.email.message}</span>
+            )}
           </div>
           <div className="flex flex-col">
             <input
@@ -210,12 +236,18 @@ const Register = () => {
               })}
               placeholder="Phone Number"
             />
-            {errors.phoneNumber && <span className="text-red-500">{errors.phoneNumber.message}</span>}
+            {errors.phoneNumber && (
+              <span className="text-red-500">{errors.phoneNumber.message}</span>
+            )}
           </div>
 
           <div className="flex justify-center items-center">
             <label className="flex items-center">
-              <input type="checkbox" name="agreement" onChange={handleAgreementChange} />
+              <input
+                type="checkbox"
+                name="agreement"
+                onChange={handleAgreementChange}
+              />
               <span className="ml-2 text-black">
                 I agree to the{" "}
                 <Link to="" className="text-orange-500">
@@ -232,9 +264,12 @@ const Register = () => {
             <button
               type="submit"
               className={`${
-                isAgreed && password === confirmPassword ? "bg-blue-600 text-white" : "bg-gray-400"
+                isAgreed && password === confirmPassword
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-400"
               } text-black p-2 rounded focus:outline-none focus:border-orange-500 transition duration-300 ease-in-out w-full  ${
-                !(isAgreed && password === confirmPassword) && "cursor-not-allowed"
+                !(isAgreed && password === confirmPassword) &&
+                "cursor-not-allowed"
               }`}
               disabled={!isAgreed || password !== confirmPassword}
             >
@@ -264,7 +299,7 @@ const Register = () => {
 
           <div className="text-center mt-4 flex justify-center items-center gap-2">
             <p className="text-gray-600">Already have an account?</p>
-            <Link to="" className="text-blue-500 hover:underline">
+            <Link to="/login" className="text-blue-500 hover:underline">
               Sign In
             </Link>
           </div>
