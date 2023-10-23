@@ -1,0 +1,13 @@
+
+.slide {
+  animation: moveForwardBackward 2s ease-in-out infinite alternate;
+}
+
+@keyframes moveForwardBackward {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
