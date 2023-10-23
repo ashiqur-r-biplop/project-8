@@ -7,6 +7,7 @@ import BookTicket from "../Pages/Main/BookTicket/BookTicket";
 import BookBus from "../Pages/Main/BookBus/BookBus";
 import Login from "../Pages/Main/Login/Login";
 import Register from "../Pages/Main/Register/Register";
+import UserProfile from "../Component/Main/UserProfile/UserProfile";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "/book-bus",
         element: <BookBus></BookBus>,
+      },
+      {
+        path: '/user-profile',
+        element:<UserProfile></UserProfile>
       },
       {
         path: "/login",
