@@ -1,0 +1,27 @@
+[
+     {
+          // all user
+       "name": "john_doe",
+       "email": "john.doe@example.com",
+       "number": "+1-555-555-5555",
+       "photo": "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg"
+     },
+     {
+       "name": "jane_smith",
+       "email": "jane.smith@example.com",
+       "number": "+1-555-555-5556",
+       "photo": "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg"
+     },
+     {
+       "name": "mike_jackson",
+       "email": "mike.jackson@example.com",
+       "number": "+1-555-555-5557",
+       "photo": "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg"
+     }
+   ]
+   
+   
+   
+   
+   
+   b

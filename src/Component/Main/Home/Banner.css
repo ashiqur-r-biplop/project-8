@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto+Condensed:wght@500&family=Roboto+Slab:wght@600&family=Roboto:wght@500&display=swap');
+
+.banner-content{
+    background:  /* top, transparent black, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ),
+    /* bottom, image */
+    url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzfGVufDB8fDB8fHww');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80vh;
+}
+
+body{
+    font-family: 'Noto Serif', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.brand-color{
+    color: orangered;
+}
+.brand-btn{
+    background-color: orangered;
+    color: white;
+    border: 2px solid orangered;
+}
+.brand-bg{
+    background-color: orangered;
+}
+
+.brand-btn:hover{
+    background-color: rgb(251, 83, 22);
+    color: black;
+    font-weight: bold;
+    border: 2px solid orangered;  
+    
+}
