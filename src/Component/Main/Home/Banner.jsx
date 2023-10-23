@@ -1,6 +1,7 @@
 import React from "react";
 import "./Banner.css";
 import Typewriter from "typewriter-effect";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -25,7 +26,9 @@ const Banner = () => {
           <p className="text-white text-xl font-bold">
             you can book ticket easily
           </p>
-          <button className="btn brand-btn">Book Now</button>
+          <Link to="/book-ticket" className="">
+            <button className="btn brand-btn">Book Now</button>
+          </Link>
         </div>
       </div>
     </div>

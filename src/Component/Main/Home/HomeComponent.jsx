@@ -6,11 +6,11 @@ import Count from "./Count.jsx";
 
 const HomeComponent = () => {
   return (
-    <div>
+    <div className="mt-[20px]">
       <Banner></Banner>
       <Count></Count>
-      <Testimonial></Testimonial>
       <OurMoto></OurMoto>
+      <Testimonial></Testimonial>
     </div>
   );
 };
