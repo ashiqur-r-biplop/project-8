@@ -29,7 +29,6 @@ const Navbar = () => {
     { link: "Book Bus", path: "book-bus" },
     { link: "About Us", path: "about" },
     { link: "Contact Us", path: "contact" },
-    // { link: "Contact Us", path: "contact" },
   ];
 
   return (
