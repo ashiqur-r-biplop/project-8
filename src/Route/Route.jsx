@@ -7,10 +7,12 @@ import BookTicket from "../Pages/Main/BookTicket/BookTicket";
 import BookBus from "../Pages/Main/BookBus/BookBus";
 import Login from "../Pages/Main/Login/Login";
 import Register from "../Pages/Main/Register/Register";
+import Error from "../Pages/Main/404/Error";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",

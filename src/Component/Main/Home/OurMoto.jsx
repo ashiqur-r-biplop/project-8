@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 import bus2 from "../../../../src/assets/bus6.jpeg";
-import { Link } from 'react-router-dom';
-import style from './OurMoto.module.css';
+import { Link } from "react-router-dom";
+import style from "./OurMoto.module.css";
 
 const OurMoto = () => {
   return (
-    <div>
+    <div className="max-w-[1200px] mx-5  md:mx-auto overflow-x-hidden border">
       <div className="container w-full grid md:grid-cols-2   grid-cols-1 my-4 md:my-0 ">
         <div className="w-full  flex items-center">
           <div className="md:pl-8 px-2 ">
@@ -21,21 +21,16 @@ const OurMoto = () => {
               home easily
             </p>
             <Link to="/book-ticket">
-              <button className="btn brand-btn">
-                Book Now
-              </button>
+              <button className="btn brand-btn">Book Now</button>
             </Link>
           </div>
         </div>
-        <div className="mb-3   md:mb-0 p-2 w-full -order-1 md:order-1">
-          <img
-            src={bus2}
-            className={style.slide}
-          />
+        <div className="mb-3  md:mb-0 p-2 w-full -order-1 md:order-1">
+          <img src={bus2} className={style.slide} />
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default OurMoto
+export default OurMoto;

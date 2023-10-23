@@ -19,7 +19,7 @@ const Main = () => {
     );
   }
   return (
-    <div className="overflow-x-hidden">
+    <div className="">
       <div>
         <Navbar></Navbar>
         <div className="md:min-h-[calc(100vh-73px)]">

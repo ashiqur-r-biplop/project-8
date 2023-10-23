@@ -15,22 +15,23 @@ import BusRoute from "../BusRoute/BusRoute";
 const Footer = () => {
   return (
     <>
-      <div className="container mx-auto">
+      <div className="md:container mx-5 md:mx-auto">
         {/* Footer for Large Screens */}
         <footer className="text-black lg:my-10 py-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-2 gap-2 ">
+          <div className="flex flex-col w-full  justify-start items-start px-2 gap-2">
             {/* Legal Section */}
             <div className="">
               <div className="py-1 flex items-center justify-start">
                 <img src="image/url" className="w-12 h-12" alt="" />
                 <h1 className="text-3xl font-bold">
-                  <span className="text-green-500 uppercase">T</span>icket
-                  <span className="text-green-500 uppercase italic">Q</span>uest
+                  <span className="text-green-500 uppercase">D</span>haka
+                  <span className="text-green-500 uppercase"> B</span>us
+                  <span className="text-green-500 uppercase"> T</span>icket
                 </h1>
               </div>
 
               <div className="mt-2">
-                <p className="py-1 text-lg text-gray-400">
+                <p className="py-1 text-[12px] text-gray-400">
                   TicketQuest is your one-stop destination for all your bus
                   ticket needs. Whether you are planning a weekend getaway or a
                   cross-country adventure, we have got you covered. Our

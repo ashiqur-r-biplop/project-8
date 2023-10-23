@@ -1,12 +1,11 @@
-import React from 'react'
-import './Testimonial.module.css';
+import React from "react";
+import "./Testimonial.module.css";
 
-import StarRatings from 'react-star-ratings';
+import StarRatings from "react-star-ratings";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -15,14 +14,14 @@ const Testimonial = () => {
   const slides = [
     {
       title: "Jhon Doe",
-     ratings:4,
+      ratings: 4,
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere. Lorem ipsum dolor sit, amet consectetur adipisicing ",
       imageUrl: "https://source.unsplash.com/50x50/?portrait?4",
     },
     {
       title: "Chris Jhonson",
-      ratings:3,
+      ratings: 3,
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere.Lorem ipsum dolor sit, amet consectetur adipisicing elit. ",
       imageUrl: "https://source.unsplash.com/50x50/?portrait?5",
@@ -30,9 +29,12 @@ const Testimonial = () => {
   ];
 
   return (
-    <div className="container mx-auto">
+    <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div>
-        <p className='capitalize text-center md:text-4xl py-4'> What our Client Say About Us</p>
+        <p className="capitalize text-center md:text-4xl py-4">
+          {" "}
+          What our Client Say About Us
+        </p>
       </div>
       <Swiper
         spaceBetween={30}
@@ -65,7 +67,7 @@ const Testimonial = () => {
                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
-                  <p className='leading-5'>{slide.description}</p>
+                  <p className="leading-5">{slide.description}</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -102,6 +104,6 @@ const Testimonial = () => {
       </Swiper>
     </div>
   );
-}
+};
 
-export default Testimonial
+export default Testimonial;
