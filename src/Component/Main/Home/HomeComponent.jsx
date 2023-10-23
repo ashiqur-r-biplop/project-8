@@ -9,8 +9,8 @@ const HomeComponent = () => {
     <div>
       <Banner></Banner>
       <Count></Count>
-      <Testimonial></Testimonial>
       <OurMoto></OurMoto>
+      <Testimonial></Testimonial>
     </div>
   );
 };

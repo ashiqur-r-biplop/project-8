@@ -3,10 +3,10 @@ import Main from "../Layout/Main/Main";
 import Home from "../Pages/Main/Home/Home";
 import ContactForm from "../Pages/Main/contact/ContactForm";
 import About from "../Pages/Main/About/About";
-import BookTicket from "../Pages/Main/BookTicket/BookTicket";
-import BookBus from "../Pages/Main/BookBus/BookBus";
 import Login from "../Pages/Main/Login/Login";
 import Register from "../Pages/Main/Register/Register";
+import BookTicketComponent from "../Component/Main/BookTicket/BookTicketComponent";
+import BookBusComponent from "../Component/Main/BookBus/BookBusComponent";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -26,11 +26,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/book-ticket",
-        element: <BookTicket></BookTicket>,
+        element: <BookTicketComponent></BookTicketComponent>,
       },
       {
         path: "/book-bus",
-        element: <BookBus></BookBus>,
+        element: <BookBusComponent></BookBusComponent>,
       },
       {
         path: "/login",
