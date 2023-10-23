@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({});
@@ -10,8 +11,9 @@ const ContactForm = () => {
     "Sylhet",
     "Barisal",
     "Rangpur",
-    // Add more city names here
   ];
+ 
+
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,25 +21,46 @@ const ContactForm = () => {
       [name]: value,
     });
   };
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Form Data:", formData);
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    
+  
+    // console.log("Form Data:", formData);
+    emailjs
+      .sendForm(
+        "service_tv94v7k",
+        "template_28vv6kb",
+        formData,
+        "RGYm9Rs2QHymjxc9Q"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
-    <div className="container mx-auto my-10">
-      <div className="">
-        <div className="md:space-y-6 space-y-3">
+    <div className="container mx-auto px-3 sm:px-3 md:px-0 lg:px-0 mt-28">
+       <div className="md:space-y-6 text-center space-y-3">
           <h1 className="md:text-5xl sm:text-3xl text-3xl leading-10 font-bold">
             Contact us
           </h1>
-          <p className="md:text-2xl text-[20px] leading-4 font-normal">
+          <p className="md:text-2xl text-[20px] leading-4 py-5 font-normal">
             Thank you for reaching us! We are always happy to hear from you
           </p>
         </div>
+   
+       
 
-        <div className="border-2 md:my-5 my-4 lg:my-7 shadow-lg p-10">
+        <form
+     
+          onSubmit={handleFormSubmit}  
+          className="border-2 md:my-5 my-4 lg:my-7 shadow-lg p-10"
+        >
           <div className="grid">
             <label className="text-start my-2 px-1">Purpose</label>
             <select
@@ -134,16 +157,15 @@ const ContactForm = () => {
           </div>
 
           <div className="flex items-start p-3">
-            <button
-              onClick={handleFormSubmit}
-              className="py-4 px-5 bg-[#00C2C1] text-white rounded-lg"
-            >
-              Send Message
-            </button>
+            <input
+              type="submit"
+              className="py-4 flex items-center text-[20px] font-normal leading-5  justify-center gap-5 px-10 bg-[#2E9D49] text-white rounded-full"
+              value="Send"
+            />
           </div>
-        </div>
+        </form>
       </div>
-    </div>
+  
   );
 };
 
