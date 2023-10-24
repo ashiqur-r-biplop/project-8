@@ -7,6 +7,7 @@ const Myticket = () => {
       .then((res) => res.json())
       .then((data) => setTickets(data));
   }, []);
+//   some change
   return (
     <div className="container md:mx-auto my-10 ">
       <table className="table md:w-full table-sm">
