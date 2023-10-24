@@ -16,7 +16,7 @@ const BookTicket = () => {
   // Load All Bus:
   const [allBus, setAllBus] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/all-bus')
+    fetch('https://dhaka-bus-ticket-server.vercel.app/all-bus')
       .then(res => res.json())
       .then(data => {
         setAllBus(data);
@@ -117,7 +117,7 @@ const BookTicket = () => {
     console.log(updateBookedSeat);
 
     const updateTicketBooking = { bus_id: busId, updateBookedSeat: updateBookedSeat }
-    fetch('http://localhost:5000/book-ticket', {
+    fetch('https://dhaka-bus-ticket-server.vercel.app/book-ticket', {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(updateTicketBooking)
@@ -173,7 +173,7 @@ const BookTicket = () => {
                             placeholder="Your Name"
                             name="name"
                             className="input input-bordered rounded-md border-orange-400"
-                            defaultValue={user.displayName} disabled
+                            defaultValue={user?.displayName} disabled
                           />
                         </div>
                         <div className="form-control mb-2 mt-2">
@@ -187,7 +187,7 @@ const BookTicket = () => {
                             placeholder="Your Email"
                             name="email"
                             className="input input-bordered rounded-md border-orange-400"
-                            defaultValue={user.email} disabled
+                            defaultValue={user?.email} disabled
                           />
                         </div>
                         <div className="form-control mb-2 mt-2">
