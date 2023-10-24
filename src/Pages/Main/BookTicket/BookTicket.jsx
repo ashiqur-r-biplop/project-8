@@ -1,7 +1,76 @@
 import React from "react";
-import SeatSelection from "../../../Component/Main/BookTicket/SeatSelection";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const BookTicket = () => {
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  // const bookedSeat = ["H4", "H3", "G4", "A1"];
+  const [bookedSeat, setBookedSeat] = useState([]);
+  const [displaySelectSeat, setDisplaySelectSeat] = useState(false);
+
+  // Load All Bus:
+  const [allBus, setAllBus] = useState([]);
+  useEffect(() => {
+    fetch('../../../../public/Data/AllBus.json')
+      .then(res => res.json())
+      .then(data => {
+        setAllBus(data);
+      })
+  }, [bookedSeat])
+
+  const halfSeats1 = [
+    "H4",
+    "H3",
+    "G4",
+    "G3",
+    "F4",
+    "F3",
+    "E4",
+    "E3",
+    "D4",
+    "D3",
+    "C4",
+    "C3",
+    "B4",
+    "B3",
+    "A4",
+    "A3",
+  ];
+  const halfSeats2 = [
+    "H2",
+    "H1",
+    "G2",
+    "G1",
+    "F2",
+    "F1",
+    "E2",
+    "E1",
+    "D2",
+    "D1",
+    "C2",
+    "C1",
+    "B2",
+    "B1",
+    "A2",
+    "A1",
+  ];
+
+  // Handle Seat Selection:
+  const [counter, setCounter] = useState(0);
+
+  const handleSeatSelect = (seatNumber) => {
+    const decision = selectedSeats?.includes(seatNumber);
+    if (!decision) {
+      setSelectedSeats([...selectedSeats, seatNumber]);
+      setCounter(counter + 1);
+      console.log(counter);
+    } else {
+      setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
+      console.log(selectedSeats);
+      setCounter(counter - 1);
+    }
+  };
+  console.log('Selected Seat', selectedSeats);
   const handleData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,7 +80,7 @@ const BookTicket = () => {
     const date = form.date.value;
     const from = form.from.value;
     const to = form.to.value;
-    const quantity = form.quantity.value;
+    // const quantity = form.quantity.value;
     const busType = form.busType.value;
     const pick = form.pick.value;
     const schedule = form.schedule.value;
@@ -23,13 +92,18 @@ const BookTicket = () => {
       date,
       from,
       to,
-      quantity,
       busType,
       pick,
       schedule,
     };
     console.log(data);
+    const findBus = allBus?.find(bus => bus?.busType == busType && bus?.to == to && busType && bus?.date == date)
+    console.log(findBus.bookedSeat);
+    setBookedSeat(findBus?.bookedSeat);
+    findBus && setDisplaySelectSeat(true);
   };
+
+  console.log(displaySelectSeat);
   return (
     <>
       <div className="mx-auto ">
@@ -41,109 +115,111 @@ const BookTicket = () => {
             />
           </figure>
           <div className="card-body">
-            <h1 className="text-4xl lg:text-5xl font-bold m-6 md:m-16 text-orange-600 text-center">
-              Book Bus Ticket
-            </h1>
-            <div className="max-w-[1200px] mx-auto">
-              <div className="grid md:grid-cols-2 gap-10">
-                <div>
-                  <div className=" p-6 bg-orange-50 text-black rounded-lg">
-                    <form onSubmit={handleData}>
-                      <div className="form-control">
-                        <label className="label">
-                          <span className="label-text font-semibold text-lg">
-                            Name
-                          </span>
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="Your Name"
-                          name="name"
-                          className="input input-bordered rounded-md border-orange-400"
-                        />
-                      </div>
-                      <div className="form-control mb-2 mt-2">
-                        <label className="label">
-                          <span className="label-text font-semibold text-lg">
-                            Email
-                          </span>
-                        </label>
-                        <input
-                          type="email"
-                          placeholder="Your Email"
-                          name="email"
-                          className="input input-bordered rounded-md border-orange-400"
-                        />
-                      </div>
-                      <div className="form-control mb-2 mt-2">
-                        <label className="label">
-                          <span className="label-text font-semibold text-lg">
-                            Phone
-                          </span>
-                        </label>
-                        <input
-                          type="number"
-                          placeholder="Phone Number"
-                          name="phone"
-                          className="input input-bordered rounded-md border-orange-400"
-                        />
-                      </div>
-                      <div className="form-control ">
-                        <label className="label">
-                          <span className="label-text font-semibold text-lg">
-                            Journey Date
-                          </span>
-                        </label>
-                        <input
-                          type="date"
-                          placeholder="Date"
-                          name="date"
-                          className="input input-bordered rounded-md border-orange-400"
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-2 ">
-                        <div className="form-control ">
+
+            <div className="max-w-[1200px] mx-auto mt-16">
+
+              <div className="bg-orange-50 py-10">
+                <h1 className="text-4xl lg:text-5xl font-bold m-6 md:m-16 brand-color text-center">
+                  Book Your Ticket
+                </h1>
+                <div className="grid md:grid-cols-2 gap-10  text-black rounded-lg">
+                  <div>
+                    <div className="p-6">
+                      <form onSubmit={handleData}>
+                        <div className="form-control">
                           <label className="label">
                             <span className="label-text font-semibold text-lg">
-                              From
+                              Name
                             </span>
                           </label>
                           <input
                             type="text"
-                            placeholder="From"
-                            defaultValue={"Dhaka"}
-                            readOnly
-                            name="from"
+                            placeholder="Your Name"
+                            name="name"
                             className="input input-bordered rounded-md border-orange-400"
                           />
                         </div>
-
+                        <div className="form-control mb-2 mt-2">
+                          <label className="label">
+                            <span className="label-text font-semibold text-lg">
+                              Email
+                            </span>
+                          </label>
+                          <input
+                            type="email"
+                            placeholder="Your Email"
+                            name="email"
+                            className="input input-bordered rounded-md border-orange-400"
+                          />
+                        </div>
+                        <div className="form-control mb-2 mt-2">
+                          <label className="label">
+                            <span className="label-text font-semibold text-lg">
+                              Phone
+                            </span>
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="Phone Number"
+                            name="phone"
+                            className="input input-bordered rounded-md border-orange-400"
+                          />
+                        </div>
                         <div className="form-control ">
-                          <p className="label-text font-semibold text-lg mt-3 mb-1">
-                            To:
-                          </p>
-                          <div className="input-group">
-                            <select
-                              name="to"
-                              className="select select-bordered border-orange-400 input-info rounded-md w-full mb-2"
-                            >
-                              <option disabled selected>
-                                select Point
-                              </option>
-                              <option>Dhaka</option>
-                              <option>Chattogram</option>
-                              <option>Khulna</option>
-                              <option>Rajshahi</option>
-                              <option>Barisha</option>
-                              <option>Sylhet</option>
-                              <option>Rangpur</option>
-                              <option>Mymensingh</option>
-                            </select>
+                          <label className="label">
+                            <span className="label-text font-semibold text-lg">
+                              Journey Date
+                            </span>
+                          </label>
+                          <input
+                            type="date"
+                            placeholder="Date"
+                            name="date"
+                            className="input input-bordered rounded-md border-orange-400"
+                          />
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 ">
+                          <div className="form-control ">
+                            <label className="label">
+                              <span className="label-text font-semibold text-lg">
+                                From
+                              </span>
+                            </label>
+                            <input
+                              type="text"
+                              placeholder="From"
+                              defaultValue={"Dhaka"}
+                              readOnly
+                              name="from"
+                              className="input input-bordered rounded-md border-orange-400"
+                            />
+                          </div>
+
+                          <div className="form-control ">
+                            <p className="label-text font-semibold text-lg mt-3 mb-1">
+                              To:
+                            </p>
+                            <div className="input-group">
+                              <select
+                                name="to"
+                                className="select select-bordered border-orange-400 input-info rounded-md w-full mb-2"
+                              >
+                                <option disabled selected>
+                                  select Point
+                                </option>
+                                <option>Chattogram</option>
+                                <option>Khulna</option>
+                                <option>Rajshahi</option>
+                                <option>Barishal</option>
+                                <option>Sylhet</option>
+                                <option>Rangpur</option>
+                                <option>Mymensingh</option>
+                              </select>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div className="form-control mt-2 mb-2">
+                        {/* <div className="form-control mt-2 mb-2">
                         <label className="label">
                           <span className="label-text font-semibold text-lg">
                             Ticket Quentity
@@ -155,85 +231,153 @@ const BookTicket = () => {
                           name="quantity"
                           className="input input-bordered rounded-md border-orange-400"
                         />
+                      </div> */}
+
+                        <div className="form-control ">
+                          <p className="label-text font-semibold text-lg mt-2 mb-2">
+                            Bus Type:
+                          </p>
+                          <div className="input-group">
+                            <select
+                              name="busType"
+                              className="select select-bordered border-orange-400 input-info w-full mb-2"
+                            >
+                              <option disabled selected>
+                                select bus
+                              </option>
+                              <option>AC</option>
+                              <option>Non-AC</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="form-control ">
+                          <p className="label-text font-semibold text-lg mt-2">
+                            Pick Point:
+                          </p>
+                          <div className="input-group">
+                            <select
+                              name="pick"
+                              className="select select-bordered border-orange-400 input-info rounded-none w-full mb-2"
+                            >
+                              <option disabled selected>
+                                select Point
+                              </option>
+                              <option>Gabtoli Bus Terminal</option>
+                              <option>Sayedabad Bus Terminal</option>
+                              <option>Mohakhali Bus Terminal</option>
+                              <option>Kalabagan Bus Stand</option>
+                              <option>Jatrabari Bus Terminal</option>
+                              <option>Gulistan Bus Terminal</option>
+                              <option>Kallyanpur Bus Terminal</option>
+                              <option>Arambagh Bus Terminal</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="form-control ">
+                          <p className="label-text font-semibold text-lg mt-2">
+                            Schedule:
+                          </p>
+                          <div className="input-group">
+                            <select
+                              name="schedule"
+                              className="select select-bordered border-orange-400 input-info rounded-none w-full mb-2"
+                            >
+                              <option disabled selected>
+                                select schedule
+                              </option>
+                              <option>7:00 AM</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="form-control mt-6">
+                          <input
+                            className="btn btn-block bg-orange-600 hover:bg-orange-700 text-white"
+                            type="submit"
+                            value="Search Seat"
+                            name=""
+                            id=""
+                          />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {/* Seat Selection Part */}
+                  <div className="bg-orange-50 py-10 flex justify-center items-center rounded-lg">
+                    <div>
+                      <h1 className="text-3xl font-extrabold brand-color text-center pb-8">
+                        Select Your Seat
+                      </h1>
+                      <div className="flex justify-center items-center">
+                        <div
+                          style={{ height: "15px", width: "15px", backgroundColor: "red" }}
+                        ></div>
+                        <h4 className="ms-4">Already Booked</h4>
+                      </div>
+                      <div className="flex justify-center items-center">
+                        <div
+                          style={{
+                            height: "15px",
+                            width: "15px",
+                            backgroundColor: "rgb(252, 233, 85)",
+                          }}
+                        ></div>
+                        <h4 className="ms-4">Available</h4>
+                      </div>
+                      <div className="grid grid-cols-2 mx-auto gap-x-14 mt-12">
+                        {
+                          displaySelectSeat && <>
+                            <div className="grid grid-cols-2">
+                              {halfSeats1?.map((seat) => (
+                                <button
+                                  onClick={() => handleSeatSelect(seat)}
+                                  className="btn m-2"
+                                  style={{
+                                    background: selectedSeats.includes(seat) || bookedSeat?.includes(seat)
+                                      ? "orangered"
+                                      : "rgb(252, 233, 85)",
+                                  }}
+                                  disabled={bookedSeat?.includes(seat) ? true : false}
+                                  key={seat}
+                                >
+                                  {seat}
+                                </button>
+                              ))}
+                            </div>
+                            <div className="grid grid-cols-2 ">
+                              {halfSeats2?.map((seat) => (
+                                <button
+                                  onClick={() => handleSeatSelect(seat)}
+                                  className="btn mt-2 ms-2"
+                                  style={{
+                                    background: selectedSeats.includes(seat) || bookedSeat?.includes(seat)
+                                      ? "orangered"
+                                      : "rgb(252, 233, 85)",
+                                  }}
+                                  disabled={bookedSeat?.includes(seat) ? true : false}
+                                  key={seat}
+                                >
+                                  {seat}
+                                </button>
+                              ))}
+                            </div>
+                          </>
+                        }
+
+                        <div>
+                          {/* {useEffect(() => {
+                          selectedSeats?.map((seat) => <p>{seat}</p>);
+                        }, [selectedSeats])} */}
+                        </div>
                       </div>
 
-                      <div className="form-control ">
-                        <p className="label-text font-semibold text-lg mt-2 mb-2">
-                          Bus Type:
-                        </p>
-                        <div className="input-group">
-                          <select
-                            name="busType"
-                            className="select select-bordered border-orange-400 input-info w-full mb-2"
-                          >
-                            <option disabled selected>
-                              select bus
-                            </option>
-                            <option>AC</option>
-                            <option>NON AC</option>
-                          </select>
-                        </div>
+                      <div className="flex justify-center mt-4">
+                        {counter > 0 && (
+                          <button className="btn btn-block brand-btn">Book Ticket</button>
+                        )}
                       </div>
-                      <div className="form-control ">
-                        <p className="label-text font-semibold text-lg mt-2">
-                          Pick Point:
-                        </p>
-                        <div className="input-group">
-                          <select
-                            name="pick"
-                            className="select select-bordered border-orange-400 input-info rounded-none w-full mb-2"
-                          >
-                            <option disabled selected>
-                              select Point
-                            </option>
-                            <option>Gabtoli Bus Terminal</option>
-                            <option>Sayedabad Bus Terminal</option>
-                            <option>Mohakhali Bus Terminal</option>
-                            <option>Kalabagan Bus Stand</option>
-                            <option>Jatrabari Bus Terminal</option>
-                            <option>Gulistan Bus Terminal</option>
-                            <option>Kallyanpur Bus Stand</option>
-                            <option>Arambagh Bus Stand</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="form-control ">
-                        <p className="label-text font-semibold text-lg mt-2">
-                          Schedule:
-                        </p>
-                        <div className="input-group">
-                          <select
-                            name="schedule"
-                            className="select select-bordered border-orange-400 input-info rounded-none w-full mb-2"
-                          >
-                            <option disabled selected>
-                              select schedule
-                            </option>
-                            <option>7:00 AM</option>
-                            <option>9:00 AM</option>
-                            <option>11:00 AM</option>
-                            <option>1:00 PM</option>
-                            <option>3:00 PM</option>
-                            <option>5:00 PM</option>
-                            <option>8:00 PM</option>
-                            <option>11:00 PM</option>
-                            <option>3:00 AM</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="form-control mt-6">
-                        <input
-                          className="btn btn-block bg-orange-600 hover:bg-orange-700 text-white"
-                          type="submit"
-                          value="Save"
-                          name=""
-                          id=""
-                        />
-                      </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
-                <SeatSelection></SeatSelection>
               </div>
             </div>
           </div>

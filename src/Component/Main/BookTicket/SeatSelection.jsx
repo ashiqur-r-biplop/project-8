@@ -123,7 +123,7 @@ const SeatSelection = () => {
       </div>
       <div className="flex justify-center mt-4">
         {counter > 0 && (
-          <button className="btn btn-block brand-btn w-1/2">Book Ticket</button>
+          <button className="btn btn-block brand-btn">Book Ticket</button>
         )}
       </div>
     </div>

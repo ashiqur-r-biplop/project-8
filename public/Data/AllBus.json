@@ -1,0 +1,185 @@
+[
+    {
+        "to": "Khulna",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "A1",
+            "A2"
+        ]
+    },
+    {
+        "to": "Khulna",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "Non-AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4"
+        ]
+    },
+    {
+        "to": "Mymensingh",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "A1",
+            "A2"
+        ]
+    },
+    {
+        "to": "Mymensingh",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "Non-AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4"
+        ]
+    },
+    {
+        "to": "Chattogram",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "A1",
+            "A2"
+        ]
+    },
+    {
+        "to": "Chattogram",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "Non-AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "H2",
+            "H1",
+            "B1"
+        ]
+    },
+    {
+        "to": "Barishal",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "A1",
+            "A2"
+        ]
+    },
+    {
+        "to": "Barishal",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "Non-AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "H2",
+            "H1",
+            "B1"
+        ]
+    },
+    {
+        "to": "Sylhet",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "A1",
+            "A2"
+        ]
+    },
+    {
+        "to": "Sylhet",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "Non-AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "H2",
+            "H1",
+            "B1"
+        ]
+    },
+    {
+        "to": "Rangpur",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "A1",
+            "A2"
+        ]
+    },
+    {
+        "to": "Rangpur",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "Non-AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "H2",
+            "H1",
+            "B1"
+        ]
+    },
+    {
+        "to": "Rajshahi",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "A1",
+            "A2"
+        ]
+    },
+    {
+        "to": "Rajshahi",
+        "date": "2023-10-25",
+        "schedule": "7:00 AM",
+        "busType": "Non-AC",
+        "bookedSeat": [
+            "H4",
+            "H3",
+            "G4",
+            "H2",
+            "H1",
+            "B1"
+        ]
+    }
+]
