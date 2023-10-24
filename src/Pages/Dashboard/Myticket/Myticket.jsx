@@ -7,14 +7,15 @@ const Myticket = () => {
       .then((res) => res.json())
       .then((data) => setTickets(data));
   }, []);
+//   some change
   return (
-    <div className="md:w-[1200px] md:mx-auto my-10 ">
-      <table className="table md:w-full">
+    <div className="container md:mx-auto my-10 ">
+      <table className="table md:w-full table-sm">
         {/* head */}
         <thead>
           <tr className="bg-orange-400 text-white">
             <th className="md:text-2xl text-xl">Date</th>
-            <th className="md:text-2xl text-xl">S-Time</th>
+             
             <th className="md:text-2xl text-xl">Destination</th>
             <th className="md:text-2xl text-xl">Set</th>
             <th className="md:text-2xl text-xl">price</th>
@@ -29,7 +30,7 @@ const Myticket = () => {
              }
             >
               <td>{tic.date}</td>
-              <td>{tic.startTime}</td>
+               
               <td> {tic.destination}</td>
               <td>{tic.setNumber}</td>
               <td>${tic.price}</td>
