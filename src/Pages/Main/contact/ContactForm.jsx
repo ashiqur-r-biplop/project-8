@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({});
@@ -22,23 +22,20 @@ const ContactForm = () => {
   };
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
-    // console.log("Form Data:", formData);
-    emailjs
-      .sendForm(
-        "service_tv94v7k",
-        "template_28vv6kb",
-        formData,
-        "RGYm9Rs2QHymjxc9Q"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
+    console.log("Form Data:", formData);
+    fetch("http://localhost:5000/contact-form", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        // console.log(result);
+        console.log(result);
+        if (result.acknowledged === true) {
+          Swal.fire("Good job!", "Data Added SuccessFully", "success");
         }
-      );
+      });
   };
 
   return (
