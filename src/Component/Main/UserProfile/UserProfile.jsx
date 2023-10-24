@@ -23,10 +23,12 @@ const UserProfile = () => {
   const year = time.getFullYear();
   const month = time.getMonth();
   const date = time.getDate();
-  // const dateInfo = {
-  //   date,month,year
-  // }
-  const handleFormSubmit = async (e) => {
+  const dateInfo = {
+    date,
+    month,
+    year,
+  };
+  const handleFormSubmit =async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -59,7 +61,7 @@ const UserProfile = () => {
 
   return (
     <>
-      <div className="container mx-auto w-[80%] grid md:grid-cols-2">
+      <div className="max-w-[1200px] mx-auto w-[80%] grid md:grid-cols-2 pt-[100px]">
         <div className="md:w-4/5 w-full gird grid-cols-1 items-center">
           <div className="max-w-xs h-100 px-4 py-3 rounded-md shadow-md bg-gray-50 text-gray-800">
             <img
