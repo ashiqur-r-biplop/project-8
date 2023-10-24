@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const loadUser = useContext(AuthContext);
+  const { user } = loadUser;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -65,11 +68,15 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            <div className="space-x-12 hidden lg:flex items-center">
-              <Link to="/login" className="">
-                Login
-              </Link>
-            </div>
+            {
+              user ? <Link className="">
+                Logout
+              </Link> : <div className="space-x-12 hidden lg:flex items-center">
+                <Link to="/login" className="">
+                  Login
+                </Link>
+              </div>
+            }
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
@@ -84,9 +91,8 @@ const Navbar = () => {
 
           {/* items for mobile device*/}
           <div
-            className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${
-              isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
-            }`}
+            className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
+              }`}
           >
             {navItem.map(({ link, path }) => (
               <NavLink

@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const BookTicket = () => {
+  const loadUser = useContext(AuthContext);
+  const { user } = loadUser;
   const [selectedSeats, setSelectedSeats] = useState([]);
   // const bookedSeat = ["H4", "H3", "G4", "A1"];
   const [bookedSeat, setBookedSeat] = useState([]);
   const [displaySelectSeat, setDisplaySelectSeat] = useState(false);
+  const [searchBus, setSearchBus] = useState(null);
 
   // Load All Bus:
   const [allBus, setAllBus] = useState([]);
   useEffect(() => {
-    fetch('../../../../public/Data/AllBus.json')
+    fetch('http://localhost:5000/all-bus')
       .then(res => res.json())
       .then(data => {
         setAllBus(data);
       })
-  }, [bookedSeat])
+  }, [bookedSeat, displaySelectSeat])
 
   const halfSeats1 = [
     "H4",
@@ -63,14 +68,14 @@ const BookTicket = () => {
     if (!decision) {
       setSelectedSeats([...selectedSeats, seatNumber]);
       setCounter(counter + 1);
-      console.log(counter);
+
     } else {
       setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
-      console.log(selectedSeats);
+
       setCounter(counter - 1);
     }
   };
-  console.log('Selected Seat', selectedSeats);
+
   const handleData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -96,14 +101,45 @@ const BookTicket = () => {
       pick,
       schedule,
     };
-    console.log(data);
     const findBus = allBus?.find(bus => bus?.busType == busType && bus?.to == to && busType && bus?.date == date)
-    console.log(findBus.bookedSeat);
+
     setBookedSeat(findBus?.bookedSeat);
     findBus && setDisplaySelectSeat(true);
-  };
+    setSearchBus(findBus);
+  }
+  const handleBookTicket = (bus) => {
+    const busId = bus._id;
+    const oldBookedSeat = bus.bookedSeat;
+    console.log(oldBookedSeat);
+    const newBookedSeat = selectedSeats;
+    console.log(newBookedSeat);
+    const updateBookedSeat = [...oldBookedSeat, ...newBookedSeat];
+    console.log(updateBookedSeat);
 
-  console.log(displaySelectSeat);
+    const updateTicketBooking = { bus_id: busId, updateBookedSeat: updateBookedSeat }
+    fetch('http://localhost:5000/book-ticket', {
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(updateTicketBooking)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.matchedCount > 0) {
+          setDisplaySelectSeat(false)
+          setCounter(0);
+          Swal.fire({
+            title: 'Ticket Booked Successfully!',
+            text: '',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
+
   return (
     <>
       <div className="mx-auto ">
@@ -137,6 +173,7 @@ const BookTicket = () => {
                             placeholder="Your Name"
                             name="name"
                             className="input input-bordered rounded-md border-orange-400"
+                            defaultValue={user.displayName} disabled
                           />
                         </div>
                         <div className="form-control mb-2 mt-2">
@@ -150,6 +187,7 @@ const BookTicket = () => {
                             placeholder="Your Email"
                             name="email"
                             className="input input-bordered rounded-md border-orange-400"
+                            defaultValue={user.email} disabled
                           />
                         </div>
                         <div className="form-control mb-2 mt-2">
@@ -372,7 +410,7 @@ const BookTicket = () => {
 
                       <div className="flex justify-center mt-4">
                         {counter > 0 && (
-                          <button className="btn btn-block brand-btn">Book Ticket</button>
+                          <button onClick={() => handleBookTicket(searchBus)} className="btn btn-block brand-btn">Book Ticket</button>
                         )}
                       </div>
                     </div>
