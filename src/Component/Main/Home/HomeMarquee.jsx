@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 const HomeMarquee = () => {
   const [notices, setNotices] = useState([]);
   useEffect(() => {
-    axios("http://localhost:5000/notices")
+    axios("https://dhaka-bus-ticket-server.vercel.app/notices")
       .then((res) => setNotices(res.data))
       .catch((err) => console.log(err));
   }, []);

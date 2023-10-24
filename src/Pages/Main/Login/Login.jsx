@@ -62,7 +62,7 @@ const Login = () => {
           email: loggedInUser.email,
           photo: loggedInUser.photoURL,
         };
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://dhaka-bus-ticket-server.vercel.app/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -103,9 +103,8 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${
-                errors.email && "border-red-500"
-              }`}
+              className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${errors.email && "border-red-500"
+                }`}
               {...register("email", { required: "Email is required" })}
               placeholder="Email or Username"
             />
@@ -118,9 +117,8 @@ const Login = () => {
             <input
               type="password"
               name="loginPassword"
-              className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${
-                errors.loginPassword && "border-red-500"
-              }`}
+              className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${errors.loginPassword && "border-red-500"
+                }`}
               {...register("loginPassword", {
                 required: "Password is required",
               })}

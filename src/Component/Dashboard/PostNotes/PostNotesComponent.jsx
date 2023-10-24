@@ -10,13 +10,13 @@ const PostNotesComponent = () => {
   const [control, setControl] = useState(false);
   const [note, setNote] = useState({});
   useEffect(() => {
-    axios("http://localhost:5000/notices")
+    axios("https://dhaka-bus-ticket-server.vercel.app/notices")
       .then((res) => setNotices(res.data))
       .catch((err) => console.log(err));
   }, [control]);
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/delete-notice/${id}`)
+      .delete(`https://dhaka-bus-ticket-server.vercel.app/delete-notice/${id}`)
       .then((res) => {
         if (res.data?.deletedCount > 0) {
           setControl(!control);
