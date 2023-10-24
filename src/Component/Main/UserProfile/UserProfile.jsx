@@ -1,22 +1,62 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const UserProfile = () => {
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("url");
+        if (!response.ok) {
+          throw new Error("failed to fetch");
+        }
+        const data = await response.json();
+        setUser(data);
+      } catch (error) {
+        console.log("Error fetching data", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const time = new Date();
   const year = time.getFullYear();
   const month = time.getMonth();
-  const date = time.getDate()
-  const dateInfo = {
-    date,month,year
-  }
-  const handleFormSubmit = (e) => {
+  const date = time.getDate();
+  // const dateInfo = {
+  //   date,month,year
+  // }
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-     const form = e.target;
-     const name = form.name.value;
-     const email = form.email.value;
-     const phone = form.phone.value;
-    console.log(name, email, phone);
-  }
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+    const userInfo = { name, email, phone };
+    try {
+      const response = await fetch("api-url", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "User Profile Updated",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
+  };
+
   return (
     <>
       <div className="container mx-auto w-[80%] grid md:grid-cols-2">
@@ -123,5 +163,5 @@ const UserProfile = () => {
       </dialog>
     </>
   );
-}
-export default UserProfile
+};
+export default UserProfile;
