@@ -106,6 +106,7 @@ const BookTicket = () => {
     setBookedSeat(findBus?.bookedSeat);
     findBus && setDisplaySelectSeat(true);
     setSearchBus(findBus);
+    setSelectedSeats([])
   }
   const handleBookTicket = (bus) => {
     const busId = bus._id;
@@ -256,20 +257,6 @@ const BookTicket = () => {
                             </div>
                           </div>
                         </div>
-
-                        {/* <div className="form-control mt-2 mb-2">
-                        <label className="label">
-                          <span className="label-text font-semibold text-lg">
-                            Ticket Quentity
-                          </span>
-                        </label>
-                        <input
-                          type="number"
-                          placeholder="Quantity"
-                          name="quantity"
-                          className="input input-bordered rounded-md border-orange-400"
-                        />
-                      </div> */}
 
                         <div className="form-control ">
                           <p className="label-text font-semibold text-lg mt-2 mb-2">
