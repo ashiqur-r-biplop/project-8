@@ -13,7 +13,7 @@ const BusRoute = () => {
      <div className="p-4 md:p-8 lg:p-12">
      <h2 className="text-2xl font-bold mb-4 text-green-500">Available Bus Routes</h2>
      <div className="divider"></div> 
-     <ul className=" grid grid-cols-2 md:grid-cols-5 h-[330px]">
+     <ul className=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 ">
        {busRoutes.map((route, index) => (
          <li
            key={index}

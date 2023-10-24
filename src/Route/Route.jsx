@@ -5,6 +5,11 @@ import ContactForm from "../Pages/Main/contact/ContactForm";
 import About from "../Pages/Main/About/About";
 import Login from "../Pages/Main/Login/Login";
 import Register from "../Pages/Main/Register/Register";
+<<<<<<< HEAD
+import UserProfile from "../Component/Main/UserProfile/UserProfile";
+import BookTicketComponent from "../Component/Main/BookTicket/BookTicketComponent";
+import BookBusComponent from "../Component/Main/BookBus/BookBusComponent";
+=======
 import Error from "../Pages/Main/404/Error";
 import UserProfile from "../Component/Main/UserProfile/UserProfile";
 import BookTicketComponent from "../Component/Main/BookTicket/BookTicketComponent";
@@ -14,6 +19,7 @@ import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
 import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
 
+>>>>>>> 980d419322f461d3838739716a2a7a5a4d8cb5bb
 export const router = createBrowserRouter([
   {
     path: "/",

@@ -81,6 +81,15 @@ const ContactForm = () => {
               placeholder="Enter name"
             />
           </div>
+<<<<<<< HEAD
+        </form>
+
+        <div>
+          
+        </div>
+      </div>
+  
+=======
 
           <div className="grid">
             <label className="text-start my-2 px-1">Your City</label>
@@ -157,6 +166,7 @@ const ContactForm = () => {
         </div>
       </form>
     </div>
+>>>>>>> 980d419322f461d3838739716a2a7a5a4d8cb5bb
   );
 };
 
