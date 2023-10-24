@@ -10,6 +10,10 @@ import UserProfile from "../Component/Main/UserProfile/UserProfile";
 import BookTicketComponent from "../Component/Main/BookTicket/BookTicketComponent";
 import BookBusComponent from "../Component/Main/BookBus/BookBusComponent";
 
+import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
+import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
+import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -50,5 +54,19 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/dashboard",
+    element: <MainDashBoard></MainDashBoard>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashboardHome></DashboardHome>,
+      },
+      {
+        path: "/dashboard/post-notice",
+        element: <PostNotes></PostNotes>,
+      },
+    ],
+  },
 ]);
-//  dev-Ahad
