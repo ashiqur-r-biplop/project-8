@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
         element: <DashboardHome></DashboardHome>,
       },
       {
-        path: "/dashboard/post-notes",
+        path: "/dashboard/post-notice",
         element: <PostNotes></PostNotes>,
       },
     ],
