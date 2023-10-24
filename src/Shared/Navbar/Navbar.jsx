@@ -54,8 +54,8 @@ const Navbar = () => {
                     return (
                       "px-2 py-2 rounded-md" +
                       (isActive
-                        ? "transition-all rounded-md bg-gray-300 text-black duration-500 hover:bg-[#2E9D49] hover:text-black"
-                        : "bg-gray-300 text-black")
+                        ? "transition-all rounded-md bg-gray-300 text-black duration-500  hover:text-black"
+                        : "bg-gray-300 text-black hover:bg-[#2E9D49] rounded-md")
                     );
                   }}
                 >
