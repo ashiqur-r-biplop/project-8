@@ -1,8 +1,16 @@
-// import React from "react";
-
+import React, { useContext } from "react";
 import BusRoute from "../../../Shared/BusRoute/BusRoute";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+
 
 const BookBusComponent = () => {
+
+  const loadUser = useContext(AuthContext);
+  const user = loadUser.user;
+  const { displayName, email } = user;
+
+  console.log(loadUser);
   const handleData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,7 +19,6 @@ const BookBusComponent = () => {
     const busType = form.busType.value;
     const originCity = form.originCity.value;
     const destinationCity = form.destinationCity.value;
-    const busOperator = form.busOperator.value;
     const seats = form.seats.value;
     const buses = form.buses.value;
     const email = form.email.value;
@@ -19,6 +26,7 @@ const BookBusComponent = () => {
     const phone = form.phone.value;
     const companyName = form.companyName.value;
     const address = form.address.value;
+    const optionalPhone = form.optional_phone.value;
 
     const data = {
       journeyDate,
@@ -27,22 +35,49 @@ const BookBusComponent = () => {
       busType,
       originCity,
       destinationCity,
-      busOperator,
       seats,
+      optionalPhone,
       buses,
       name,
       phone,
       companyName,
       address,
+      payment: "success",
     };
-    console.log(data);
+
+    // ********Book Bus Post Method****************
+    fetch('https://dhaka-bus-ticket-server.vercel.app/book-bus', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Booked Bus Successfully!",
+            text: "",
+            icon: "success",
+            confirmButtonText: "Thank You",
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
   };
 
+  if (!user) {
+    return <p>Loading</p>
+  }
+
   return (
-    <div className="mt-24 container mx-auto mb-">
-      <div className=" p-10 mb-6 bg-zinc-50 shadow-xl text-black rounded-lg">
+    <div className="mt-24 container mx-auto">
+      <div className="md:mx-20 p-10 mb-6 bg-orange-50 shadow-xl text-black rounded-lg">
         {/* <p className="text-sm">NB:All(*)marks are required field.</p> */}
-        <h1 className="text-2xl mt-3">Journey Details</h1>
+        <h1 className="text-4xl mt-3 text-center brand-color pb-8">Journey Details</h1>
         <hr />
         <br />
         <form onSubmit={handleData}>
@@ -103,7 +138,8 @@ const BookBusComponent = () => {
               <input
                 type="text"
                 placeholder="Dhaka"
-                readOnly
+                defaultValue="Dhaka"
+                disabled
                 name="originCity"
                 className="input input-bordered rounded-md h-10 border-gray-300"
                 required
@@ -119,7 +155,7 @@ const BookBusComponent = () => {
                   className="h-10 border border-gray-300 input-info rounded-md w-full mb-2"
                 >
                   <option disabled selected>
-                    select Point
+                    Select Point
                   </option>
                   <option>Dhaka</option>
                   <option>Chattogram</option>
@@ -135,13 +171,13 @@ const BookBusComponent = () => {
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold text-gray-500">
-                  Prefered bus operator ( if any )
+                  Phone Number(Optional)
                 </span>
               </label>
               <input
                 type="text"
                 placeholder=""
-                name="busOperator"
+                name="optional_phone"
                 className="input input-bordered h-10 rounded-md border-gray-300"
               />
             </div>
@@ -156,13 +192,11 @@ const BookBusComponent = () => {
                   className="h-10 border border-gray-300 input-info rounded-none w-full mb-2"
                 >
                   <option disabled selected>
-                    select Point
+                    Number of Seat
                   </option>
-                  <option>27 seats</option>
-                  <option>28 seats</option>
                   <option>34 seats</option>
                   <option>36 seats</option>
-                  <option>40 seats</option>
+                  <option>42 seats</option>
                 </select>
               </div>
             </div>
@@ -183,7 +217,7 @@ const BookBusComponent = () => {
             </div>
           </div>
 
-          <h1 className="text-2xl mt-10">Contact Details</h1>
+          <h1 className="text-4xl mt-8 text-center brand-color pb-2">Contact Details</h1>
           <hr />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 mt-7">
             <div className="form-control">
@@ -195,6 +229,8 @@ const BookBusComponent = () => {
               <input
                 type="text"
                 placeholder=""
+                defaultValue={displayName}
+                disabled
                 name="name"
                 className="input input-bordered rounded-md border-gray-300 h-10"
                 required
@@ -207,7 +243,7 @@ const BookBusComponent = () => {
                 </span>
               </label>
               <input
-                type="number"
+                type="text"
                 placeholder=""
                 name="phone"
                 className="input input-bordered rounded-md border-gray-300 h-10"
@@ -221,6 +257,8 @@ const BookBusComponent = () => {
                 </span>
               </label>
               <input
+                defaultValue={email}
+                disabled
                 type="email"
                 placeholder=""
                 name="email"
