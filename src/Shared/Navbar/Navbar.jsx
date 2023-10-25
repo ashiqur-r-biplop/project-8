@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const loadUser = useContext(AuthContext);
-  const { user } = loadUser;
+  const { user, logOut } = loadUser;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -70,7 +70,7 @@ const Navbar = () => {
             {/* btn for large device */}
             {
               user ? <Link className="">
-                Logout
+                <button onClick={logOut} className="btn brand-btn">Logout</button>
               </Link> : <div className="space-x-12 hidden lg:flex items-center">
                 <Link to="/login" className="">
                   Login
@@ -116,7 +116,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </header>
+    </header >
   );
 };
 
