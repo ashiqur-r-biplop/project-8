@@ -36,7 +36,9 @@ const Navbar = () => {
 
   return (
     <header className="w-full bg-white z-[50] fixed top-0">
-      <nav className={`py-4  lg:px-14 px-4 bg-white ${isSticky ? "shadow" : ""}`}>
+      <nav
+        className={`py-4  lg:px-14 px-4 bg-white ${isSticky ? "shadow" : ""}`}
+      >
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
             <NavLink to="/">
@@ -49,10 +51,9 @@ const Navbar = () => {
               {navItem.map(({ link, path }) => (
                 <NavLink
                   to={path}
-                  smooth={true}
+                  smooth="true"
                   offset={-100}
                   key={path}
-
                   className={({ isActive }) => {
                     return (
                       "px-2 py-2 rounded-md" +
@@ -68,15 +69,15 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            {
-              user ? <Link className="">
-                Logout
-              </Link> : <div className="space-x-12 hidden lg:flex items-center">
+            {user ? (
+              <Link className="">Logout</Link>
+            ) : (
+              <div className="space-x-12 hidden lg:flex items-center">
                 <Link to="/login" className="">
                   Login
                 </Link>
               </div>
-            }
+            )}
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
@@ -91,13 +92,14 @@ const Navbar = () => {
 
           {/* items for mobile device*/}
           <div
-            className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
-              }`}
+            className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${
+              isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
+            }`}
           >
             {navItem.map(({ link, path }) => (
               <NavLink
                 to={path}
-                smooth={true}
+                smooth="true"
                 offset={-100}
                 key={path}
                 // className="block  transition-all duration-500 hover:bg-[#2E9D49] hover:text-white px-3 py-2 rounded-md font-medium"

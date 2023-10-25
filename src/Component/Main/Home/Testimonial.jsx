@@ -51,7 +51,7 @@ const Testimonial = () => {
         className="mySwiper"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide>
+          <SwiperSlide key={index}>
             <div
               key={index}
               className="bg-white w-full h-full flex flex-col  my-6 shadow-lg"

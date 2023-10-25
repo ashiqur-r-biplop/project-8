@@ -4,7 +4,7 @@ import useAuth from "./UseAuth";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
-const useAdmin = () => {
+const UseAdminRole = () => {
   const { user, loading } = useContext(AuthContext);
   const { axiosSecure } = useAxiosSecure();
   // use axios secure with react query
@@ -19,4 +19,4 @@ const useAdmin = () => {
   });
   return { isAdmin, isAdminLoading };
 };
-export default useAdmin;
+export default UseAdminRole;
