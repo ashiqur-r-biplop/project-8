@@ -58,16 +58,16 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full bg-white z-[50] fixed top-0">
-      <nav className={`py-4  lg:px-14 px-4 bg-white ${isSticky ? "shadow" : ""}`}>
+    <header className="w-full  z-[50] fixed top-0">
+      <nav className={`py-4  lg:px-14 px-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
             <NavLink to="/">
-            <div className="flex items-center">
-        <i className="brand-color text-3xl">Dhaka</i>
-        <img className="h-6 ms-1 -me-1" src="https://i.ibb.co/Q8q2wGg/bus2.png" alt="" />
-        <i className="brand-color  text-3xl">Ticket</i>
-      </div>
+            <h1 className="text-3xl text-white font-bold">
+                    <span className="text-green-500 uppercase">D</span>haka
+                    <span className="text-green-500 uppercase"> B</span>us
+                    <span className="text-green-500 uppercase"> T</span>icket
+                  </h1>
             </NavLink>
             <ul className="md:flex space-x-12 hidden">
               {navItem.map(({ link, path }) => (
@@ -80,8 +80,8 @@ const Navbar = () => {
                     return (
                       "px-2 py-2 rounded-md" +
                       (isActive
-                        ? "transition-all rounded-md bg-gray-300 text-black duration-500  hover:text-black"
-                        : "bg-gray-300 text-black hover:bg-[#2E9D49] rounded-md")
+                        ? "transition-all rounded-md brand-color  duration-500 "
+                        : " text-white hover:rounded-md")
                     );
                   }}
                 >
@@ -112,20 +112,19 @@ const Navbar = () => {
           </div>
 
           {/* items for mobile device*/}
-          <div className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+          <div className={`space-y-4 px-4 mt-16 brand-bg ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
             {navItem.map(({ link, path }) => (
               <NavLink
                 to={path}
                 smooth="true"
                 offset={-100}
                 key={path}
-                // className="block  transition-all duration-500 hover:bg-[#2E9D49] hover:text-white px-3 py-2 rounded-md font-medium"
                 className={({ isActive }) => {
                   return (
                     "grid p-2 my-3 rounded-md " +
-                    (!isActive
-                      ? "transition-all rounded-md text-black duration-500 hover:bg-black hover:text-white"
-                      : "bg-gray-300 text-black")
+                    (isActive
+                      ? "transition-all rounded-md brand-color  duration-500 "
+                      : " text-white hover:rounded-md")
                   );
                 }}
               >
