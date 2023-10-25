@@ -14,6 +14,7 @@ import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
 import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
+import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/postBus",
         element: <BusPostForm></BusPostForm>,
+      },
+      {
+        path: "/dashboard/my-ticket",
+        element: <Myticket></Myticket>,
       },
       {
         path: "/dashboard/post-notice",

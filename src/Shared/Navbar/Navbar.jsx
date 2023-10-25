@@ -58,7 +58,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full bg-white z-[100] fixed top-0">
+    <header className="w-full bg-white z-[50] fixed top-0">
       <nav className={`py-4  lg:px-14 px-4 bg-white ${isSticky ? "shadow" : ""}`}>
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
@@ -72,7 +72,7 @@ const Navbar = () => {
               {navItem.map(({ link, path }) => (
                 <NavLink
                   to={path}
-                  smooth={true}
+                  smooth="true"
                   offset={-100}
                   key={path}
                   className={({ isActive }) => {
@@ -115,7 +115,7 @@ const Navbar = () => {
             {navItem.map(({ link, path }) => (
               <NavLink
                 to={path}
-                smooth={true}
+                smooth="true"
                 offset={-100}
                 key={path}
                 // className="block  transition-all duration-500 hover:bg-[#2E9D49] hover:text-white px-3 py-2 rounded-md font-medium"

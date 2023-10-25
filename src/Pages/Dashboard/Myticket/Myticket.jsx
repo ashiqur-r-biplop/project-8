@@ -1,13 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Myticket = () => {
   const [tickets, setTickets] = useState([]);
+  const loadUser = useContext(AuthContext);
+  const user = loadUser?.user;
+  console.log(user?.email);
   useEffect(() => {
-    fetch("../../../public/Data/myticket.json")
+    fetch(`https://dhaka-bus-ticket-server.vercel.app/my-ticket/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setTickets(data));
-  }, []);
-//   some change
+      .then((data) => console.log(data));
+  }, [user]);
+  //   some change
+  if (!user) {
+    return <p className="flex justify-center">Loading</p>
+  }
   return (
     <div className="container md:mx-auto my-10 ">
       <table className="table md:w-full table-sm">
@@ -15,7 +22,7 @@ const Myticket = () => {
         <thead>
           <tr className="bg-orange-400 text-white">
             <th className="md:text-2xl text-xl">Date</th>
-             
+
             <th className="md:text-2xl text-xl">Destination</th>
             <th className="md:text-2xl text-xl">Set</th>
             <th className="md:text-2xl text-xl">price</th>
@@ -23,14 +30,14 @@ const Myticket = () => {
           </tr>
         </thead>
         <tbody>
-          {tickets?.map((tic,index) => (
+          {tickets?.map((tic, index) => (
             <tr key={tic.customerID}
-            className={
-               index % 2 === 0 ? "text-orange-800  bg-slate-300" : "bg-red-300 text-black"
-             }
+              className={
+                index % 2 === 0 ? "text-orange-800  bg-slate-300" : "bg-red-300 text-black"
+              }
             >
               <td>{tic.date}</td>
-               
+
               <td> {tic.destination}</td>
               <td>{tic.setNumber}</td>
               <td>${tic.price}</td>

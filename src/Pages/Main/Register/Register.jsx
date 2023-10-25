@@ -259,8 +259,8 @@ const Register = () => {
             <button
               type="submit"
               className={`${isAgreed && password === confirmPassword
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-400"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-400"
                 } text-black p-2 rounded focus:outline-none focus:border-orange-500 transition duration-300 ease-in-out w-full  ${!(isAgreed && password === confirmPassword) &&
                 "cursor-not-allowed"
                 }`}
