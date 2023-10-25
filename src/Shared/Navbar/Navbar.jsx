@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const loadUser = useContext(AuthContext);
+  const { user, logOut } = loadUser;
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,6 +36,27 @@ const Navbar = () => {
     { link: "Contact Us", path: "contact" },
   ];
 
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logout Successful",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        navigate("/"); // Redirect to the home page after logout
+      })
+      .catch((error) => {
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "Logout Failed",
+          text: "An error occurred during logout.",
+        });
+      });
+  };
+
   return (
     <header className="w-full  z-[50] fixed top-0">
       <nav className={`py-4  lg:px-14 px-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
@@ -47,10 +73,9 @@ const Navbar = () => {
               {navItem.map(({ link, path }) => (
                 <NavLink
                   to={path}
-                  smooth={true}
+                  smooth="true"
                   offset={-100}
                   key={path}
-
                   className={({ isActive }) => {
                     return (
                       "px-2 py-2 rounded-md" +
@@ -66,33 +91,32 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            <div className="space-x-12 hidden lg:flex items-center">
-              <Link to="/login" className="">
-                Login
-              </Link>
-            </div>
+            {user ? (
+              <button onClick={handleLogout} className="">
+                Logout
+              </button>
+            ) : (
+              <div className="space-x-12 hidden lg:flex items-center">
+                <Link to="/login" className="">
+                  Login
+                </Link>
+              </div>
+            )}
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
-              <button
-                onClick={toggleMenu}
-                className="focus:outline-none focus:text-gray-500"
-              >
+              <button onClick={toggleMenu} className="focus:outline-none focus:text-gray-500">
                 {isMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
               </button>
             </div>
           </div>
 
           {/* items for mobile device*/}
-          <div
-            className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${
-              isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
-            }`}
-          >
+          <div className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
             {navItem.map(({ link, path }) => (
               <NavLink
                 to={path}
-                smooth={true}
+                smooth="true"
                 offset={-100}
                 key={path}
                 className={({ isActive }) => {

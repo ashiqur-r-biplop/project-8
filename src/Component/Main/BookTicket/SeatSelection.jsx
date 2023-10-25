@@ -82,7 +82,7 @@ const SeatSelection = () => {
       </div>
       <div className="grid grid-cols-2 md:w-1/2 mx-auto gap-x-14 mt-12">
         <div className="grid grid-cols-2">
-          {halfSeats1?.map((seat) => (
+          {halfSeats1?.map((seat, i) => (
             <button
               onClick={() => handleSeatSelect(seat)}
               className="btn mt-2 ms-2"
@@ -92,14 +92,14 @@ const SeatSelection = () => {
                   : "rgb(252, 233, 85)",
               }}
               disabled={bookedSeat.includes(seat) ? true : false}
-              key={seat}
+              key={i}
             >
               {seat}
             </button>
           ))}
         </div>
         <div className="grid grid-cols-2 ">
-          {halfSeats2?.map((seat) => (
+          {halfSeats2?.map((seat, i) => (
             <button
               onClick={() => handleSeatSelect(seat)}
               className="btn mt-2 ms-2"
@@ -109,7 +109,7 @@ const SeatSelection = () => {
                   : "rgb(252, 233, 85)",
               }}
               disabled={bookedSeat.includes(seat) ? true : false}
-              key={seat}
+              key={i}
             >
               {seat}
             </button>
@@ -117,13 +117,13 @@ const SeatSelection = () => {
         </div>
         <div>
           {useEffect(() => {
-            selectedSeats?.map((seat) => <p>{seat}</p>);
+            selectedSeats?.map((seat, i) => <p key={i}>{seat}</p>);
           }, [selectedSeats])}
         </div>
       </div>
       <div className="flex justify-center mt-4">
         {counter > 0 && (
-          <button className="btn btn-block brand-btn w-1/2">Book Ticket</button>
+          <button className="btn btn-block brand-btn">Book Ticket</button>
         )}
       </div>
     </div>

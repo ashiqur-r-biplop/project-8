@@ -6,13 +6,10 @@ import {
   FaFacebook,
   FaLinkedin,
 } from "react-icons/fa";
-import BusRoute from "../BusRoute/BusRoute";
-import AllUsers from "../../Pages/Main/AllUsers/AllUsers";
-// import { FaGooglePlay, FaSquareXTwitter } from "react-icons/fa6";
-// import { GrFacebook } from "react-icons/gr";
 
-// import logo from "../../assets/img/logo-without-bg.png";
-
+ 
+ 
+ 
 const Footer = () => {
   return (
     <>

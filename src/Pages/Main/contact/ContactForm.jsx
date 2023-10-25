@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 const ContactForm = () => {
@@ -23,7 +23,7 @@ const ContactForm = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("Form Data:", formData);
-    fetch("http://localhost:5000/contact-form", {
+    fetch("https://dhaka-bus-ticket-server.vercel.app/contact-form", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formData),
@@ -57,13 +57,11 @@ const ContactForm = () => {
           <label className="text-start my-2 px-1">Purpose</label>
           <select
             name="purpose"
-            value={formData.purpose}
+            value={formData.purpose || "Bus"} // Set the value prop to control the selected option
             onChange={handleFormChange}
             className="h-full rounded-md border bg-transparent py-2 px-2 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
           >
-            <option>Bus</option>
-            <option>Train</option>
-            <option>Launch</option>
+            <option value="Bus">Bus</option>
           </select>
         </div>
 
@@ -75,7 +73,6 @@ const ContactForm = () => {
             <input
               type="text"
               name="name"
-              value={formData.name}
               onChange={handleFormChange}
               className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Enter name"
@@ -86,13 +83,12 @@ const ContactForm = () => {
             <label className="text-start my-2 px-1">Your City</label>
             <select
               name="city"
-              value={formData.city}
               onChange={handleFormChange}
               className="h-full w-full rounded-md border bg-transparent py-2 px-2 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
             >
               {cityNames.map((city, index) => (
                 <option key={index} value={city}>
-                  {city}
+                  {city}=
                 </option>
               ))}
             </select>
@@ -107,7 +103,6 @@ const ContactForm = () => {
             <input
               type="text"
               name="number"
-              value={formData.number}
               onChange={handleFormChange}
               className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Enter number"
@@ -121,7 +116,6 @@ const ContactForm = () => {
             <input
               type="text"
               name="email"
-              value={formData.email}
               onChange={handleFormChange}
               className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               placeholder="Enter email"
@@ -131,8 +125,8 @@ const ContactForm = () => {
 
         <div>
           <label
-            for="message"
-            class="block  px-1 text-start my-2 text-gray-600 dark:text-gray-400"
+            htmlFor="message"
+            className="block  px-1 text-start my-2 text-gray-600 dark:text-gray-400"
           >
             Your Message
           </label>
@@ -140,10 +134,9 @@ const ContactForm = () => {
           <textarea
             rows="4"
             name="message"
-            value={formData.message}
             onChange={handleFormChange}
             placeholder="Your Message"
-            class="w-full h-28 px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+            className="w-full h-28 px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
             required
           ></textarea>
         </div>
