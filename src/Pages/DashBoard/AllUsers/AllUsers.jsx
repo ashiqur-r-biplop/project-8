@@ -54,7 +54,7 @@ const AllUsers = () => {
               <tr
                 key={index}
                 className={
-                  index % 2 === 0 ? "text-orange-800 bg-slate-300" : "text-black bg-red-300"
+                  index % 2 === 0 ? "text-orange-800 bg-green-100" : "text-black bg-orange-100"
                 }
               >
                 {/* <th className="hidden md:block">{index + 1}</th> */}
