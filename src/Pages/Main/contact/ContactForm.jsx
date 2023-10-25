@@ -23,7 +23,7 @@ const ContactForm = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("Form Data:", formData);
-    fetch("https://dhaka-bus-ticket-server.vercel.app/contact-form", {
+    fetch("http://localhost:5000/contact", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formData),
@@ -33,7 +33,7 @@ const ContactForm = () => {
         // console.log(result);
         console.log(result);
         if (result.acknowledged === true) {
-          Swal.fire("Good job!", "Data Added SuccessFully", "success");
+          Swal.fire("Good job!", "Your Message SuccessFully", "success");
         }
       });
   };
