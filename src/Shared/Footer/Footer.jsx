@@ -20,14 +20,11 @@ const Footer = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-2 gap-2 ">
               {/* Legal Section */}
               <div className="">
-                <div className="py-1 flex items-center justify-start">
-                  {/* <img src={logo} className="w-12 h-12" alt="" /> */}
-                  <h1 className="text-3xl font-bold">
-                    <span className="text-green-500 uppercase">D</span>haka
-                    <span className="text-green-500 uppercase"> B</span>us
-                    <span className="text-green-500 uppercase"> T</span>icket
-                  </h1>
-                </div>
+                <div className="flex items-center">
+        <i className="brand-color text-3xl">Dhaka</i>
+        <img className="h-6 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
+        <i className="brand-color  text-3xl">Ticket</i>
+      </div>
 
                 <div className="mt-2">
                   <p className="py-1 text-[12px] text-gray-400">

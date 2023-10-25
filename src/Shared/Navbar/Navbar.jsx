@@ -112,7 +112,7 @@ const Navbar = () => {
           </div>
 
           {/* items for mobile device*/}
-          <div className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+          <div className={`space-y-4 px-4 mt-16 brand-bg ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
             {navItem.map(({ link, path }) => (
               <NavLink
                 to={path}

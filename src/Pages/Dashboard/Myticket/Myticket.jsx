@@ -9,41 +9,55 @@ const Myticket = () => {
   useEffect(() => {
     fetch(`https://dhaka-bus-ticket-server.vercel.app/my-ticket/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setTickets(data));
   }, [user]);
   //   some change
   if (!user) {
-    return <p className="flex justify-center">Loading</p>
+    return <p className="flex justify-center">Loading...</p>
   }
+console.log(tickets);
   return (
     <div className="container md:mx-auto my-10 ">
       <table className="table md:w-full table-sm">
         {/* head */}
         <thead>
-          <tr className="bg-orange-400 text-white">
-            <th className="md:text-2xl text-xl">Date</th>
-
-            <th className="md:text-2xl text-xl">Destination</th>
-            <th className="md:text-2xl text-xl">Set</th>
-            <th className="md:text-2xl text-xl">price</th>
-            <th className="md:text-2xl text-xl">Delate</th>
-          </tr>
+        <tr className="text-xl md:text-2xl text-white bg-[#FF4500]">
+            <th className=" hidden md:block">Name</th>
+              <th className=" ">Email&Number</th>
+              <th className=" hidden md:block">BusType</th>
+              <th className=" ">Pick</th>
+              <th className=" ">To</th>
+              <th className=" ">Schedule</th>
+              <th className=" hidden md:block">Date</th>
+              <th className="">Fed-Back</th>
+            </tr>
         </thead>
         <tbody>
-          {tickets?.map((tic, index) => (
-            <tr key={tic.customerID}
-              className={
-                index % 2 === 0 ? "text-orange-800  bg-slate-300" : "bg-red-300 text-black"
-              }
-            >
-              <td>{tic.date}</td>
-
-              <td> {tic.destination}</td>
-              <td>{tic.setNumber}</td>
-              <td>${tic.price}</td>
-              <td>DLT</td>
-            </tr>
-          ))}
+        {tickets.map((user, index) => (
+              <tr
+                key={index}
+                className={
+                  index % 2 === 0 ? "text-orange-800 bg-slate-300" : "text-black bg-red-300"
+                }
+              >
+               
+                <td className="hidden md:block">{user.name} </td>
+                <td className="">{user.email}<br />{user.phone}</td>
+                <td className="hidden md:block">{user.busType}</td>
+                <td>
+                {user?.bookedSeat?.map((element) => (
+                  <span >{element} </span>
+                ))}
+              </td>
+                <td className="">{user.pick}</td>
+                <td className="">{user.to}</td>
+                <td className="">{user.schedule}</td>
+                <td className="hidden md:block">{user.bookedDate}</td>
+                <td className="">
+                    <button className="brand-btn">Feedback</button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

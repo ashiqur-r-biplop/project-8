@@ -33,7 +33,7 @@ const ContactForm = () => {
         // console.log(result);
         console.log(result);
         if (result.acknowledged === true) {
-          Swal.fire("Good job!", "Send Message SuccessFully", "success");
+          Swal.fire("Good job!", "Your Message SuccessFully", "success");
         }
       });
   };
