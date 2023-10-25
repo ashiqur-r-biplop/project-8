@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const loadUser = useContext(AuthContext);
-  const { user } = loadUser;
+  const { user, logOut } = loadUser;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -68,16 +68,15 @@ const Navbar = () => {
               ))}
             </ul>
 
-            {/* btn for large device */}
-            {user ? (
-              <Link className="">Logout</Link>
-            ) : (
-              <div className="space-x-12 hidden lg:flex items-center">
+            {
+              user ? <Link className="">
+                <button onClick={logOut} className="btn brand-btn">Logout</button>
+              </Link> : <div className="space-x-12 hidden lg:flex items-center">
                 <Link to="/login" className="">
                   Login
                 </Link>
               </div>
-            )}
+            }
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
@@ -92,9 +91,8 @@ const Navbar = () => {
 
           {/* items for mobile device*/}
           <div
-            className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${
-              isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
-            }`}
+            className={`space-y-4 px-4 mt-16 bg-[#2E9D49] ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
+              }`}
           >
             {navItem.map(({ link, path }) => (
               <NavLink
@@ -118,7 +116,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </header>
+    </header >
   );
 };
 

@@ -75,6 +75,8 @@ const BookTicket = () => {
     }
   };
 
+  // Booked Ticket Using User Information:
+  const [bookedTicketUsingUserInformation, setBookedTicketUsingUserInformation] = useState({});
   const handleData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -99,17 +101,17 @@ const BookTicket = () => {
       busType,
       pick,
       schedule,
+      bookedSeat: [],
+      payment_status: "done"
     };
-    const findBus = allBus?.find(
-      (bus) =>
-        bus?.busType == busType && bus?.to == to && busType && bus?.date == date
-    );
+    setBookedTicketUsingUserInformation(data);
+    const findBus = allBus?.find(bus => bus?.busType == busType && bus?.to == to && busType && bus?.date == date)
 
     setBookedSeat(findBus?.bookedSeat);
     findBus && setDisplaySelectSeat(true);
     setSearchBus(findBus);
     setSelectedSeats([]);
-  };
+  }
   const handleBookTicket = (bus) => {
     const busId = bus._id;
     const oldBookedSeat = bus.bookedSeat;
@@ -118,6 +120,9 @@ const BookTicket = () => {
     console.log(newBookedSeat);
     const updateBookedSeat = [...oldBookedSeat, ...newBookedSeat];
     console.log(updateBookedSeat);
+    bookedTicketUsingUserInformation.bookedSeat = newBookedSeat
+    bookedTicketUsingUserInformation.bookedDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-');
+    console.log(bookedTicketUsingUserInformation);
 
     const updateTicketBooking = {
       bus_id: busId,
@@ -142,8 +147,30 @@ const BookTicket = () => {
           });
         }
       })
-      .catch((err) => console.log(err));
-  };
+      .catch(err => console.log(err))
+
+    // Booked Seat and Post it with User Information:
+    fetch('https://dhaka-bus-ticket-server.vercel.app/book-my-ticket', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(bookedTicketUsingUserInformation)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.matchedCount > 0) {
+          setDisplaySelectSeat(false)
+          setCounter(0);
+          Swal.fire({
+            title: 'Ticket Booked Successfully!',
+            text: '',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
 
   return (
     <>
@@ -367,7 +394,7 @@ const BookTicket = () => {
                                   style={{
                                     background:
                                       selectedSeats.includes(seat) ||
-                                      bookedSeat?.includes(seat)
+                                        bookedSeat?.includes(seat)
                                         ? "orangered"
                                         : "rgb(252, 233, 85)",
                                   }}
@@ -388,7 +415,7 @@ const BookTicket = () => {
                                   style={{
                                     background:
                                       selectedSeats.includes(seat) ||
-                                      bookedSeat?.includes(seat)
+                                        bookedSeat?.includes(seat)
                                         ? "orangered"
                                         : "rgb(252, 233, 85)",
                                   }}
