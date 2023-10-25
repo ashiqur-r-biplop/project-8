@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Testimonial.module.css";
 
 import StarRatings from "react-star-ratings";
@@ -10,24 +10,37 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-const Testimonial = () => {
-  const slides = [
-    {
-      title: "Jhon Doe",
-      ratings: 4,
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere. Lorem ipsum dolor sit, amet consectetur adipisicing ",
-      imageUrl: "https://source.unsplash.com/50x50/?portrait?4",
-    },
-    {
-      title: "Chris Jhonson",
-      ratings: 3,
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere.Lorem ipsum dolor sit, amet consectetur adipisicing elit. ",
-      imageUrl: "https://source.unsplash.com/50x50/?portrait?5",
-    },
-  ];
 
+const Testimonial = () => {
+
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+ fetch("http://localhost:5000/all-feedback")
+   .then((res) => res.json())
+   .then((data) => {
+     const slides = data.result;
+    //  console.log(slides);
+     setSlides(slides);
+   });
+  },[])
+  // const slides = [
+  //   {
+  //     title: "Jhon Doe",
+  //     ratings: 4,
+  //     description:
+  //       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere. Lorem ipsum dolor sit, amet consectetur adipisicing ",
+  //     imageUrl: "https://source.unsplash.com/50x50/?portrait?4",
+  //   },
+  //   {
+  //     title: "Chris Jhonson",
+  //     ratings: 3,
+  //     description:
+  //       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere.Lorem ipsum dolor sit, amet consectetur adipisicing elit. ",
+  //     imageUrl: "https://source.unsplash.com/50x50/?portrait?5",
+  //   },
+  // ];
+// console.log(slides)
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div>
@@ -43,14 +56,14 @@ const Testimonial = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         // navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {slides.map((slide, index) => (
+        {slides?.map((slide, index) => (
           <SwiperSlide>
             <div
               key={index}
@@ -67,7 +80,7 @@ const Testimonial = () => {
                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
-                  <p className="leading-5">{slide.description}</p>
+                  <p className="leading-5">{slide.feedbackMessage}</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -81,19 +94,19 @@ const Testimonial = () => {
               </div>
               <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-black text-gray-50">
                 <img
-                  src={slide.imageUrl}
+                  src={slide.photo}
                   alt=""
                   className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
                 />
                 <p className="text-xl font-semibold brand-color">
-                  {slide.title}
+                  {slide.name}
                 </p>
                 <p>
                   <StarRatings
-                    rating={slide.ratings}
+                    rating={slide.rating}
                     starRatedColor="#FF4500"
                     // changeRating={this.changeRating}
-                    numberOfStars={6}
+                    numberOfStars={5}
                     name="rating"
                   />
                 </p>
