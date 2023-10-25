@@ -13,6 +13,7 @@ import BookBusComponent from "../Component/Main/BookBus/BookBusComponent";
 import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
 import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
+import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
 
 export const router = createBrowserRouter([
   {
@@ -60,8 +61,12 @@ export const router = createBrowserRouter([
     errorElement: <Error></Error>,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/profile",
         element: <DashboardHome></DashboardHome>,
+      },
+      {
+        path: "/dashboard/postBus",
+        element: <BusPostForm></BusPostForm>,
       },
       {
         path: "/dashboard/post-notice",

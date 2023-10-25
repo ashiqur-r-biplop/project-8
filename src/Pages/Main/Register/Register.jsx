@@ -147,7 +147,7 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex justify-center items-center h-[100vh] relative ">
+    <div className="bg-gray-100 flex justify-center items-center h-[110vh] relative pt-[73px]">
       <div className="w-full h-auto absolute z-50 lg:max-w-md lg:mx-auto p-4 border rounded-md border-gray-400 bg-orange-50">
         <form
           name="loginForm"
