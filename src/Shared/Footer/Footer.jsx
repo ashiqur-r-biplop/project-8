@@ -6,8 +6,8 @@ import {
   FaFacebook,
   FaLinkedin,
 } from "react-icons/fa";
-import BusRoute from "../BusRoute/BusRoute";
-import AllUsers from "../../Pages/Main/AllUsers/AllUsers";
+
+ 
  
  
 const Footer = () => {

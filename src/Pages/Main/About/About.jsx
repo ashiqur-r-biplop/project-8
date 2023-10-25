@@ -1,15 +1,11 @@
 import React from "react";
+ 
 
 
 const About = () => {
   return (
-    <div className="container mx-auto">
-      <div className="flex justify-center items-center">
-        <div>
+    <div className="container mx-auto my-20">
          
-        </div>
-        <div></div>
-      </div>
     </div>
   );
 };
