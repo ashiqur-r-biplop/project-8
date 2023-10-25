@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://dhaka-bus-ticket-server.vercel.app",
 });
 const UseAxiosSecure = () => {
-  const { logOut: logout } = useContext(AuthContext);
+  const { logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
@@ -27,13 +27,13 @@ const UseAxiosSecure = () => {
           (error.response.status === 401 || error.response.status === 403)
         ) {
           localStorage.removeItem("USER_ACCESS_TOKEN");
-          await logout();
+          await logOut();
           navigate("/login");
         }
         return Promise.reject(error);
       }
     );
-  }, [logout, navigate]);
+  }, [logOut, navigate]);
 
   return { axiosSecure };
 };
