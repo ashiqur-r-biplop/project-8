@@ -63,10 +63,11 @@ const Navbar = () => {
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
             <NavLink to="/">
-              <h1 className="text-3xl font-bold">
-                <span className="text-green-500 uppercase">T</span>icket
-                <span className="text-green-500 uppercase italic">Q</span>uest
-              </h1>
+            <div className="flex items-center">
+        <i className="brand-color text-3xl">Dhaka</i>
+        <img className="h-6 ms-1 -me-1" src="https://i.ibb.co/Q8q2wGg/bus2.png" alt="" />
+        <i className="brand-color  text-3xl">Ticket</i>
+      </div>
             </NavLink>
             <ul className="md:flex space-x-12 hidden">
               {navItem.map(({ link, path }) => (
