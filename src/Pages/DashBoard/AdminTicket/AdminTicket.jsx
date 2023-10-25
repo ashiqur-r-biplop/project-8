@@ -14,7 +14,7 @@ const AdminTicket = () => {
 
 
 
-
+console.log(allTicket);
   return (
     
           <div className="md:w-[1200px] md:mx-auto ">
