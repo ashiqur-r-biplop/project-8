@@ -103,24 +103,24 @@ function BusPostForm() {
         }
       })
       .catch((error) => {
-        // Swal.fire({
-        //   icon: "error",
-        //   title: "Error!",
-        //   text: "Please try again later.",
-        // });
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: "Please try again later.",
+        });
       });
   };
 
   return (
-    <div className="bg-gray-400">
-      <div className="max-w-md mx-auto">
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="bg-white shadow-md rounded p-6 w-full max-w-md">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label className="block text-gray-700 text-sm font-bold mb-1">To:</label>
             <select
               {...register("to", { required: true })}
               name="to"
-              className="appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full py-2 px-3 border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
             >
               <option value="">Select a destination</option>
               {bangladeshDistricts.map((district, index) => (
@@ -136,8 +136,7 @@ function BusPostForm() {
               type="date"
               {...register("date", { required: true })}
               name="date"
-              placeholder="Select a date"
-              className="appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full py-2 px-3 border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
             />
           </div>
           <div>
@@ -145,7 +144,7 @@ function BusPostForm() {
             <select
               {...register("busType", { required: true })}
               name="busType"
-              className="appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full py-2 px-3 border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
             >
               <option value="AC">AC</option>
               <option value="Non-AC">Non-AC</option>
@@ -156,13 +155,13 @@ function BusPostForm() {
             <select
               {...register("schedule", { required: true })}
               name="schedule"
-              className="appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full py-2 px-3 border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
             >
               <option value="07:00 AM">07:00 AM</option>
               <option value="06:00 PM">06:00 PM</option>
             </select>
           </div>
-          <button type="submit" className="text-teal-400">
+          <button type="submit" className="brand-btn py-2 px-4 w-full">
             Submit
           </button>
         </form>
