@@ -151,7 +151,7 @@ const ContactForm = () => {
         <div className="flex items-start p-3">
           <input
             type="submit"
-            className="py-4 flex items-center text-[20px] font-normal leading-5  justify-center gap-5 px-10 bg-[#2E9D49] text-white rounded-full"
+            className="py-4 flex items-center text-[20px] font-normal leading-5  justify-center gap-5 px-10 bg-orange-50 text-white rounded-full"
             value="Send"
           />
         </div>
