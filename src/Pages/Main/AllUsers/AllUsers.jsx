@@ -5,7 +5,7 @@ import { useState } from "react";
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("../../../../public/Data/allusers.json")
+    fetch("https://dhaka-bus-ticket-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
@@ -34,11 +34,7 @@ const AllUsers = () => {
               >
                 {/* <th className="hidden md:block">{index + 1}</th> */}
                 <td className="md:flex md:items-center md:gap-2">
-                  <img
-                    src={user.photo}
-                    className="mask mask-squircle w-12 h-12"
-                    alt="user"
-                  />
+                   
                   <span className="font-bold md:text-xl">{user.name}</span>
                 </td>
                 <td className="font-semibold">
@@ -46,7 +42,7 @@ const AllUsers = () => {
                   <br />
                   {user.number}
                 </td>
-                <td className="md:font-semibold  ">User</td>
+                <td className="md:font-semibold  ">{user.role}</td>
                 <td className="md:font-semibold font-medium">Delate</td>
               </tr>
             ))}
