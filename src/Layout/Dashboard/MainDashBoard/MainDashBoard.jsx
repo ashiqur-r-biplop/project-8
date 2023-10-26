@@ -11,13 +11,13 @@ const MainDashBoard = () => {
   const { user, logOut, deleteAnUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const url = "http://localhost:5000";
+  const url = "https://dhaka-bus-ticket-server.vercel.app";
 
   console.log(currentUser);
 
   useEffect(() => {
     const cu = async () => {
-      const res = await fetch(`${url}/getUserByEmail/${user.email}`);
+      const res = await fetch(`${url}/getUserByEmail/${user?.email}`);
       const data = await res.json();
       setCurrentUser(data);
     };
@@ -151,7 +151,7 @@ const MainDashBoard = () => {
                   </div>
                 </div> */}
 
-                <div class="flex justify-start items-start md:block">
+                <div className="flex justify-start items-start md:block">
                   <div className="flex justify-center items-center">
                     <img src={currentUser?.photo} className="lg:w-20 w-10 lg:h-20 h-10 rounded-full" alt="Photo" />
                   </div>
