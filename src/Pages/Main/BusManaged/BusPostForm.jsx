@@ -127,9 +127,6 @@ function BusPostForm() {
               name="to"
               className="w-full py-2 px-3 border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
             >
-              <option disabled value="default">
-                Select a division
-              </option>
               {Object.keys(bangladeshDivisions).map((division, index) => {
                 return (
                   <option key={index} value={division}>
@@ -151,7 +148,7 @@ function BusPostForm() {
               <option disabled value="default">
                 Select a subcategory
               </option>
-              {bangladeshDivisions[selectedDivision]?.map(
+              {bangladeshDivisions[(selectedDivision) || "Dhaka Division"]?.map(
                 (subCategory, index) => {
                   return (
                     <option key={index} value={subCategory}>
