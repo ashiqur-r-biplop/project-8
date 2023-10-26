@@ -4,11 +4,15 @@ import Marquee from "react-fast-marquee";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const HomeMarquee = () => {
+  const [loading, setLoading] = useState(true);
   const [notices, setNotices] = useState([]);
   const { NoticeControl } = useContext(AuthContext);
   useEffect(() => {
     axios("https://dhaka-bus-ticket-server.vercel.app/notices")
-      .then((res) => setNotices(res.data))
+      .then((res) => {
+        setNotices(res.data)
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, [NoticeControl]);
   return (

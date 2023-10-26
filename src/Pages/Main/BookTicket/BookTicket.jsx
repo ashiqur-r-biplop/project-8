@@ -15,13 +15,14 @@ const BookTicket = () => {
 
   // Load All Bus:
   const [allBus, setAllBus] = useState([]);
+  const [control, setControl] = useState(false);
   useEffect(() => {
     fetch("https://dhaka-bus-ticket-server.vercel.app/all-bus")
       .then((res) => res.json())
       .then((data) => {
         setAllBus(data);
       });
-  }, [bookedSeat, displaySelectSeat]);
+  }, [control, bookedSeat, displaySelectSeat]);
 
   const halfSeats1 = [
     "H4",
@@ -111,6 +112,7 @@ const BookTicket = () => {
     findBus && setDisplaySelectSeat(true);
     setSearchBus(findBus);
     setSelectedSeats([]);
+    setControl(!control);
   }
   const handleBookTicket = (bus) => {
     const busId = bus._id;
@@ -136,8 +138,10 @@ const BookTicket = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
         if (data.matchedCount > 0) {
           setDisplaySelectSeat(false);
+          setControl(!control);
           setCounter(0);
           Swal.fire({
             title: "Ticket Booked Successfully!",
@@ -159,6 +163,7 @@ const BookTicket = () => {
       .then(data => {
         if (data.matchedCount > 0) {
           setDisplaySelectSeat(false)
+          setControl(!control);
           setCounter(0);
           Swal.fire({
             title: 'Ticket Booked Successfully!',
