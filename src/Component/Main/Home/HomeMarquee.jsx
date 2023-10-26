@@ -8,7 +8,7 @@ const HomeMarquee = () => {
   const [notices, setNotices] = useState([]);
   const { NoticeControl } = useContext(AuthContext);
   useEffect(() => {
-    axios("https://dhaka-bus-ticket-server.vercel.app/notices")
+    axios("http://localhost:5000/notices")
       .then((res) => {
         setNotices(res.data)
         setLoading(false);

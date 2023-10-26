@@ -46,7 +46,7 @@ const BookBusComponent = () => {
     };
 
     // ********Book Bus Post Method****************
-    fetch('https://dhaka-bus-ticket-server.vercel.app/book-bus', {
+    fetch('http://localhost:5000/book-bus', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -309,7 +309,7 @@ const BookBusComponent = () => {
       </div>
       <BusRoute></BusRoute>
 
-  </div>
+    </div>
   )
 };
 

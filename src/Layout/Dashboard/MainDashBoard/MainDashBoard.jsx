@@ -11,7 +11,7 @@ const MainDashBoard = () => {
   const { user, logOut, deleteAnUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const url = "https://dhaka-bus-ticket-server.vercel.app";
+  const url = "http://localhost:5000";
 
   console.log(currentUser);
 
