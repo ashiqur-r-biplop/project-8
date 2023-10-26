@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import BusRoute from "../../../Shared/BusRoute/BusRoute";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import payment from '../../../assets/payment.png'
 
 
 const BookBusComponent = () => {
@@ -10,63 +11,97 @@ const BookBusComponent = () => {
   const user = loadUser.user;
   const { displayName, email } = user;
 
-  console.log(loadUser);
-  const handleData = (e) => {
+  // *****************Card Information**********************
+  // const amount = selectedSeats.length * 650;
+  const [cardNumber, setCardNumber] = useState('');
+  const [cardPass, setCardPass] = useState('');
+  const [totalBus, setTotalBus] = useState(0);
+  const amount = totalBus * 50000;
+
+
+  const handleCard = e => {
     e.preventDefault();
-    const form = e.target;
-    const journeyDate = form.journeyDate.value;
-    const returnDate = form.returnDate.value;
-    const busType = form.busType.value;
-    const originCity = form.originCity.value;
-    const destinationCity = form.destinationCity.value;
-    const seats = form.seats.value;
-    const buses = form.buses.value;
-    const email = form.email.value;
-    const name = form.name.value;
-    const phone = form.phone.value;
-    const companyName = form.companyName.value;
-    const address = form.address.value;
-    const optionalPhone = form.optional_phone.value;
+    setCardNumber(e.target.form.cardNumber.value);
+    setCardPass(e.target.form.cardPass.value);
+  }
 
-    const data = {
-      journeyDate,
-      email,
-      returnDate,
-      busType,
-      originCity,
-      destinationCity,
-      seats,
-      optionalPhone,
-      buses,
-      name,
-      phone,
-      companyName,
-      address,
-      payment: "success",
-    };
+  // *********Handle Modal****************************
+  const handleModal = (event) => {
+    document.getElementById('my_modal_4').showModal();
 
-    // ********Book Bus Post Method****************
-    fetch('http://localhost:5000/book-bus', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Booked Bus Successfully!",
-            text: "",
-            icon: "success",
-            confirmButtonText: "Thank You",
-          });
-        }
+  };
+
+
+  // *****************Book Bus Post Data*********************
+  const handleData = (e) => {
+    console.log(cardNumber);
+    e.preventDefault();
+    if (cardNumber == "424242424242" || cardPass == "123456") {
+      const form = e.target;
+      const journeyDate = form.journeyDate.value;
+      const returnDate = form.returnDate.value;
+      const busType = form.busType.value;
+      const originCity = form.originCity.value;
+      const destinationCity = form.destinationCity.value;
+      const seats = form.seats.value;
+      const buses = form.buses.value;
+      const email = form.email.value;
+      const name = form.name.value;
+      const phone = form.phone.value;
+      const companyName = form.companyName.value;
+      const address = form.address.value;
+      const optionalPhone = form.optional_phone.value;
+
+      const data = {
+        journeyDate,
+        email,
+        returnDate,
+        busType,
+        originCity,
+        destinationCity,
+        seats,
+        optionalPhone,
+        buses,
+        name,
+        phone,
+        companyName,
+        address,
+        payment: "success",
+      };
+      console.log(data);
+
+      // ********Book Bus Post Method****************
+      fetch('http://localhost:5000/book-bus', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
       })
-      .catch(err => {
-        console.log(err);
-      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.insertedId) {
+            Swal.fire({
+              title: "Booked Bus Successfully!",
+              text: "",
+              icon: "success",
+              confirmButtonText: "Thank You",
+            });
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+    else {
+      return Swal.fire({
+        title: "Card and Password doesn't match! Try again!",
+        text: "",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+    }
+
   };
 
   if (!user) {
@@ -80,7 +115,7 @@ const BookBusComponent = () => {
         <h1 className="text-4xl mt-3 text-center brand-color pb-8">Journey Details</h1>
         <hr />
         <br />
-        <form onSubmit={handleData}>
+        <form onSubmit={handleModal}>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8">
             <div className="form-control">
               <label className="label">
@@ -208,6 +243,7 @@ const BookBusComponent = () => {
                 </span>
               </label>
               <input
+                onChange={(e) => setTotalBus(e.target.value)}
                 type="number"
                 placeholder=""
                 name="buses"
@@ -295,20 +331,45 @@ const BookBusComponent = () => {
               />
             </div>
           </div>
-
           <div className="form-control mt-6 items-end">
-            <input
-              className="btn btn-block  bg-orange-600 hover:bg-orange-700 text-white"
-              type="submit"
-              value="Submit Reservation Request"
-              name=""
-              id=""
-            />
+            <button type="submit" className="btn btn-block brand-btn">Book Bus Reserve</button>
           </div>
         </form>
       </div>
-      <BusRoute></BusRoute>
+      <dialog id="my_modal_4" className="modal">
+        <div className="modal-box w-8/12 md:w-3/12">
+          <h3 className="text-xl font-bold text-center p-2 brand-color underline">Please Pay Here</h3>
+          <h3 className="text-lg font-bold text-center mt-3">Total Bus: <span className="brand-color">{totalBus}</span> </h3>
+          <h3 className="text-lg font-bold text-center">Amount: <span className="brand-color">{amount}</span> </h3>
 
+          <img src={payment} alt="" />
+          <form onChange={handleCard}>
+            <div className="form-control w-full m-2">
+              <label className="label">
+                <span className="label-text">Enter Card Number</span>
+              </label>
+              <input type="text" name="cardNumber" placeholder="4242 4242 4242" className="input input-bordered w-full max-w-xs" />
+            </div>
+            <div className="form-control w-full m-2">
+              <label className="label">
+                <span className="label-text">Enter Password</span>
+              </label>
+              <input type="text" name="cardPass" placeholder="123456" className="input input-bordered w-full max-w-xs" />
+            </div>
+          </form>
+          <div className="">
+            <form method="dialog">
+              {/* if there is a button, it will close the modal */}
+              <button
+                onSubmit={handleData}
+                className="btn btn-block brand-btn mt-2"
+              >Pay</button>
+              <button className="btn btn-block bg-black text-white mt-2 hover:bg-black hover:text-orange-500">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+      <BusRoute></BusRoute>
     </div>
   )
 };
