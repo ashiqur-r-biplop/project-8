@@ -62,7 +62,7 @@ const Login = () => {
           email: loggedInUser.email,
           photo: loggedInUser.photoURL,
         };
-        fetch(`https://dhaka-bus-ticket-server.vercel.app/users`, {
+        fetch(`http://localhost:5000/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
