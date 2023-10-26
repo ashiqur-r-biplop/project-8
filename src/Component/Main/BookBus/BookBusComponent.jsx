@@ -308,8 +308,9 @@ const BookBusComponent = () => {
         </form>
       </div>
       <BusRoute></BusRoute>
-    </div>
-  );
+
+  </div>
+  )
 };
 
 export default BookBusComponent;

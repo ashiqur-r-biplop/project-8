@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const HomeMarquee = () => {
   const [loading, setLoading] = useState(true);
   const [notices, setNotices] = useState([]);
+  const { NoticeControl } = useContext(AuthContext);
   useEffect(() => {
     axios("https://dhaka-bus-ticket-server.vercel.app/notices")
       .then((res) => {
@@ -12,10 +14,7 @@ const HomeMarquee = () => {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
-  if (loading) {
-    return <>Loading....</>
-  }
+  }, [NoticeControl]);
   return (
     <div className="md:px-20 px-6 flex gap-2 bg-gray-950 py-6">
       <span className="brand-color font-bold">নোটিশঃ</span>
