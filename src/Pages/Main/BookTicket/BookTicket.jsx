@@ -103,7 +103,8 @@ const BookTicket = () => {
       pick,
       schedule,
       bookedSeat: [],
-      payment_status: "done"
+      payment_status: "done",
+      feedback: "pending"
     };
     setBookedTicketUsingUserInformation(data);
     const findBus = allBus?.find(bus => bus?.busType == busType && bus?.to == to && busType && bus?.date == date)

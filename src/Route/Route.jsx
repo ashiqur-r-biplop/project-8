@@ -18,6 +18,7 @@ import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
 import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
+import PrivateRoute from "../Hook/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -39,11 +40,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/book-ticket",
-        element: <BookTicketComponent></BookTicketComponent>, // done
+        element: <PrivateRoute>
+          <BookTicketComponent></BookTicketComponent>
+        </PrivateRoute> // done
       },
       {
         path: "/book-bus",
-        element: <BookBusComponent></BookBusComponent>,
+        element: <PrivateRoute>
+          <BookBusComponent></BookBusComponent>
+        </PrivateRoute>,
       },
       {
         path: "/user-profile",

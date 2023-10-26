@@ -62,13 +62,13 @@ const Navbar = () => {
       <nav className={`py-4  lg:px-14 px-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
-            <NavLink to="/">
-            <h1 className="text-3xl text-white font-bold">
-                    <span className="text-green-500 uppercase">D</span>haka
-                    <span className="text-green-500 uppercase"> B</span>us
-                    <span className="text-green-500 uppercase"> T</span>icket
-                  </h1>
-            </NavLink>
+            <Link to="/">
+              <div className="flex items-center">
+                <i className="brand-color text-3xl">Dhaka</i>
+                <img className="h-6 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
+                <i className="brand-color  text-3xl">Ticket</i>
+              </div>
+            </Link>
             <ul className="md:flex space-x-12 hidden">
               {navItem.map(({ link, path }) => (
                 <NavLink
