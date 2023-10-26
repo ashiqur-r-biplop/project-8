@@ -105,19 +105,28 @@ const MainDashBoard = () => {
       <ActiveLink to="/dashboard/postBus">
         <li>Post Bus</li>
       </ActiveLink>
-      <ActiveLink to="/dashboard/my-ticket">
-        <li>My Ticket</li>
+      <ActiveLink to="/dashboard/all-ticket">
+        <li>All Ticket</li>
+      </ActiveLink>
+      <ActiveLink to="/dashboard/all-user">
+        <li>All User</li>
       </ActiveLink>
       <ActiveLink to="/dashboard/post-notice">
         <li>Post Notice</li>
+      </ActiveLink>
+      <ActiveLink to="/">
+        <li onClick={handleLogOut}>Logout</li>
       </ActiveLink>
     </>
   );
 
   const userOptions = (
     <>
-      <ActiveLink to="/dashboard/manageNotices">
-        <li>Manage Notices</li>
+      <ActiveLink to="/dashboard/my-ticket">
+        <li>My Ticket</li>
+      </ActiveLink>
+      <ActiveLink to="/">
+        <li onClick={handleLogOut}>Logout</li>
       </ActiveLink>
     </>
   );
@@ -127,10 +136,10 @@ const MainDashBoard = () => {
       <div className="hidden lg:block">
         <Navbar />
       </div>
-      <div className="drawer container mx-auto lg:pt-[73px]">
+      <div className="drawe mx-auto lg:pt-[73px]">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content lg:flex">
-          <div className="w-full lg:w-3/12 bg-gray-800 brand-color overflow-y-auto max-h-[100vh] lg:h-screen">
+          <div className="w-full lg:w-2/12 bg-gray-800 brand-color overflow-y-auto max-h-[100vh] lg:h-screen">
             <div className="flex justify-start">
               <div className="flex-none lg:hidden">
                 <label htmlFor="my-drawer-3" className="btn rounded-sm btn-square btn-ghost bg-gray-800">

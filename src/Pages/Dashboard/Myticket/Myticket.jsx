@@ -6,8 +6,7 @@ const Myticket = () => {
   const [tickets, setTickets] = useState([]);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
-  // const user = loadUser?.user;
-  console.log(user?.email);
+
   useEffect(() => {
     fetch(`https://dhaka-bus-ticket-server.vercel.app/my-ticket/${user?.email}`)
       .then((res) => res.json())
@@ -20,7 +19,7 @@ const Myticket = () => {
   if (!loading) {
     return <p className="flex justify-center">Loading...</p>
   }
-console.log(tickets);
+  console.log(tickets);
   return (
     <div className="container md:mx-auto my-5 ">
       <table className="table md:w-full table-sm">
@@ -28,7 +27,7 @@ console.log(tickets);
         <thead>
           <tr className="text-xl md:text-2xl text-white bg-[#FF4500]">
             <th className=" hidden md:block">Name</th>
-            <th className=" ">Pick</th>
+            {/* <th className=" ">Pick</th> */}
             <th className=" ">To</th>
             <th className=" ">Schedule</th>
             <th className="">FeedBack</th>
@@ -52,7 +51,7 @@ console.log(tickets);
                   <span >{element} </span>
                 ))}
               </td> */}
-              <td className="">{user.pick}</td>
+              {/* <td className="">{user.pick}</td> */}
               <td className="">{user.to}</td>
               <td className="">{user.schedule}</td>
               {/* <td className="hidden md:block">{user.bookedDate}</td> */}

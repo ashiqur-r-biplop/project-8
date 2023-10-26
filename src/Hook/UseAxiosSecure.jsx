@@ -2,13 +2,12 @@ import { useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-// https://dhaka-bus-ticket-server.vercel.app
 const axiosSecure = axios.create({
-  baseURL: "",
+  baseURL: "https://dhaka-bus-ticket-server.vercel.app",
 });
 const UseAxiosSecure = () => {
   const { logOut } = useContext(AuthContext);
-  const navigate = useNavigate();git
+  const navigate = useNavigate();
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
       // console.log(config);
