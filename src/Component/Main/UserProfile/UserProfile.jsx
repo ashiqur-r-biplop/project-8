@@ -1,6 +1,45 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import axios from "axios";
+import UpdateUserProfileModal from "./UpdateUserProfileModal";
 
 const UserProfile = () => {
+  const defaultPhotoURL =
+    "https://i.pinimg.com/1200x/0f/66/bc/0f66bc842998ed2c6f82f85f702b0e44.jpg";
+
+  const { user } = useContext(AuthContext);
+  // console.log(user);
+  const userEmail = user?.email;
+  const photoURL = user?.photoURL;
+  // console.log(userEmail);
+
+  const [control, setControl] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+
+  const fetchData = async () => {
+    try {
+      if (userEmail) {
+        const response = await fetch(
+          `http://localhost:5000/single-user?email=${userEmail}`
+        );
+        if (!response.ok) {
+          throw new Error("failed to fetch");
+        }
+        const data = await response.json();
+        console.log(data);
+        setCurrentUser(data);
+      }
+    } catch (error) {
+      console.log("Error fetching data", error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, [userEmail, control]);
+
+  console.log(currentUser, "35");
+
   const time = new Date();
   const year = time.getFullYear();
   const month = time.getMonth();
@@ -10,21 +49,42 @@ const UserProfile = () => {
     month,
     year,
   };
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const email = form.email.value;
-    const phone = form.phone.value;
-    console.log(name, email, phone);
+    const number = form.phone.value;
+    const userInfo = { name, number };
+    console.log(userInfo)
+    try {
+      axios
+        .patch(`http://localhost:5000/single-user/${currentUser._id}`, userInfo)
+        .then((res) => {
+          console.log(res.data);
+
+          // Swal.fire({
+          //   position: "top",
+          //   icon: "success",
+          //   title: "User Profile Updated",
+          //   showConfirmButton: false,
+          //   timer: 1500,
+          // });
+        })
+        .catch((error) => {});
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
+    // form.reset();
   };
+  const handleUpdate = () => {};
+
   return (
     <>
       <div className="max-w-[1200px] mx-auto w-[80%] grid md:grid-cols-2 pt-[100px]">
         <div className="md:w-4/5 w-full gird grid-cols-1 items-center">
           <div className="max-w-xs h-100 px-4 py-3 rounded-md shadow-md bg-gray-50 text-gray-800">
             <img
-              src="https://source.unsplash.com/random/300x300/?2"
+              src={photoURL ? `${photoURL}` : `${defaultPhotoURL}`}
               alt=""
               className="object-cover mx-auto object-center w-24 md:w-32 rounded-full h-24 md:h-32 bg-gray-500 my-6"
             />
@@ -37,12 +97,19 @@ const UserProfile = () => {
                   Date : {`${dateInfo.date}-${dateInfo.month}-${dateInfo.year}`}
                 </p>
               </div>
-              <div className="grid  grid-cols-2 my-2 mb-4">
-                <p className="text-gray-500   text-xs">Name : Abdullah Jabir</p>
-                <p className=" text-gray-500  text-xs">Phone : +88015165883</p>
-              </div>
-              <div className=" grid w-full my-2 mb-4 grid-cols-1 text-xs text-gray-500 ">
-                <p>Email : www.demoemail.com</p>
+
+              <div>
+                <div className="grid  grid-cols-2 my-2 mb-4">
+                  <p className="text-gray-500   text-xs">
+                    Name : {currentUser?.name}
+                  </p>
+                  <p className=" text-gray-500  text-xs">
+                    Phone : {currentUser?.number}
+                  </p>
+                </div>
+                <div className=" grid w-full my-2 mb-4 grid-cols-1 text-xs text-gray-500 ">
+                  <p>Email : {currentUser?.email}</p>
+                </div>
               </div>
             </div>
 
@@ -64,64 +131,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box w-full">
-          <h3 className=" text-lg text-center">Fill The Form!</h3>
-          <div>
-            <div className="w-full bg-zinc-50 rounded p-4">
-              <form onSubmit={handleFormSubmit}>
-                <div className="grid grid-cols-1  mx-auto md:gap-x-12">
-                  <div>
-                    <div>
-                      <p className="text-lg">Name:</p>
-                      <input
-                        type="text"
-                        placeholder="Full Name"
-                        name="name"
-                        className="input input-bordered  w-full mb-2"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-lg">Email:</p>
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        name="email"
-                        defaultValue=""
-                        className="input input-bordered  w-full mb-2"
-                      />
-                    </div>
-
-                    <div>
-                      <p className="text-lg">Phone:</p>
-                      <input
-                        type="number"
-                        placeholder="Phone"
-                        name="phone"
-                        className="input input-bordered w-full  mb-2"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  className="btn btn-sm bg-orange-600 text-white "
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-          <div className="modal-action">
-            <form method="dialog">
-              <button className="btn btn-sm bg-orange-600 text-white">
-                Close
-              </button>
-            </form>
-          </div>
-        </div>
-      </dialog>
+      <UpdateUserProfileModal currentUser={currentUser} handleFormSubmit={handleFormSubmit}></UpdateUserProfileModal>
     </>
   );
 };

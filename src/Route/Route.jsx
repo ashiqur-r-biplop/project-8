@@ -13,6 +13,7 @@ import BookBusComponent from "../Component/Main/BookBus/BookBusComponent";
 import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
 import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
+import Feedback from "../Component/Main/Home/Feedback";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
 import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
         path: "/user-profile",
         element: <UserProfile></UserProfile>, // done
       },
+      {
+        path: "/user-feedback",
+        element:<Feedback></Feedback>
+    },
       {
         path: "/login",
         element: <Login></Login>, // done
