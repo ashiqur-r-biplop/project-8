@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import Modal from "./Modal";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({});
@@ -149,6 +150,7 @@ const ContactForm = () => {
           />
         </div>
       </form>
+      <Modal></Modal>
     </div>
   );
 };

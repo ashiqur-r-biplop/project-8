@@ -3,15 +3,21 @@ import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const HomeMarquee = () => {
+  const [loading, setLoading] = useState(true);
   const [notices, setNotices] = useState([]);
   useEffect(() => {
     axios("https://dhaka-bus-ticket-server.vercel.app/notices")
-      .then((res) => setNotices(res.data))
+      .then((res) => {
+        setNotices(res.data)
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
+  if (loading) {
+    return <>Loading....</>
+  }
   return (
     <div className="md:px-20 px-6 flex gap-2 bg-gray-950 py-6">
-
       <span className="brand-color font-bold">নোটিশঃ</span>
       <Marquee speed={90} delay={3}>
         <div className="">
