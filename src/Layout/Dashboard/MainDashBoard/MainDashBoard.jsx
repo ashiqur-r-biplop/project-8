@@ -108,6 +108,9 @@ const MainDashBoard = () => {
       <ActiveLink to="/dashboard/all-ticket">
         <li>All Ticket</li>
       </ActiveLink>
+      <ActiveLink to="/dashboard/my-ticket">
+        <li>My Ticket</li>
+      </ActiveLink>
       <ActiveLink to="/dashboard/all-user">
         <li>All User</li>
       </ActiveLink>
