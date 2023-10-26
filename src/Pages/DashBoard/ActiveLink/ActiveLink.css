@@ -1,0 +1,26 @@
+/* ActiveLink.css */
+.active-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border: 2px solid orangered;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .active-link {
+    width: 100%;
+    display: block;
+  }
+}
+
+.active {
+  background-color: orangered;
+  color: white;
+  border-color: orangered;
+}

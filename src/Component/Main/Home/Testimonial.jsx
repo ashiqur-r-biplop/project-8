@@ -51,8 +51,8 @@ const Testimonial = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {slides?.map((slide, index) => (
-          <SwiperSlide>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
             <div
               key={index}
               className="bg-white w-full h-full flex flex-col  my-6 shadow-lg"
