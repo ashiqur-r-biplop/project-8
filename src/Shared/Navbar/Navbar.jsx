@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaUserAlt } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 const Navbar = () => {
@@ -79,9 +79,7 @@ const Navbar = () => {
                   className={({ isActive }) => {
                     return (
                       "px-2 py-2 rounded-md" +
-                      (isActive
-                        ? "transition-all rounded-md brand-color  duration-500 "
-                        : " text-white hover:rounded-md")
+                      (isActive ? "transition-all rounded-md brand-color  duration-500 " : " text-white hover:rounded-md")
                     );
                   }}
                 >
@@ -91,17 +89,38 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            {user ? (
-              <button onClick={handleLogout} className="">
-                Logout
-              </button>
-            ) : (
-              <div className="space-x-12 hidden lg:flex items-center">
-                <Link to="/login" className="">
-                  Login
-                </Link>
+            <div>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="w-full h-full rounded-full">
+                  <div className="w-10 rounded-full flex justify-center items-center">
+                    <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
+                >
+                  <li className="text-white mb-3">
+                    <a className="justify-between">
+                      <Link to="/dashboard/profile">Profile</Link>
+                    </a>
+                  </li>
+                  {user ? (
+                    <>
+                      <li className="text-white mb-3">
+                        <button onClick={handleLogout}>Logout</button>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="text-white mb-3">
+                        <Link to="/login">Login</Link>
+                      </li>
+                    </>
+                  )}
+                </ul>
               </div>
-            )}
+            </div>
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
@@ -122,9 +141,7 @@ const Navbar = () => {
                 className={({ isActive }) => {
                   return (
                     "grid p-2 my-3 rounded-md " +
-                    (isActive
-                      ? "transition-all rounded-md brand-color  duration-500 "
-                      : " text-white hover:rounded-md")
+                    (isActive ? "transition-all rounded-md brand-color  duration-500 " : " text-white hover:rounded-md")
                   );
                 }}
               >
