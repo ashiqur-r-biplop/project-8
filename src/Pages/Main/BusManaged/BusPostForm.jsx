@@ -14,7 +14,7 @@ function BusPostForm() {
       "Gazipur",
       "Narayanganj",
       "Tangail",
-      "Kishoreganj",
+      "Lakshmipur",
       "Manikganj",
       "Munshiganj",
       "Narsingdi",
