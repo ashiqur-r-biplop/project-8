@@ -16,6 +16,8 @@ import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
 import Feedback from "../Component/Main/Home/Feedback";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
 import Myticket from "../Pages/DashBoard/Myticket/Myticket";
+import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
+import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -49,8 +51,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/user-feedback",
-        element:<Feedback></Feedback>
-    },
+        element: <Feedback></Feedback>
+      },
       {
         path: "/login",
         element: <Login></Login>, // done
@@ -77,6 +79,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/my-ticket",
         element: <Myticket></Myticket>,
+      },
+      {
+        path: "/dashboard/all-ticket",
+        element: <AllTicket></AllTicket> //For Admin
+      },
+      {
+        path: "/dashboard/all-user",
+        element: <AllUsers></AllUsers> //For Admin
       },
       {
         path: "/dashboard/post-notice",
