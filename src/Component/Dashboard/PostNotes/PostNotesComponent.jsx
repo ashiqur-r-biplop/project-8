@@ -1,25 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BsPlus, BsTrash } from "react-icons/bs";
 import { MdOutlineEdit } from "react-icons/md";
 import PostNotesModal from "./PostNotesModal/PostNotesModal";
 import axios from "axios";
 import UpdateNoticesModal from "./UpdateNoticesModal/UpdateNoticesModal";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const PostNotesComponent = () => {
   const [notices, setNotices] = useState([]);
-  const [control, setControl] = useState(false);
+  const { NoticeControl, setNoticeControl } = useContext(AuthContext);
   const [note, setNote] = useState({});
   useEffect(() => {
-    axios("https://dhaka-bus-ticket-server.vercel.app/notices")
-      .then((res) => setNotices(res.data))
+    axios
+      .get("https://dhaka-bus-ticket-server.vercel.app/notices")
+      .then((res) => {
+        if (!notices) {
+          setNotices(res.data);
+        }
+      })
       .catch((err) => console.log(err));
-  }, [control]);
+  }, [NoticeControl]);
   const handleDelete = (id) => {
     axios
       .delete(`https://dhaka-bus-ticket-server.vercel.app/delete-notice/${id}`)
       .then((res) => {
         if (res.data?.deletedCount > 0) {
-          setControl(!control);
+          setNoticeControl(!NoticeControl);
         }
       })
       .catch((err) => console.log(err));
@@ -68,12 +74,12 @@ const PostNotesComponent = () => {
         </div>
       </div>
       <PostNotesModal
-        setControl={setControl}
-        control={control}
+        setControl={setNoticeControl}
+        control={NoticeControl}
       ></PostNotesModal>
       <UpdateNoticesModal
-        control={control}
-        setControl={setControl}
+        control={NoticeControl}
+        setControl={setNoticeControl}
         note={note}
       ></UpdateNoticesModal>
     </>

@@ -20,6 +20,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [NoticeControl, setNoticeControl] = useState(false);
 
   // Google provider
   const googleProvider = new GoogleAuthProvider();
@@ -76,7 +77,7 @@ const AuthProvider = ({ children }) => {
         const loggedUser = {
           email: currentUser.email,
         };
-        fetch(`http://localhost:5000/jwt`, {
+        fetch(`https://dhaka-bus-ticket-server.vercel.app/jwt`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -107,9 +108,13 @@ const AuthProvider = ({ children }) => {
     createUserWithGoogle,
     deleteAnUser,
     resetPassword,
+    NoticeControl,
+    setNoticeControl,
   };
 
-  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
