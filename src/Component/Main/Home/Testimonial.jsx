@@ -19,28 +19,16 @@ const Testimonial = () => {
  fetch("http://localhost:5000/all-feedback")
    .then((res) => res.json())
    .then((data) => {
-     const slides = data.result;
-    //  console.log(slides);
-     setSlides(slides);
+
+     console.log(data.result);
+    //  console.log(data.result);
+     setSlides(data?.result);
    });
   },[])
-  // const slides = [
-  //   {
-  //     title: "Jhon Doe",
-  //     ratings: 4,
-  //     description:
-  //       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere. Lorem ipsum dolor sit, amet consectetur adipisicing ",
-  //     imageUrl: "https://source.unsplash.com/50x50/?portrait?4",
-  //   },
-  //   {
-  //     title: "Chris Jhonson",
-  //     ratings: 3,
-  //     description:
-  //       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, exercitationem molestias possimus facere.Lorem ipsum dolor sit, amet consectetur adipisicing elit. ",
-  //     imageUrl: "https://source.unsplash.com/50x50/?portrait?5",
-  //   },
-  // ];
-// console.log(slides)
+
+  if (!slides) {
+    return <p>loading ...</p>
+  }
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div>
@@ -80,7 +68,7 @@ const Testimonial = () => {
                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
                     <path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
                   </svg>
-                  <p className="leading-5">{slide.feedbackMessage}</p>
+                  <p className="leading-5">{slide?.feedbackMessage}</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -94,16 +82,16 @@ const Testimonial = () => {
               </div>
               <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-black text-gray-50">
                 <img
-                  src={slide.photo}
+                  src={slide?.photo}
                   alt=""
                   className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
                 />
                 <p className="text-xl font-semibold brand-color">
-                  {slide.name}
+                  {slide?.name}
                 </p>
                 <p>
                   <StarRatings
-                    rating={slide.rating}
+                    rating={parseInt(`${slide?.rating}`)}
                     starRatedColor="#FF4500"
                     // changeRating={this.changeRating}
                     numberOfStars={5}

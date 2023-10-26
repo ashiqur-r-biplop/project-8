@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
-import axios from "axios";
-
 import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
 import Swal from "sweetalert2";
 const Feedback = () => {
-    const { axiosSecure } = UseAxiosSecure();
-    const { user } = useContext(AuthContext);
+  const defaultPhotoURL = "https://i.pinimg.com/1200x/0f/66/bc/0f66bc842998ed2c6f82f85f702b0e44.jpg";
+  
+  const { axiosSecure } = UseAxiosSecure();
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -58,9 +59,9 @@ const Feedback = () => {
               <input
                 id="name"
                 type="text"
-                              placeholder="Your name"
-                              defaultValue={user?.name}
-                required=""
+                              // placeholder="Your name"
+                              defaultValue={user?.displayName}
+                disabled
                 className="block w-full p-2 rounded focus:outline-none focus:ring focus:ri focus:ri bg-gray-100"
               />
             </div>
@@ -72,7 +73,7 @@ const Feedback = () => {
                 id="photo"
                 type="text"
                               placeholder="Your Photo"
-                              defaultValue={user?.photourl}
+                              defaultValue={user?.photoURL?`${user.photoURL}`:`${defaultPhotoURL}`}
                 required=""
                 className="block w-full p-2 rounded focus:outline-none focus:ring focus:ri focus:ri bg-gray-100"
               />
@@ -107,9 +108,9 @@ const Feedback = () => {
             <div>
               <button
                 type="submit"
-                className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ri bg-purple-600 focus:ri hover:ri text-gray-50"
+                className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ri brand-bg focus:ri hover:ri text-gray-50"
               >
-                Send
+                Send Feedback
               </button>
             </div>
           </form>
