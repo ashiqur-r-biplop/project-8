@@ -105,6 +105,12 @@ const MainDashBoard = () => {
       <ActiveLink to="/dashboard/postBus">
         <li>Post Bus</li>
       </ActiveLink>
+      <ActiveLink to="/dashboard/my-ticket">
+        <li>My Ticket</li>
+      </ActiveLink>
+      <ActiveLink to="/dashboard/post-notice">
+        <li>Post Notice</li>
+      </ActiveLink>
     </>
   );
 
