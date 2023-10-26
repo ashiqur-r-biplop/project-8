@@ -4,8 +4,10 @@ import { useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import payment from '../../../assets/payment.png'
+import { useNavigate } from "react-router";
 
 const BookTicket = () => {
+  const navigate = useNavigate();
   const loadUser = useContext(AuthContext);
   const { user } = loadUser;
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -125,7 +127,7 @@ const BookTicket = () => {
     setCardPass(e.target.form.cardPass.value);
   }
   const handleBookTicket = (bus) => {
-    if (cardNumber === "424242424242" || cardPass === "123456") {
+    if (cardNumber === "424242424242" && cardPass === "123456") {
       const busId = bus._id;
       const oldBookedSeat = bus.bookedSeat;
       console.log(oldBookedSeat);
@@ -163,6 +165,8 @@ const BookTicket = () => {
               confirmButtonText: "Cool",
             });
           }
+          navigate('/dashboard/my-ticket')
+
         })
         .catch(err => console.log(err))
 
