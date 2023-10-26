@@ -3,16 +3,20 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Myticket = () => {
   const [tickets, setTickets] = useState([]);
-  const loadUser = useContext(AuthContext);
-  const user = loadUser?.user;
+  const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  // const user = loadUser?.user;
   console.log(user?.email);
   useEffect(() => {
     fetch(`https://dhaka-bus-ticket-server.vercel.app/my-ticket/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setTickets(data));
+      .then((data) => {
+        setTickets(data);
+        setLoading(true);
+      });
   }, [user]);
   //   some change
-  if (!user) {
+  if (!loading) {
     return <p className="flex justify-center">Loading...</p>
   }
 console.log(tickets);
@@ -40,7 +44,7 @@ console.log(tickets);
                   index % 2 === 0 ? "text-orange-800 bg-slate-300" : "text-black bg-red-300"
                 }
               >
-               
+
                 <td className="hidden md:block">{user.name} </td>
                 <td className="">{user.email}<br />{user.phone}</td>
                 <td className="hidden md:block">{user.busType}</td>
