@@ -10,16 +10,17 @@ const PostNotesComponent = () => {
   const [notices, setNotices] = useState([]);
   const { NoticeControl, setNoticeControl } = useContext(AuthContext);
   const [note, setNote] = useState({});
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     axios
       .get("https://dhaka-bus-ticket-server.vercel.app/notices")
       .then((res) => {
-        if (!notices) {
-          setNotices(res.data);
-        }
+        setNotices(res.data);
+        setLoading(true);
       })
       .catch((err) => console.log(err));
   }, [NoticeControl]);
+  console.log(notices);
   const handleDelete = (id) => {
     axios
       .delete(`https://dhaka-bus-ticket-server.vercel.app/delete-notice/${id}`)
@@ -34,6 +35,9 @@ const PostNotesComponent = () => {
     const notice = notices.find((n) => n?._id == id);
     setNote(notice);
   };
+  if (!loading) {
+    return <>Loading....</>;
+  }
   return (
     <>
       <div className="md:p-10 p-3 border w-full">
@@ -45,7 +49,7 @@ const PostNotesComponent = () => {
         </label>
         <div className="w-full">
           <div className="flex flex-col gap-5 mt-10">
-            {notices.map((n, i) => {
+            {notices?.map((n, i) => {
               const { notice, createNoteDate, _id } = n;
               return (
                 <div key={i} className="border p-10">
