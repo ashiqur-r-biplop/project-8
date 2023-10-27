@@ -10,6 +10,8 @@ const Navbar = () => {
   const { user, logOut } = loadUser;
   const navigate = useNavigate();
 
+  console.log(user);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -89,38 +91,55 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            <div>
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="w-full h-full rounded-full">
-                  <div className="w-10 rounded-full flex justify-center items-center">
-                    <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
+            <div className=" flex justify-center items-center">
+              {user ? (
+                <>
+                  <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="w-full h-full rounded-full">
+                      <div className="w-10 rounded-full flex justify-center items-center">
+                        {user?.photoURL ? (
+                          <>
+                            <img
+                              src={
+                                "https://img.freepik.com/premium-photo/man-with-glasses-tie-with-tie-it_745528-2818.jpg?size=626&ext=jpg"
+                              }
+                              alt="Profile photo"
+                              className="rounded-full"
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
+                          </>
+                        )}
+                      </div>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
+                    >
+                      <li className="text-white mb-3">
+                        <a className="justify-between">
+                          <Link to="/dashboard/profile">Dashboard</Link>
+                        </a>
+                      </li>
+                      <li className="text-white mb-3">
+                        <a className="justify-between">
+                          <button onClick={logOut()}>Log out</button>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
-                >
-                  <li className="text-white mb-3">
-                    <a className="justify-between">
-                      <Link to="/dashboard/profile">Profile</Link>
-                    </a>
-                  </li>
-                  {user ? (
-                    <>
-                      <li className="text-white mb-3">
-                        <button onClick={handleLogout}>Logout</button>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li className="text-white mb-3">
-                        <Link to="/login">Login</Link>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </div>
+                </>
+              ) : (
+                <>
+                  <div className="text-white mb-3">
+                    <Link to="/login">Login</Link>
+                  </div>
+                </>
+              )}
             </div>
+            <div></div>
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
