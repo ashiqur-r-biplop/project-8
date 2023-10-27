@@ -864,6 +864,104 @@
     "busType": "Non-AC",
     "bookedSeat": []
   },
+
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Chittagong",
+    "to": "Chittagong",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+
   {
     "division": "Chittagong",
     "to": "Cox's Bazar",
@@ -1635,6 +1733,103 @@
   },
   {
     "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Khulna",
+    "to": "Khulna",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+
+  {
+    "division": "Khulna",
     "to": "Chuadanga",
     "date": "2023-10-25",
     "schedule": "7:00 AM",
@@ -2402,6 +2597,103 @@
     "busType": "Non-AC",
     "bookedSeat": []
   },
+
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rajshahi",
+    "to": "Rajshahi",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
   {
     "division": "Rajshahi",
     "to": "Bogra",
@@ -3823,6 +4115,102 @@
   },
   {
     "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
+    "to": "Sylhet",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Sylhet",
     "to": "Sunamganj",
     "date": "2023-10-27",
     "schedule": "7:00 AM",
@@ -4496,6 +4884,102 @@
   },
   {
     "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
+    "to": "Rangpur",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Rangpur",
     "to": "Thakurgaon",
     "date": "2023-10-27",
     "schedule": "7:00 AM",
@@ -4513,6 +4997,102 @@
   {
     "division": "Rangpur",
     "to": "Thakurgaon",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-25",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-25",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-26",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-26",
+    "schedule": "6:00 PM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-27",
+    "schedule": "7:00 AM",
+    "busType": "Non-AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
+    "date": "2023-10-27",
+    "schedule": "6:00 PM",
+    "busType": "AC",
+    "bookedSeat": []
+  },
+  {
+    "division": "Mymensingh",
+    "to": "Mymensingh",
     "date": "2023-10-27",
     "schedule": "6:00 PM",
     "busType": "Non-AC",

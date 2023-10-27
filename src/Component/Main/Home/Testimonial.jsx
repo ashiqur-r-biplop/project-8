@@ -32,7 +32,7 @@ const Testimonial = () => {
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div>
-        <p className="capitalize text-center md:text-4xl py-4">
+        <p className="capitalize text-center md:text-4xl py-10">
           {" "}
           What our Client Say About Us
         </p>

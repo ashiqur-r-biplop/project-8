@@ -1,864 +1,95 @@
 [
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-25",
     "schedule": "7:00 AM",
     "busType": "AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-25",
     "schedule": "7:00 AM",
     "busType": "Non-AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-25",
     "schedule": "6:00 PM",
     "busType": "AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-25",
     "schedule": "6:00 PM",
     "busType": "Non-AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-26",
     "schedule": "7:00 AM",
     "busType": "AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-26",
     "schedule": "7:00 AM",
     "busType": "Non-AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-26",
     "schedule": "6:00 PM",
     "busType": "AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-26",
     "schedule": "6:00 PM",
     "busType": "Non-AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-27",
     "schedule": "7:00 AM",
     "busType": "AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-27",
     "schedule": "7:00 AM",
     "busType": "Non-AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-27",
     "schedule": "6:00 PM",
     "busType": "AC",
     "bookedSeat": []
   },
   {
-    "division": "Mymensingh",
-    "to": "Jamalpur",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Netrokona",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Sherpur",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Lalmonirhat",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Nilphamari",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Panchagarh",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Thakurgaon",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Satkhira",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-25",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-25",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-26",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-26",
-    "schedule": "6:00 PM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-27",
-    "schedule": "7:00 AM",
-    "busType": "Non-AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
-    "date": "2023-10-27",
-    "schedule": "6:00 PM",
-    "busType": "AC",
-    "bookedSeat": []
-  },
-  {
-    "division": "Mymensingh",
-    "to": "Shariatpur",
+    "division": "Sylhet",
+    "to": "Sylhet",
     "date": "2023-10-27",
     "schedule": "6:00 PM",
     "busType": "Non-AC",

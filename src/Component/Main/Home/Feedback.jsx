@@ -32,7 +32,7 @@ const Feedback = () => {
       ticketId,
     };
 
-    console.log(name, photo, rating, feedbackMessage);
+    // console.log(name, photo, rating, feedbackMessage);
 
     axios
       .post("http://localhost:5000/user-feedback", userFeedback)
