@@ -132,11 +132,11 @@ const MainDashBoard = () => {
   );
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full">
       <div className="hidden lg:block">
         <Navbar />
       </div>
-      <div className="drawe mx-auto lg:pt-[73px]">
+      <div className="mx-auto lg:pt-[73px]">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content lg:flex">
           <div className="w-full lg:w-2/12 bg-gray-800 brand-color overflow-y-auto max-h-[100vh] lg:h-screen">
