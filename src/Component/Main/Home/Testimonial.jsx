@@ -16,15 +16,15 @@ const Testimonial = () => {
   const [slides, setSlides] = useState([]);
 
   useEffect(() => {
- fetch("http://localhost:5000/all-feedback")
-   .then((res) => res.json())
-   .then((data) => {
+    fetch("https://dhaka-bus-ticket-server.vercel.app/all-feedback")
+      .then((res) => res.json())
+      .then((data) => {
 
-     console.log(data.result);
-    //  console.log(data.result);
-     setSlides(data?.result);
-   });
-  },[])
+        console.log(data.result);
+        //  console.log(data.result);
+        setSlides(data?.result);
+      });
+  }, [])
 
   if (!slides) {
     return <p>loading ...</p>

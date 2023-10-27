@@ -15,11 +15,16 @@ const BookTicket = () => {
   const [displaySelectSeat, setDisplaySelectSeat] = useState(false);
   const [searchBus, setSearchBus] = useState(null);
 
+  // ****************Date Handle****************************
+  const currentDate = new Date();
+  const maxDate = new Date();
+  maxDate.setDate(currentDate.getDate() + 2);
+
   // Load All Bus:
   const [allBus, setAllBus] = useState([]);
   const [control, setControl] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/all-bus")
+    fetch("https://dhaka-bus-ticket-server.vercel.app/all-bus")
       .then((res) => res.json())
       .then((data) => {
         setAllBus(data);
@@ -145,7 +150,7 @@ const BookTicket = () => {
         bus_id: busId,
         updateBookedSeat: updateBookedSeat,
       };
-      fetch("http://localhost:5000/book-ticket", {
+      fetch("https://dhaka-bus-ticket-server.vercel.app/book-ticket", {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(updateTicketBooking),
@@ -171,7 +176,7 @@ const BookTicket = () => {
         .catch(err => console.log(err))
 
       // Booked Seat and Post it with User Information:
-      fetch('http://localhost:5000/book-my-ticket', {
+      fetch('https://dhaka-bus-ticket-server.vercel.app/book-my-ticket', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(bookedTicketUsingUserInformation)
@@ -270,7 +275,7 @@ const BookTicket = () => {
                             className="input input-bordered rounded-md border-orange-400"
                           />
                         </div>
-                        <div className="form-control ">
+                        <div className="form-control">
                           <label className="label">
                             <span className="label-text font-semibold text-lg">
                               Journey Date
@@ -281,6 +286,8 @@ const BookTicket = () => {
                             placeholder="Date"
                             name="date"
                             className="input input-bordered rounded-md border-orange-400"
+                            min={currentDate.toISOString().split("T")[0]} // Set min date to today
+                            max={maxDate.toISOString().split("T")[0]} // Set max date to 3 days from today
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-2 ">
@@ -465,11 +472,7 @@ const BookTicket = () => {
                             </div>
                           </>
                         )}
-
                         <div>
-                          {/* {useEffect(() => {
-                          selectedSeats?.map((seat) => <p>{seat}</p>);
-                        }, [selectedSeats])} */}
                         </div>
                       </div>
 
@@ -486,8 +489,7 @@ const BookTicket = () => {
           </div>
         </div>
 
-
-
+        {/* Modal Section */}
         <dialog id="my_modal_4" className="modal">
           <div className="modal-box w-8/12 md:w-3/12">
             <h3 className="font-bold text-xl font-bold text-center p-2 brand-color underline">Please Pay Here</h3>
