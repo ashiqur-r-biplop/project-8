@@ -40,15 +40,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/book-ticket",
-        element: <PrivateRoute>
-          <BookTicketComponent></BookTicketComponent>
-        </PrivateRoute> // done
+        element: (
+          <PrivateRoute>
+            <BookTicketComponent></BookTicketComponent>
+          </PrivateRoute>
+        ), // done
       },
       {
         path: "/book-bus",
-        element: <PrivateRoute>
-          <BookBusComponent></BookBusComponent>
-        </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <BookBusComponent></BookBusComponent>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/user-profile",
@@ -56,7 +60,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/user-feedback",
-        element: <Feedback></Feedback>
+        element: <Feedback></Feedback>,
       },
       {
         path: "/login",
@@ -87,11 +91,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/all-ticket",
-        element: <AllTicket></AllTicket> //For Admin
+        element: <AllTicket></AllTicket>, //For Admin
       },
       {
         path: "/dashboard/all-user",
-        element: <AllUsers></AllUsers> //For Admin
+        element: <AllUsers></AllUsers>, //For Admin
       },
       {
         path: "/dashboard/post-notice",

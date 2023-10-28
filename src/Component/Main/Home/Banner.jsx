@@ -11,7 +11,7 @@ const Banner = () => {
           <h1 className="text-yellow-200">Welcome </h1>
           <h1 className="text-white mt-2">To</h1>
 
-          <h1 className="brand-color mt-6">
+          <div className="brand-color mt-6">
             <Typewriter
               options={{
                 strings: ["Dhaka Bus Ticket"],
@@ -19,7 +19,7 @@ const Banner = () => {
                 loop: true,
               }}
             />
-          </h1>
+          </div>
           <p className="text-white text-xl mt-8">
             A largest online safe ticket destination where
           </p>
