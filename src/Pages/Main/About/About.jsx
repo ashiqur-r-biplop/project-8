@@ -121,7 +121,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:px-32 md:grid-cols-2 justify-center justify-items-center lg:grid-cols-3 gap-[1vw]">
           {datas.map((item, index) => {
             return (
-              <div className="text-center space-y-3 md:w-96 md:mb-0 mb-3 h-72 p-5 rounded-md  hover:shadow-[#2B9444] shadow-lg" key={index}>
+              <div className="text-center space-y-3 md:w-96 md:mb-0 mb-3 h-72 p-5 rounded-md  shadow-lg" key={index}>
                 <div className="flex justify-center items-center">
                   <img src={item.logo} alt="" />
                 </div>

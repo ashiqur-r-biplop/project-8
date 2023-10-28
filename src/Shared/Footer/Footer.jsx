@@ -7,9 +7,6 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 
- 
- 
- 
 const Footer = () => {
   return (
     <>
@@ -21,10 +18,14 @@ const Footer = () => {
               {/* Legal Section */}
               <div className="">
                 <div className="flex items-center">
-        <i className="brand-color text-3xl">Dhaka</i>
-        <img className="h-6 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
-        <i className="brand-color  text-3xl">Ticket</i>
-      </div>
+                  <i className="brand-color text-3xl">Dhaka</i>
+                  <img
+                    className="h-6 ms-1 rounded-sm -me-1"
+                    src="https://i.ibb.co/qWzZ2NC/bus3.png"
+                    alt=""
+                  />
+                  <i className="brand-color  text-3xl">Ticket</i>
+                </div>
 
                 <div className="mt-2">
                   <p className="py-1 text-[12px] text-gray-400">
