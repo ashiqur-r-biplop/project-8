@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { GrMenu } from "react-icons/gr";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
@@ -12,8 +12,6 @@ const MainDashBoard = () => {
   const navigate = useNavigate();
 
   const url = "https://dhaka-bus-ticket-server-two.vercel.app";
-
-  console.log(currentUser);
 
   useEffect(() => {
     const cu = async () => {
@@ -135,59 +133,20 @@ const MainDashBoard = () => {
   );
 
   return (
-    <div className="min-h-screen">
-      <div className="drawe mx-auto">
+    <div className="">
+      <div className="drawer mx-auto">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content lg:flex">
-          <div className="w-full lg:w-2/12 bg-gray-800 brand-color overflow-y-auto max-h-[100vh] lg:h-screen">
-            <div className="flex justify-start">
-              <div className="flex-none lg:hidden">
-                <label
-                  htmlFor="my-drawer-3"
-                  className="btn rounded-sm btn-square btn-ghost bg-gray-800"
-                >
-                  <GrMenu className="w-6 h-6" />
-                </label>
-              </div>
-              <div className="lg:p-5 p-1 w-full border-b">
-                {/* <div>
-                  <div className="flex justify-center items-center">
-                    <button
-                      onClick={() => handleLogOut()}
-                      className="text-white hover:text-black bg-red-500 hover:bg-white py-1 rounded-lg px-1"
-                    >
-                      Logout Account!
-                    </button>
-                  </div>
-                  <div className="flex justify-center items-center">
-                    <button
-                      onClick={() => handleDeleteUserFromFirebaseAndDatabase(currentUser._id)}
-                      className="text-white hover:text-black bg-yellow-500 hover:bg-white py-1 rounded-lg px-1"
-                    >
-                      Delete Account!
-                    </button>
-                  </div>
-                </div> */}
-
-                <div className="flex justify-start items-start md:block">
-                  <div className="flex justify-center items-center">
-                    <img
-                      src={currentUser?.photo}
-                      className="lg:w-20 w-10 lg:h-20 h-10 rounded-full"
-                      alt="Photo"
-                    />
-                  </div>
-                  <div>
-                    <h1 className="lg:text-center ms-2 lg:ms-0">
-                      {currentUser?.name}
-                    </h1>
-                    <h3 className="lg:text-center ms-2 lg:ms-0 text-xs">
-                      {currentUser.email}
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="w-full lg:h-screen lg:w-2/12 bg-gray-800 brand-color overflow-y-auto">
+            <Link to="/" className="flex items-center justify-center h-[10vh]">
+              <span className="brand-color text-3xl">Dhaka</span>
+              <img
+                className="h-6 ms-1 rounded-sm -me-1"
+                src="https://i.ibb.co/qWzZ2NC/bus3.png"
+                alt=""
+              />
+              <span className="brand-color  text-3xl">Ticket</span>
+            </Link>
             <div className="flex-none hidden lg:block mt-4">
               <ul className="menu-vertical">
                 <ActiveLink to="/dashboard/profile">

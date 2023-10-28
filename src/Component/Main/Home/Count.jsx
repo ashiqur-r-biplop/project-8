@@ -8,7 +8,7 @@ const Count = () => {
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div className="mt-12 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { end: 100, postFix: "Million+", text: "Tickets Sold" },
             { end: 300, postFix: "+", text: "Routes" },
@@ -24,7 +24,7 @@ const Count = () => {
                   t += "v.inViewport: " + v.inViewport;
                 }}
               >
-                <div className="brand-color bg-red-300 text-center p-8 rounded-lg ">
+                <div className="brand-color bg-black text-center p-8 rounded-lg ">
                   <div className="text-4xl">
                     <NumberCounter
                       end={s?.end}

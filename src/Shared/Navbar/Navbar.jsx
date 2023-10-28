@@ -100,36 +100,36 @@ const Navbar = () => {
 
             {/* btn for large device */}
             <div>
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="w-full h-full rounded-full">
-                  <div className="w-10 rounded-full flex justify-center items-center">
-                    <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
-                  </div>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
-                >
-                  <li className="text-white mb-3">
-                    <Link to="/dashboard/profile" className="justify-between">
-                      Profile
-                    </Link>
-                  </li>
-                  {user ? (
-                    <>
-                      <li className="text-white mb-3">
-                        <button onClick={handleLogout}>Logout</button>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li className="text-white mb-3">
-                        <Link to="/login">Login</Link>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </div>
+              {user ? (
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="w-full h-full rounded-full cursor-pointer"
+                  >
+                    <div className="w-10 rounded-full flex justify-center items-center">
+                      <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
+                  >
+                    <li className="text-white mb-3">
+                      <Link to={`user-profile`} className="justify-between">
+                        Profile
+                      </Link>
+                    </li>
+
+                    <li className="text-white mb-3">
+                      <button onClick={handleLogout}>Logout</button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <li className="text-white mb-3 list-none">
+                  <Link to="/login">Login</Link>
+                </li>
+              )}
             </div>
 
             {/* menu btn for only mobile device */}
