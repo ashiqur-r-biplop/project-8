@@ -61,15 +61,21 @@ const Navbar = () => {
 
   return (
     <header className="w-full  z-[50] fixed top-0">
-      <nav className={`py-4  lg:px-14 px-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
+      <nav
+        className={`py-4  lg:px-14 px-4 bg-gray-900 ${
+          isSticky ? "shadow" : ""
+        }`}
+      >
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
-            <Link to="/">
-              <div className="flex items-center">
-                <i className="brand-color text-3xl">Dhaka</i>
-                <img className="h-6 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
-                <i className="brand-color  text-3xl">Ticket</i>
-              </div>
+            <Link to="/" className="flex items-center">
+              <span className="brand-color text-3xl">Dhaka</span>
+              <img
+                className="h-6 ms-1 rounded-sm -me-1"
+                src="https://i.ibb.co/qWzZ2NC/bus3.png"
+                alt=""
+              />
+              <span className="brand-color  text-3xl">Ticket</span>
             </Link>
             <ul className="md:flex space-x-12 hidden">
               {navItem.map(({ link, path }) => (
@@ -81,7 +87,9 @@ const Navbar = () => {
                   className={({ isActive }) => {
                     return (
                       "px-2 py-2 rounded-md" +
-                      (isActive ? "transition-all rounded-md brand-color  duration-500 " : " text-white hover:rounded-md")
+                      (isActive
+                        ? "transition-all rounded-md brand-color  duration-500 "
+                        : " text-white hover:rounded-md")
                     );
                   }}
                 >
@@ -91,55 +99,56 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            <div className="flex justify-center items-center">
-              {user ? (
-                <div className="dropdown dropdown-end">
-                  <label tabIndex={0} className="w-full h-full rounded-full">
-                    <div className="w-10 rounded-full flex justify-center items-center">
-                      {user.photoURL ? (
-                        <img src={user.photoURL} alt="Profile photo" className="rounded-full" />
-                      ) : (
-                        <img
-                          src="https://img.freepik.com/premium-photo/man-with-glasses-tie-with-tie-it_745528-2818.jpg?size=626&ext=jpg" // Replace with your default image URL
-                          alt="Default Profile"
-                          className="rounded-full"
-                        />
-                      )}
-                    </div>
-                  </label>
-                  <ul
-                    tabIndex={0}
-                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
-                  >
-                    <li className="text-white mb-3">
-                      <a className="justify-between">
-                        <Link to="/dashboard/profile">Dashboard</Link>
-                      </a>
-                    </li>
-                    <li className="text-white mb-3">
-                      <a className="justify-between">
-                        <button onClick={logOut}>Log out</button>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <div className="text-white mb-3">
-                  <Link to="/login">Login</Link>
-                </div>
-              )}
+            <div>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="w-full h-full rounded-full">
+                  <div className="w-10 rounded-full flex justify-center items-center">
+                    <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
+                >
+                  <li className="text-white mb-3">
+                    <Link to="/dashboard/profile" className="justify-between">
+                      Profile
+                    </Link>
+                  </li>
+                  {user ? (
+                    <>
+                      <li className="text-white mb-3">
+                        <button onClick={handleLogout}>Logout</button>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="text-white mb-3">
+                        <Link to="/login">Login</Link>
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </div>
             </div>
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
-              <button onClick={toggleMenu} className="focus:outline-none focus:text-gray-500">
+              <button
+                onClick={toggleMenu}
+                className="focus:outline-none focus:text-gray-500"
+              >
                 {isMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
               </button>
             </div>
           </div>
 
           {/* items for mobile device*/}
-          <div className={`space-y-4 px-4 mt-16 brand-bg ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+          <div
+            className={`space-y-4 px-4 mt-16 brand-bg ${
+              isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
+            }`}
+          >
             {navItem.map(({ link, path }) => (
               <NavLink
                 to={path}
@@ -149,7 +158,9 @@ const Navbar = () => {
                 className={({ isActive }) => {
                   return (
                     "grid p-2 my-3 rounded-md " +
-                    (isActive ? "transition-all rounded-md brand-color  duration-500 " : " text-white hover:rounded-md")
+                    (isActive
+                      ? "transition-all rounded-md brand-color  duration-500 "
+                      : " text-white hover:rounded-md")
                   );
                 }}
               >

@@ -19,15 +19,13 @@ const Main = () => {
     );
   }
   return (
-    <div className="">
-      <div>
-        <Navbar></Navbar>
-        <div className="md:min-h-[calc(100vh-73px)]">
-          <Outlet></Outlet>
-        </div>
-        <Footer></Footer>
+    <>
+      <Navbar></Navbar>
+      <div className="md:min-h-[calc(100vh-73px)]">
+        <Outlet></Outlet>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 };
 

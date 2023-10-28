@@ -8,70 +8,37 @@ const Count = () => {
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div className="mt-12 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ScrollAnimation
-            animateIn="flipInX"
-            afterAnimatedIn={function afterAnimatedIn(v) {
-              var t = "Animate In finished.\n";
-              t += "v.onScreen: " + v.onScreen + "\n";
-              t += "v.inViewport: " + v.inViewport;
-            }}
-          >
-            <div className="brand-color bg-black text-center p-8 rounded-lg">
-              <h1 className="text-4xl">
-                <NumberCounter
-                  end={100}
-                  delay={1}
-                  className="increment"
-                  preFix=""
-                  postFix="Million+"
-                />
-              </h1>
-              <p className="text-white text-2xl mt-4">Tickets Sold</p>
-            </div>
-          </ScrollAnimation>
-          <ScrollAnimation
-            animateIn="flipInX"
-            afterAnimatedIn={function afterAnimatedIn(v) {
-              var t = "Animate In finished.\n";
-              t += "v.onScreen: " + v.onScreen + "\n";
-              t += "v.inViewport: " + v.inViewport;
-            }}
-          >
-            <div className="brand-color bg-black text-center p-8 rounded-lg">
-              <h1 className="text-4xl">
-                <NumberCounter
-                  end={300}
-                  delay={1}
-                  className="increment"
-                  preFix=""
-                  postFix="+"
-                />
-              </h1>
-              <p className="text-white text-2xl mt-4">Routes</p>
-            </div>
-          </ScrollAnimation>
-          <ScrollAnimation
-            animateIn="flipInX"
-            afterAnimatedIn={function afterAnimatedIn(v) {
-              var t = "Animate In finished.\n";
-              t += "v.onScreen: " + v.onScreen + "\n";
-              t += "v.inViewport: " + v.inViewport;
-            }}
-          >
-            <div className="brand-color bg-black text-center p-8 rounded-lg">
-              <h1 className="text-4xl">
-                <NumberCounter
-                  end={10}
-                  delay={1}
-                  className="increment"
-                  preFix=""
-                  postFix="Million+"
-                />
-              </h1>
-              <p className="text-white text-2xl mt-4">Happy Users</p>
-            </div>
-          </ScrollAnimation>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border">
+          {[
+            { end: 100, postFix: "Million+", text: "Tickets Sold" },
+            { end: 300, postFix: "+", text: "Routes" },
+            { end: 10, postFix: "Million+", text: "Happy Users" },
+          ].map((s, i) => {
+            return (
+              <ScrollAnimation
+                key={i}
+                animateIn="flipInX"
+                afterAnimatedIn={function afterAnimatedIn(v) {
+                  var t = "Animate In finished.\n";
+                  t += "v.onScreen: " + v.onScreen + "\n";
+                  t += "v.inViewport: " + v.inViewport;
+                }}
+              >
+                <div className="brand-color bg-red-300 text-center p-8 rounded-lg ">
+                  <div className="text-4xl">
+                    <NumberCounter
+                      end={s?.end}
+                      delay={1}
+                      className="increment"
+                      preFix=""
+                      postFix={s?.postFix}
+                    />
+                  </div>
+                  <p className="text-white text-2xl mt-4">{s?.text}</p>
+                </div>
+              </ScrollAnimation>
+            );
+          })}
         </div>
       </div>
     </div>

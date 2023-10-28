@@ -11,7 +11,7 @@ const MainDashBoard = () => {
   const { user, logOut, deleteAnUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const url = "http://localhost:5000";
+  const url = "https://dhaka-bus-ticket-server-two.vercel.app";
 
   console.log(currentUser);
 
@@ -135,17 +135,17 @@ const MainDashBoard = () => {
   );
 
   return (
-    <div className="min-h-screen w-full">
-      <div className="hidden lg:block">
-        <Navbar />
-      </div>
-      <div className="mx-auto lg:pt-[73px]">
+    <div className="min-h-screen">
+      <div className="drawe mx-auto">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content lg:flex">
           <div className="w-full lg:w-2/12 bg-gray-800 brand-color overflow-y-auto max-h-[100vh] lg:h-screen">
             <div className="flex justify-start">
               <div className="flex-none lg:hidden">
-                <label htmlFor="my-drawer-3" className="btn rounded-sm btn-square btn-ghost bg-gray-800">
+                <label
+                  htmlFor="my-drawer-3"
+                  className="btn rounded-sm btn-square btn-ghost bg-gray-800"
+                >
                   <GrMenu className="w-6 h-6" />
                 </label>
               </div>
@@ -171,11 +171,19 @@ const MainDashBoard = () => {
 
                 <div className="flex justify-start items-start md:block">
                   <div className="flex justify-center items-center">
-                    <img src={currentUser?.photo} className="lg:w-20 w-10 lg:h-20 h-10 rounded-full" alt="Photo" />
+                    <img
+                      src={currentUser?.photo}
+                      className="lg:w-20 w-10 lg:h-20 h-10 rounded-full"
+                      alt="Photo"
+                    />
                   </div>
                   <div>
-                    <h1 className="lg:text-center ms-2 lg:ms-0">{currentUser?.name}</h1>
-                    <h3 className="lg:text-center ms-2 lg:ms-0 text-xs">{currentUser.email}</h3>
+                    <h1 className="lg:text-center ms-2 lg:ms-0">
+                      {currentUser?.name}
+                    </h1>
+                    <h3 className="lg:text-center ms-2 lg:ms-0 text-xs">
+                      {currentUser.email}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -197,7 +205,10 @@ const MainDashBoard = () => {
           </div>
         </div>
         <div className="drawer-side">
-          <label htmlFor="my-drawer-3" className="drawer-overlay overflow-x-auto max-h-[100vh]"></label>
+          <label
+            htmlFor="my-drawer-3"
+            className="drawer-overlay overflow-x-auto max-h-[100vh]"
+          ></label>
           <ul className="p-4 w-52 bg-gray-800 text-white overflow-y-auto">
             <ActiveLink to="/dashboard/profile">
               <li>Profile</li>
