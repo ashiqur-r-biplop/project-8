@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import BusRoute from "../../../Shared/BusRoute/BusRoute";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
@@ -10,65 +10,66 @@ const BookBusComponent = () => {
   const loadUser = useContext(AuthContext);
   const user = loadUser.user;
   const { displayName, email } = user;
+  const modalRef = useRef(null);
 
   // *****************Card Information**********************
-  // const amount = selectedSeats.length * 650;
   const [cardNumber, setCardNumber] = useState('');
   const [cardPass, setCardPass] = useState('');
   const [totalBus, setTotalBus] = useState(0);
-  const amount = totalBus * 50000;
+  const amount = totalBus ? parseInt(totalBus) * 50000 : 1 * 50000;
 
 
   const handleCard = e => {
-    e.preventDefault();
     setCardNumber(e.target.form.cardNumber.value);
     setCardPass(e.target.form.cardPass.value);
+    // modalRef.current.showModal();
   }
 
   // *********Handle Modal****************************
-  const handleModal = (event) => {
+  const [bookBusData, setBookBusData] = useState({});
+  const handleModal = (e) => {
+    e.preventDefault()
+    const form = e.target;
+    const journeyDate = form.journeyDate.value;
+    const returnDate = form.returnDate.value;
+    const busType = form.busType.value;
+    const originCity = form.originCity.value;
+    const destinationCity = form.destinationCity.value;
+    const seats = form.seats.value;
+    const buses = form.buses.value;
+    const email = form.email.value;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const companyName = form.companyName.value;
+    const address = form.address.value;
+    const optionalPhone = form.optional_phone.value;
+    const data = {
+      journeyDate,
+      email,
+      returnDate,
+      busType,
+      originCity,
+      destinationCity,
+      seats,
+      optionalPhone,
+      buses,
+      name,
+      phone,
+      companyName,
+      address,
+      payment: "success",
+      amount: amount
+    };
+    setBookBusData(data)
     document.getElementById('my_modal_4').showModal();
-
   };
 
 
   // *****************Book Bus Post Data*********************
-  const handleData = (e) => {
+  const handleData = (information) => {
     console.log(cardNumber);
-    e.preventDefault();
-    if (cardNumber == "424242424242" || cardPass == "123456") {
-      const form = e.target;
-      const journeyDate = form.journeyDate.value;
-      const returnDate = form.returnDate.value;
-      const busType = form.busType.value;
-      const originCity = form.originCity.value;
-      const destinationCity = form.destinationCity.value;
-      const seats = form.seats.value;
-      const buses = form.buses.value;
-      const email = form.email.value;
-      const name = form.name.value;
-      const phone = form.phone.value;
-      const companyName = form.companyName.value;
-      const address = form.address.value;
-      const optionalPhone = form.optional_phone.value;
-
-      const data = {
-        journeyDate,
-        email,
-        returnDate,
-        busType,
-        originCity,
-        destinationCity,
-        seats,
-        optionalPhone,
-        buses,
-        name,
-        phone,
-        companyName,
-        address,
-        payment: "success",
-      };
-      console.log(data);
+    console.log(information);
+    if (cardNumber == "424242424242" && cardPass == "123456") {
 
       // ********Book Bus Post Method****************
       fetch('https://dhaka-bus-ticket-server-two.vercel.app/book-bus', {
@@ -76,10 +77,11 @@ const BookBusComponent = () => {
         headers: {
           'content-type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(information)
       })
         .then(res => res.json())
         .then(data => {
+          console.log(data);
           if (data.insertedId) {
             Swal.fire({
               title: "Booked Bus Successfully!",
@@ -88,6 +90,7 @@ const BookBusComponent = () => {
               confirmButtonText: "Thank You",
             });
           }
+
         })
         .catch(err => {
           console.log(err);
@@ -361,16 +364,16 @@ const BookBusComponent = () => {
             <form method="dialog">
               {/* if there is a button, it will close the modal */}
               <button
-                onSubmit={handleData}
-                className="btn btn-block brand-btn mt-2"
+                onClick={() => handleData(bookBusData)}
+                className="btn btn-block brand-btn mt-2" ref={modalRef}
               >Pay</button>
               <button className="btn btn-block bg-black text-white mt-2 hover:bg-black hover:text-orange-500">Close</button>
             </form>
           </div>
         </div>
-      </dialog>
+      </dialog >
       <BusRoute></BusRoute>
-    </div>
+    </div >
   )
 };
 
