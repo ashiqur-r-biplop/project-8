@@ -7,6 +7,7 @@ import {
   FaFacebook,
   FaLinkedin,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -77,9 +78,9 @@ const Footer = () => {
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     Train Tickets
                   </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to='/faq' className="link link-hover block text-base py-1 lg:text-lg">
                     FAQ
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* Quick links Section */}

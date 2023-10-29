@@ -15,12 +15,11 @@ import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
 import Feedback from "../Component/Main/Home/Feedback";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
-
+import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import PrivateRoute from "../Hook/PrivateRoute";
-import Myticket from '../Pages/Dashboard/Myticket/Myticket';
-
+import Faq from "../Pages/Main/Faq/Faq";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+          path:'/faq',
+          element:<Faq></Faq>
       },
       {
         path: "/book-ticket",
