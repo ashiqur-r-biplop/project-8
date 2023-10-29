@@ -1,7 +1,12 @@
-import React from "react";
+
 import './Banner';
 
 const TicketBookingSteps = () => {
+
+
+
+
+
     const steps = [
       {
         serial: 1,
@@ -38,13 +43,21 @@ const TicketBookingSteps = () => {
           expexted bus
         </p>
       </div>
-      <div className="grid items-center grid-cols-1 md:grid-cols-4 py-6 gap-x-4">
+      <div className="grid items-center grid-cols-1 md:grid-cols-4 py-6 gap-x-6 mb-8" >
         {steps.map((step, index) => (
-          <div key={index} className="group shadow-xl p-4">
+          <div
+            key={index}
+            className={`group shadow-xl rounded-md md:py-8 md:px-4 ${
+              index === 0 ? "first-child" : ""
+              }`}
+
+          >
             <div className="childDiv mx-auto rounded-sm text-white text-center flex items-center justify-center w-[50px] h-[40px] my-4 bg-orange-500">
               <p>{step.serial}</p>
             </div>
-            <h1 className="brand-color capitalize text-center pb-2 heading">{step.title}</h1>
+            <h1 className="brand-color capitalize text-center pb-2 heading">
+              {step.title}
+            </h1>
             <p className="text-xs text-center">{step.description}</p>
           </div>
         ))}

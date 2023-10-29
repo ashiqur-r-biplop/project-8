@@ -42,9 +42,10 @@ body{
 }
 
 .group:hover{
-transition: background-color 0.7s ease;
+transition: background-color 1s ease;
 background-color: orangered;
 color:white;
+transform:scale(1.1);
 
 }
 .group:hover h1{
@@ -53,6 +54,19 @@ color:white;
 .group:hover .childDiv{
     background-color: white;
     color:orangered;
+}
+.first-child {
+  transform: scale(1.1);
+  background-color: orangered;
+  color:white;
+}
+.first-child>.childDiv{
+    background-color: white;
+    color:orangered;
+
+}
+.first-child>h1{
+    color:white;
 }
 /* .heading:hover{
     color:white;
