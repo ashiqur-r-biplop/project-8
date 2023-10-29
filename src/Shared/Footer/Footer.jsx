@@ -1,5 +1,4 @@
 // import { BsApple, BsLinkedin } from "react-icons/bs";
-import { Link } from 'react-router-dom';
 import {
   FaApple,
   FaGooglePlay,
