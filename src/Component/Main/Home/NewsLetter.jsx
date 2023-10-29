@@ -3,7 +3,7 @@ import React from 'react'
 
 const NewsLetter = () => {
  return (
-   <div className="max-w-[1200px] mx-5 py-6 md:mx-auto">
+   <div className="max-w-[1200px]  py-6  mx-auto">
      <section className="brand-bg opacity-90">
        <div className="p-8 md:p-10 lg:px-12 lg:py-20">
          <div className="mx-auto max-w-lg text-center">
@@ -39,7 +39,7 @@ const NewsLetter = () => {
              >
                <span className="text-sm font-medium"> Send Email </span>
 
-               
+
              </button>
            </form>
          </div>
