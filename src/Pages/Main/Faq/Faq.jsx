@@ -5,7 +5,7 @@ const Faq = () => {
      <div className="container">
       {/*  */}
 
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero md:h-[50vh] bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img src={gimg} className="max-w-sm rounded-lg shadow-2xl" />
           <div>
