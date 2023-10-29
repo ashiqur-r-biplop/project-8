@@ -69,13 +69,13 @@ const Navbar = () => {
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
             <Link to="/" className="flex items-center">
-              <span className="brand-color text-3xl">Dhaka</span>
+              <span className="brand-color text-2xl md:text-3xl">Dhaka</span>
               <img
                 className="h-6 ms-1 rounded-sm -me-1"
                 src="https://i.ibb.co/qWzZ2NC/bus3.png"
                 alt=""
               />
-              <span className="brand-color  text-3xl">Ticket</span>
+              <span className="brand-color  text-2xl md:text-3xl">Ticket</span>
             </Link>
             <ul className="md:flex space-x-12 hidden">
               {navItem.map(({ link, path }) => (
@@ -145,7 +145,7 @@ const Navbar = () => {
 
           {/* items for mobile device*/}
           <div
-            className={`space-y-4 px-4 mt-16 brand-bg ${
+            className={`space-y-4 px-4 mt-16 bg-gray-800 ${
               isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
             }`}
           >

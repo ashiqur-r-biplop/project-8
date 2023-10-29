@@ -1,4 +1,5 @@
 // import { BsApple, BsLinkedin } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 import {
   FaApple,
   FaGooglePlay,
@@ -8,9 +9,6 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
- 
- 
- 
 const Footer = () => {
   return (
     <>
@@ -22,10 +20,14 @@ const Footer = () => {
               {/* Legal Section */}
               <div className="">
                 <div className="flex items-center">
-        <i className="brand-color text-3xl">Dhaka</i>
-        <img className="h-6 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
-        <i className="brand-color  text-3xl">Ticket</i>
-      </div>
+                  <i className="brand-color text-3xl">Dhaka</i>
+                  <img
+                    className="h-6 ms-1 rounded-sm -me-1"
+                    src="https://i.ibb.co/qWzZ2NC/bus3.png"
+                    alt=""
+                  />
+                  <i className="brand-color  text-3xl">Ticket</i>
+                </div>
 
                 <div className="mt-2">
                   <p className="py-1 text-[12px] text-gray-400">
@@ -57,9 +59,9 @@ const Footer = () => {
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     Terms of Use
                   </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to="/contact" className="link link-hover block text-base py-1 lg:text-lg">
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
 
