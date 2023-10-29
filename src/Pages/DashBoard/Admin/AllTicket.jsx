@@ -4,7 +4,7 @@ const AllTicket = () => {
   const [allTicket, setAllTicket] = useState([]);
 
   useEffect(() => {
-    fetch('https://dhaka-bus-ticket-server.vercel.app/all-ticket')
+    fetch('https://dhaka-bus-ticket-server-two.vercel.app/all-ticket')
       .then(res => res.json())
       .then(data => {
         setAllTicket(data)

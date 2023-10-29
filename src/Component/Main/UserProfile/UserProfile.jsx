@@ -9,7 +9,7 @@ const UserProfile = () => {
     "https://i.pinimg.com/1200x/0f/66/bc/0f66bc842998ed2c6f82f85f702b0e44.jpg";
 
   const { user } = useContext(AuthContext);
-  // console.log(user);
+  console.log(user);
   const userEmail = user?.email;
   const photoURL = user?.photoURL;
   // console.log(userEmail);
@@ -21,7 +21,7 @@ const UserProfile = () => {
     try {
       if (userEmail) {
         const response = await fetch(
-          `http://localhost:5000/single-user?email=${userEmail}`
+          `https://dhaka-bus-ticket-server-two.vercel.app/single-user?email=${userEmail}`
         );
         if (!response.ok) {
           throw new Error("failed to fetch");
@@ -34,6 +34,7 @@ const UserProfile = () => {
       console.log("Error fetching data", error);
     }
   };
+  console.log(userEmail);
   useEffect(() => {
     fetchData();
   }, [userEmail, control]);
@@ -55,10 +56,11 @@ const UserProfile = () => {
     const name = form.name.value;
     const number = form.phone.value;
     const userInfo = { name, number };
-    console.log(userInfo)
+    console.log(userInfo);
+    const url = ""
     try {
       axios
-        .patch(`http://localhost:5000/single-user/${currentUser._id}`, userInfo)
+        .patch(`https://dhaka-bus-ticket-server-two.vercel.app/single-user/${currentUser._id}`, userInfo)
         .then((res) => {
           console.log(res.data);
 
@@ -115,8 +117,9 @@ const UserProfile = () => {
 
             <button
               className="flex items-center justify-center w-full p-3 font-semibold  rounded-md bg-orange-600 text-gray-50"
-              onClick={() => document.getElementById("my_modal_1").showModal()}
+              onClick={() => document.getElementById("my_modal_3").showModal()}
             >
+              {" "}
               Update Profile
             </button>
           </div>
@@ -131,7 +134,10 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      <UpdateUserProfileModal currentUser={currentUser} handleFormSubmit={handleFormSubmit}></UpdateUserProfileModal>
+      <UpdateUserProfileModal
+        currentUser={currentUser}
+        handleFormSubmit={handleFormSubmit}
+      ></UpdateUserProfileModal>
     </>
   );
 };

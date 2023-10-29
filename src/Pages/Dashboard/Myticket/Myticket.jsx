@@ -9,7 +9,7 @@ const Myticket = () => {
   const [loading, setLoading] = useState(false);
   console.log(user.email);
   useEffect(() => {
-    fetch(`https://dhaka-bus-ticket-server.vercel.app/my-ticket/${user?.email}`)
+    fetch(`https://dhaka-bus-ticket-server-two.vercel.app/my-ticket/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setTickets(data);

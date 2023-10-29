@@ -10,24 +10,20 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-
 const Testimonial = () => {
-
   const [slides, setSlides] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
- fetch("http://localhost:5000/all-feedback")
-   .then((res) => res.json())
-   .then((data) => {
+    fetch("https://dhaka-bus-ticket-server-two.vercel.app/all-feedback")
+      .then((res) => res.json())
+      .then((data) => {
+        setSlides(data?.result);
+        setLoading(false);
+      });
+  }, []);
 
-     console.log(data.result);
-    //  console.log(data.result);
-     setSlides(data?.result);
-   });
-  },[])
-
-  if (!slides) {
-    return <p>loading ...</p>
+  if (loading) {
+    return <p>loading ...</p>;
   }
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
@@ -44,10 +40,6 @@ const Testimonial = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        // navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
@@ -58,7 +50,7 @@ const Testimonial = () => {
               className="bg-white w-full h-full flex flex-col  my-6 shadow-lg"
             >
               <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 bg-gray-50">
-                <p className="relative px-6 py-1 text-lg italic text-center text-gray-800">
+                <div className="relative px-6 py-1 text-lg italic text-center text-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -78,18 +70,18 @@ const Testimonial = () => {
                     <path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
                     <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
                   </svg>
-                </p>
+                </div>
               </div>
               <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-black text-gray-50">
                 <img
-                  src={slide?.photo}
+                  src={slide?.photo || 'fallback-image-url.jpg'}
                   alt=""
                   className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full bg-gray-500"
                 />
                 <p className="text-xl font-semibold brand-color">
                   {slide?.name}
                 </p>
-                <p>
+                <div>
                   <StarRatings
                     rating={parseInt(`${slide?.rating}`)}
                     starRatedColor="#FF4500"
@@ -97,7 +89,7 @@ const Testimonial = () => {
                     numberOfStars={5}
                     name="rating"
                   />
-                </p>
+                </div>
               </div>
             </div>
           </SwiperSlide>

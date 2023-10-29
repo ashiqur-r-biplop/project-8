@@ -13,7 +13,7 @@ const PostNotesComponent = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("https://dhaka-bus-ticket-server.vercel.app/notices")
+      .get("https://dhaka-bus-ticket-server-two.vercel.app/notices")
       .then((res) => {
         setNotices(res.data);
         setLoading(true);
@@ -23,7 +23,7 @@ const PostNotesComponent = () => {
   console.log(notices);
   const handleDelete = (id) => {
     axios
-      .delete(`https://dhaka-bus-ticket-server.vercel.app/delete-notice/${id}`)
+      .delete(`https://dhaka-bus-ticket-server-two.vercel.app/delete-notice/${id}`)
       .then((res) => {
         if (res.data?.deletedCount > 0) {
           setNoticeControl(!NoticeControl);

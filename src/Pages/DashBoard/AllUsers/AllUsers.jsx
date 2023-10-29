@@ -6,7 +6,7 @@ const AllUsers = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://dhaka-bus-ticket-server.vercel.app/users")
+    fetch("https://dhaka-bus-ticket-server-two.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -68,7 +68,7 @@ const AllUsers = () => {
                   <tr
                     key={index}
                     className={
-                      index % 2 === 0 ? "text-green-800 bg-green-100 border-b-2 border-green-500" : "text-orange-700 bg-yellow-100 border-b-2 border-yellow-500"
+                      index % 2 === 0 ? "text-green-700 bg-green-100 border-b-2 border-green-300" : "text-orange-700 bg-yellow-100 border-b-2 border-yellow-500"
                     }
                   >
                     <td className="md:flex md:items-center md:gap-2">
