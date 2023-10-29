@@ -13,8 +13,13 @@ import BookBusComponent from "../Component/Main/BookBus/BookBusComponent";
 import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
 import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
+import Feedback from "../Component/Main/Home/Feedback";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
-import Myticket from "../Pages/DashBoard/Myticket/Myticket";
+
+import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
+import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
+import PrivateRoute from "../Hook/PrivateRoute";
+import Myticket from '../Pages/Dashboard/Myticket/Myticket';
 
 
 export const router = createBrowserRouter([
@@ -37,15 +42,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "/book-ticket",
-        element: <BookTicketComponent></BookTicketComponent>, // done
+        element: (
+          <PrivateRoute>
+            <BookTicketComponent></BookTicketComponent>
+          </PrivateRoute>
+        ), // done
       },
       {
         path: "/book-bus",
-        element: <BookBusComponent></BookBusComponent>,
+        element: (
+          <PrivateRoute>
+            <BookBusComponent></BookBusComponent>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/user-profile",
         element: <UserProfile></UserProfile>, // done
+      },
+      {
+        path: "/user-feedback",
+        element: <Feedback></Feedback>,
       },
       {
         path: "/login",
@@ -73,6 +90,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/my-ticket",
         element: <Myticket></Myticket>,
+      },
+      {
+        path: "/dashboard/all-ticket",
+        element: <AllTicket></AllTicket>, //For Admin
+      },
+      {
+        path: "/dashboard/all-user",
+        element: <AllUsers></AllUsers>, //For Admin
       },
       {
         path: "/dashboard/post-notice",

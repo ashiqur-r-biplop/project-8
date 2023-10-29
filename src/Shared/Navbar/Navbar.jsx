@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaUserAlt } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 const Navbar = () => {
@@ -9,6 +9,8 @@ const Navbar = () => {
   const loadUser = useContext(AuthContext);
   const { user, logOut } = loadUser;
   const navigate = useNavigate();
+
+  console.log(user);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -66,17 +68,15 @@ const Navbar = () => {
       >
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
-            <NavLink to="/">
-              <div className="flex bg-gray-900 items-center">
-                <i className="brand-color text-3xl">Dhaka</i>
-                <img
-                  className="h-6 ms-1 -me-1"
-                  src="https://i.ibb.co/qWzZ2NC/bus3.png"
-                  alt=""
-                />
-                <i className="brand-color  text-3xl">Ticket</i>
-              </div>
-            </NavLink>
+            <Link to="/" className="flex items-center">
+              <span className="brand-color text-2xl md:text-3xl">Dhaka</span>
+              <img
+                className="h-6 ms-1 rounded-sm -me-1"
+                src="https://i.ibb.co/qWzZ2NC/bus3.png"
+                alt=""
+              />
+              <span className="brand-color  text-2xl md:text-3xl">Ticket</span>
+            </Link>
             <ul className="md:flex space-x-12 hidden">
               {navItem.map(({ link, path }) => (
                 <NavLink
@@ -99,17 +99,38 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            {user ? (
-              <button onClick={handleLogout} className="">
-                Logout
-              </button>
-            ) : (
-              <div className="space-x-12 hidden text-white lg:flex items-center">
-                <Link to="/login" className="">
-                  Login
-                </Link>
-              </div>
-            )}
+            <div>
+              {user ? (
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="w-full h-full rounded-full cursor-pointer"
+                  >
+                    <div className="w-10 rounded-full flex justify-center items-center">
+                      <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
+                  >
+                    <li className="text-white mb-3">
+                      <Link to={`user-profile`} className="justify-between">
+                        Profile
+                      </Link>
+                    </li>
+
+                    <li className="text-white mb-3">
+                      <button onClick={handleLogout}>Logout</button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <li className="text-white mb-3 list-none">
+                  <Link to="/login">Login</Link>
+                </li>
+              )}
+            </div>
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
@@ -124,7 +145,7 @@ const Navbar = () => {
 
           {/* items for mobile device*/}
           <div
-            className={`space-y-4 px-4 mt-16 brand-bg ${
+            className={`space-y-4 px-4 mt-16 bg-gray-800 ${
               isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
             }`}
           >

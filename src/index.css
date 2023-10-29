@@ -5,8 +5,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto+Condensed:wght@500&family=Roboto:wght@500&display=swap');
 
 
-body{
+body {
     font-family: 'Noto Serif', serif;
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d4d4d4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF4500;
+    border-radius: 0px 0px 20px 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e56638;
 }

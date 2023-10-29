@@ -1,76 +1,79 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-
-const bangladeshDistricts = [
-  "Bagerhat",
-  "Bandarban",
-  "Barguna",
-  "Barishal",
-  "Bhola",
-  "Bogra",
-  "Brahmanbaria",
-  "Chandpur",
-  "Chapainawabganj",
-  "Chattogram",
-  "Chuadanga",
-  "Cox's Bazar",
-  "Cumilla",
-  "Dhaka",
-  "Dinajpur",
-  "Faridpur",
-  "Feni",
-  "Gaibandha",
-  "Gazipur",
-  "Gopalganj",
-  "Habiganj",
-  "Jamalpur",
-  "Jashore",
-  "Jhalokati",
-  "Jhenaidah",
-  "Joypurhat",
-  "Khagrachari",
-  "Khulna",
-  "Kishoreganj",
-  "Kurigram",
-  "Kushtia",
-  "Lakshmipur",
-  "Lalmonirhat",
-  "Madaripur",
-  "Magura",
-  "Manikganj",
-  "Meherpur",
-  "Moulvibazar",
-  "Munshiganj",
-  "Mymensingh",
-  "Naogaon",
-  "Narail",
-  "Narayanganj",
-  "Narsingdi",
-  "Natore",
-  "Netrokona",
-  "Nilphamari",
-  "Noakhali",
-  "Pabna",
-  "Panchagarh",
-  "Patuakhali",
-  "Pirojpur",
-  "Rajbari",
-  "Rajshahi",
-  "Rangamati",
-  "Rangpur",
-  "Satkhira",
-  "Shariatpur",
-  "Sherpur",
-  "Sirajganj",
-  "Sunamganj",
-  "Sylhet",
-  "Tangail",
-  "Thakurgaon",
-];
+import Select from "react-select";
+import { useState } from "react";
 
 function BusPostForm() {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, watch, resetField } = useForm();
+  const [selectedDivision, setSelectedDivision] = useState("");
+  const [selectedSubCategory, setSelectedSubCategory] = useState("");
 
+  const bangladeshDivisions = {
+    "Dhaka Division": [
+      "Dhaka",
+      "Gazipur",
+      "Narayanganj",
+      "Tangail",
+      "Lakshmipur",
+      "Manikganj",
+      "Munshiganj",
+      "Narsingdi",
+      "Rajbari",
+      "Shariatpur",
+    ],
+    "Chittagong Division": [
+      "Chattogram",
+      "Cox's Bazar",
+      "Comilla",
+      "Feni",
+      "Khagrachhari",
+      "Lakshmipur",
+      "Bandarban",
+      "Noakhali",
+      "Rangamati",
+    ],
+    "Khulna Division": [
+      "Khulna",
+      "Bagerhat",
+      "Chuadanga",
+      "Jessore",
+      "Jhenaidah",
+      "Magura",
+      "Meherpur",
+      "Narail",
+      "Satkhira",
+    ],
+    "Rajshahi Division": [
+      "Rajshahi",
+      "Bogra",
+      "Chapainawabganj",
+      "Joypurhat",
+      "Naogaon",
+      "Natore",
+      "Pabna",
+      "Sirajganj",
+    ],
+    "Barisal Division": [
+      "Barishal",
+      "Barguna",
+      "Bhola",
+      "Jhalokathi",
+      "Patuakhali",
+      "Pirojpur",
+    ],
+    "Sylhet Division": ["Sylhet", "Habiganj", "Moulvibazar", "Sunamganj"],
+    "Rangpur Division": [
+      "Rangpur",
+      "Dinajpur",
+      "Gaibandha",
+      "Kurigram",
+      "Lalmonirhat",
+      "Nilphamari",
+      "Panchagarh",
+      "Thakurgaon",
+    ],
+    "Mymensingh Division": ["Mymensingh", "Jamalpur", "Netrokona", "Sherpur"],
+  };
   const onSubmit = (data) => {
     // Add an empty array for the 'bookedSeat' property
     data.bookedSeat = [];
@@ -78,7 +81,7 @@ function BusPostForm() {
     console.log(data);
     const t = data.to;
 
-    fetch("http://localhost:5000/post-bus", {
+    fetch("https://dhaka-bus-ticket-server-two.vercel.app/post-bus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -112,26 +115,54 @@ function BusPostForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="lg:h-[90vh] p-10 flex items-center justify-center">
       <div className="bg-white shadow-md rounded p-6 w-full max-w-md">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-1">To:</label>
+            <label className="block text-gray-700 text-sm font-bold mb-1">
+              Division:
+            </label>
             <select
-              {...register("to", { required: true })}
+              onChange={(e) => setSelectedDivision(e.target.value)}
               name="to"
               className="w-full py-2 px-3 border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
             >
-              <option value="">Select a destination</option>
-              {bangladeshDistricts.map((district, index) => (
-                <option key={index} value={district}>
-                  {district}
-                </option>
-              ))}
+              {Object.keys(bangladeshDivisions).map((division, index) => {
+                return (
+                  <option key={index} value={division}>
+                    {division}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-1">Date:</label>
+            <label className="block text-gray-700 text-sm font-bold mb-1">
+              Subcategory:
+            </label>
+            <select
+              onChange={(e) => setSelectedSubCategory(e.target.value)}
+              name="subcategory"
+              className="w-full py-2 px-3 border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
+            >
+              <option disabled value="default">
+                Select a subcategory
+              </option>
+              {bangladeshDivisions[selectedDivision || "Dhaka Division"]?.map(
+                (subCategory, index) => {
+                  return (
+                    <option key={index} value={subCategory}>
+                      {subCategory}
+                    </option>
+                  );
+                }
+              )}
+            </select>
+          </div>
+          <div>
+            <label className="block text-gray-700 text-sm font-bold mb-1">
+              Date:
+            </label>
             <input
               type="date"
               {...register("date", { required: true })}
@@ -140,7 +171,9 @@ function BusPostForm() {
             />
           </div>
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-1">Bus Type:</label>
+            <label className="block text-gray-700 text-sm font-bold mb-1">
+              Bus Type:
+            </label>
             <select
               {...register("busType", { required: true })}
               name="busType"
@@ -151,7 +184,9 @@ function BusPostForm() {
             </select>
           </div>
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-1">Schedule:</label>
+            <label className="block text-gray-700 text-sm font-bold mb-1">
+              Schedule:
+            </label>
             <select
               {...register("schedule", { required: true })}
               name="schedule"
