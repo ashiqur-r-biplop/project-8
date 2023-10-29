@@ -1,4 +1,5 @@
 // import { BsApple, BsLinkedin } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 import {
   FaApple,
   FaGooglePlay,
@@ -57,9 +58,9 @@ const Footer = () => {
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     Terms of Use
                   </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to="/contact" className="link link-hover block text-base py-1 lg:text-lg">
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
 
