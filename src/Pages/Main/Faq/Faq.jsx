@@ -2,20 +2,23 @@ import gimg from "../../../assets/Bus/faq.jpg";
 
 const Faq = () => {
   return (
-     <div className="container">
-      {/*  */}
-
-      <div className="hero md:h-[50vh] bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src={gimg} className="max-w-sm rounded-lg shadow-2xl" />
-          <div>
-            <h1 className="text-5xl font-bold brand-color">Frequently Question?</h1>
-            <p className="py-6">
-              Explore our frequently asked questions to get all the information you need for a
-              smooth and <br />
-              convenient bus journey. If you can't find the answer you're looking for, feel free to{" "}
-              <br /> contact our customer support for assistance.
-            </p>
+    <div className="">
+      <div className="hero md:h-[50vh]  bg-base-200">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="hero-content flex-col lg:flex-row-reverse">
+            <img src={gimg} className="max-w-sm rounded-lg shadow-2xl" />
+            <div>
+              <h1 className="text-5xl font-bold brand-color">
+                Frequently Question?
+              </h1>
+              <p className="py-6">
+                Explore our frequently asked questions to get all the
+                information you need for a smooth and <br />
+                convenient bus journey. If you can't find the answer you're
+                looking for, feel free to <br /> contact our customer support
+                for assistance.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -33,8 +36,9 @@ const Faq = () => {
             </div>
             <div className="collapse-content">
               <p className="text_pera">
-                A1: Booking a bus ticket is easy! You can book online through our website or mobile
-                app, at our ticket counters, or through our authorized agents.
+                A1: Booking a bus ticket is easy! You can book online through
+                our website or mobile app, at our ticket counters, or through
+                our authorized agents.
               </p>
             </div>
           </div>
@@ -45,9 +49,10 @@ const Faq = () => {
             </div>
             <div className="collapse-content">
               <p className="text_pera">
-                A2: We accept various payment methods, including credit and debit cards, online
-                payment gateways, and cash payments at our ticket counters. Please check the
-                available options during the booking process.
+                A2: We accept various payment methods, including credit and
+                debit cards, online payment gateways, and cash payments at our
+                ticket counters. Please check the available options during the
+                booking process.
               </p>
             </div>
           </div>
@@ -58,8 +63,8 @@ const Faq = () => {
             </div>
             <div className="collapse-content">
               <p className="text_pera">
-                A3: We recommend arriving at least 30 minutes before the scheduled departure time to
-                ensure a smooth boarding process.
+                A3: We recommend arriving at least 30 minutes before the
+                scheduled departure time to ensure a smooth boarding process.
               </p>
             </div>
           </div>
@@ -70,8 +75,9 @@ const Faq = () => {
             </div>
             <div className="collapse-content">
               <p className="text_pera">
-                A4: Yes, you can change your travel date or time, but it is subject to availability
-                and may involve a change fee. Please contact our customer support for assistance.
+                A4: Yes, you can change your travel date or time, but it is
+                subject to availability and may involve a change fee. Please
+                contact our customer support for assistance.
               </p>
             </div>
           </div>
@@ -82,8 +88,9 @@ const Faq = () => {
             </div>
             <div className="collapse-content">
               <p className="text_pera">
-                Yes, there is typically a luggage limit for each passenger. Please check our website
-                for the specific baggage allowance and guidelines.
+                Yes, there is typically a luggage limit for each passenger.
+                Please check our website for the specific baggage allowance and
+                guidelines.
               </p>
             </div>
           </div>
@@ -94,8 +101,9 @@ const Faq = () => {
             </div>
             <div className="collapse-content">
               <p className="text_pera">
-                A6: Most of our buses allow small pets, but you must check with our customer support
-                and adhere to our pet policy. Service animals are generally exempt.
+                A6: Most of our buses allow small pets, but you must check with
+                our customer support and adhere to our pet policy. Service
+                animals are generally exempt.
               </p>
             </div>
           </div>
@@ -106,9 +114,10 @@ const Faq = () => {
             </div>
             <div className="collapse-content">
               <p className="text_pera">
-                A7: If you miss your bus, please contact us as soon as possible. Depending on
-                availability and the ticket type, we can assist you with rebooking or provide
-                information on the next available service.
+                A7: If you miss your bus, please contact us as soon as possible.
+                Depending on availability and the ticket type, we can assist you
+                with rebooking or provide information on the next available
+                service.
               </p>
             </div>
           </div>
@@ -117,7 +126,7 @@ const Faq = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Faq
+export default Faq;

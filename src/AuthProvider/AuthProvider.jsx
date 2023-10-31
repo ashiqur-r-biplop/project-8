@@ -68,7 +68,6 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
   };
-  console.log(user);
   // Manage user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -80,11 +79,12 @@ const AuthProvider = ({ children }) => {
           })
           .then((data) => {
             setUser(currentUser);
+            console.log(data.data.token, "");
             localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
             setLoading(false);
           })
           .catch((err) => {
-            console.log(err);
             setUser(currentUser);
             setLoading(false);
           });

@@ -3,10 +3,12 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaUserAlt } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import useUserRole from "../../Hook/useUserRole";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const { role } = useUserRole();
   const loadUser = useContext(AuthContext);
   const { user, logOut } = loadUser;
   const navigate = useNavigate();
@@ -71,6 +73,8 @@ const Navbar = () => {
       });
   };
 
+  console.log(role);
+
   return (
     <header className="w-full  z-[50] fixed top-0">
       <nav className={`py-4  lg:px-14 px-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
@@ -113,7 +117,7 @@ const Navbar = () => {
                     tabIndex={0}
                     className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
                   >
-                    {currentUser?.role == "admin" ? (
+                    {role == "admin" ? (
                       <>
                         <li className="text-white mb-3">
                           <Link to="/dashboard/profile" className="justify-between">
