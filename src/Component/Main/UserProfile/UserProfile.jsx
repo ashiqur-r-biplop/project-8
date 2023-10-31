@@ -72,13 +72,13 @@ const UserProfile = () => {
           //   timer: 1500,
           // });
         })
-        .catch((error) => {});
+        .catch((error) => { });
     } catch (error) {
       console.error("Error posting data:", error);
     }
     // form.reset();
   };
-  const handleUpdate = () => {};
+  const handleUpdate = () => { };
 
   return (
     <>

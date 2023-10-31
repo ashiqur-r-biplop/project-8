@@ -15,6 +15,11 @@ const BookTicket = () => {
   const [displaySelectSeat, setDisplaySelectSeat] = useState(false);
   const [searchBus, setSearchBus] = useState(null);
 
+  // ****************Date Handle****************************
+  const currentDate = new Date();
+  const maxDate = new Date();
+  maxDate.setDate(currentDate.getDate() + 2);
+
   // Load All Bus:
   const [allBus, setAllBus] = useState([]);
   const [control, setControl] = useState(false);
@@ -23,6 +28,7 @@ const BookTicket = () => {
       .then((res) => res.json())
       .then((data) => {
         setAllBus(data);
+        // console.log(data);
       });
   }, [control, bookedSeat, displaySelectSeat]);
 
@@ -73,7 +79,6 @@ const BookTicket = () => {
       setCounter(counter + 1);
     } else {
       setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
-
       setCounter(counter - 1);
     }
   };
@@ -277,7 +282,7 @@ const BookTicket = () => {
                             className="input input-bordered rounded-md border-orange-400"
                           />
                         </div>
-                        <div className="form-control ">
+                        <div className="form-control">
                           <label className="label">
                             <span className="label-text font-semibold text-lg">
                               Journey Date
@@ -288,6 +293,8 @@ const BookTicket = () => {
                             placeholder="Date"
                             name="date"
                             className="input input-bordered rounded-md border-orange-400"
+                          // min={currentDate.toISOString().split("T")[0]} // Set min date to today
+                          // max={maxDate.toISOString().split("T")[0]} // Set max date to 3 days from today
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-2 ">
@@ -436,7 +443,7 @@ const BookTicket = () => {
                                   style={{
                                     background:
                                       selectedSeats.includes(seat) ||
-                                      bookedSeat?.includes(seat)
+                                        bookedSeat?.includes(seat)
                                         ? "orangered"
                                         : "rgb(252, 233, 85)",
                                   }}
@@ -457,7 +464,7 @@ const BookTicket = () => {
                                   style={{
                                     background:
                                       selectedSeats.includes(seat) ||
-                                      bookedSeat?.includes(seat)
+                                        bookedSeat?.includes(seat)
                                         ? "orangered"
                                         : "rgb(252, 233, 85)",
                                   }}
@@ -472,11 +479,7 @@ const BookTicket = () => {
                             </div>
                           </>
                         )}
-
                         <div>
-                          {/* {useEffect(() => {
-                          selectedSeats?.map((seat) => <p>{seat}</p>);
-                        }, [selectedSeats])} */}
                         </div>
                       </div>
 
