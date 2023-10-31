@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import payment from '../../../assets/payment.png'
+import payment from "../../../assets/payment.png";
 import { useNavigate } from "react-router";
 
 const BookTicket = () => {
@@ -24,10 +24,11 @@ const BookTicket = () => {
   const [allBus, setAllBus] = useState([]);
   const [control, setControl] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/all-bus")
+    fetch("https://dhaka-bus-ticket-server-two.vercel.app/all-bus")
       .then((res) => res.json())
       .then((data) => {
         setAllBus(data);
+        // console.log(data);
       });
   }, [control, bookedSeat, displaySelectSeat]);
 
@@ -83,7 +84,10 @@ const BookTicket = () => {
   };
 
   // Booked Ticket Using User Information:
-  const [bookedTicketUsingUserInformation, setBookedTicketUsingUserInformation] = useState({});
+  const [
+    bookedTicketUsingUserInformation,
+    setBookedTicketUsingUserInformation,
+  ] = useState({});
   const handleData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -110,26 +114,29 @@ const BookTicket = () => {
       schedule,
       bookedSeat: [],
       payment_status: "done",
-      feedback: "pending"
+      feedback: "pending",
     };
     setBookedTicketUsingUserInformation(data);
-    const findBus = allBus?.find(bus => bus?.busType == busType && bus?.to == to && busType && bus?.date == date)
+    const findBus = allBus?.find(
+      (bus) =>
+        bus?.busType == busType && bus?.to == to && busType && bus?.date == date
+    );
 
     setBookedSeat(findBus?.bookedSeat);
     findBus && setDisplaySelectSeat(true);
     setSearchBus(findBus);
     setSelectedSeats([]);
     setControl(!control);
-  }
+  };
 
   // *****************Card Information**********************
   const amount = selectedSeats.length * 650;
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardPass, setCardPass] = useState('');
-  const handleCard = e => {
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardPass, setCardPass] = useState("");
+  const handleCard = (e) => {
     setCardNumber(e.target.form.cardNumber.value);
     setCardPass(e.target.form.cardPass.value);
-  }
+  };
   const handleBookTicket = (bus) => {
     if (cardNumber === "424242424242" && cardPass === "123456") {
       const busId = bus._id;
@@ -142,14 +149,20 @@ const BookTicket = () => {
       bookedTicketUsingUserInformation.bookedSeat = newBookedSeat;
       bookedTicketUsingUserInformation.payment = "done";
       bookedTicketUsingUserInformation.amount = amount;
-      bookedTicketUsingUserInformation.bookedDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '-');
+      bookedTicketUsingUserInformation.bookedDate = new Date()
+        .toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })
+        .replace(/\//g, "-");
       console.log(bookedTicketUsingUserInformation);
 
       const updateTicketBooking = {
         bus_id: busId,
         updateBookedSeat: updateBookedSeat,
       };
-      fetch("http://localhost:5000/book-ticket", {
+      fetch("https://dhaka-bus-ticket-server-two.vercel.app/book-ticket", {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(updateTicketBooking),
@@ -169,37 +182,34 @@ const BookTicket = () => {
               confirmButtonText: "Cool",
             });
           }
-          navigate('/dashboard/my-ticket')
-
+          navigate("/dashboard/my-ticket");
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err));
 
       // Booked Seat and Post it with User Information:
-      fetch('http://localhost:5000/book-my-ticket', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(bookedTicketUsingUserInformation)
+      fetch("https://dhaka-bus-ticket-server-two.vercel.app/book-my-ticket", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(bookedTicketUsingUserInformation),
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data.matchedCount > 0) {
-            setDisplaySelectSeat(false)
+            setDisplaySelectSeat(false);
             setControl(!control);
             setCounter(0);
             Swal.fire({
-              title: 'Ticket Booked Successfully!',
-              text: '',
-              icon: 'success',
-              confirmButtonText: 'Thank You'
-            })
-            setCardNumber('');
-            setCardPass('');
+              title: "Ticket Booked Successfully!",
+              text: "",
+              icon: "success",
+              confirmButtonText: "Thank You",
+            });
+            setCardNumber("");
+            setCardPass("");
           }
         })
-        .catch(err => console.log(err))
-    }
-
-    else {
+        .catch((err) => console.log(err));
+    } else {
       return Swal.fire({
         title: "Card and Password doesn't match! Try again!",
         text: "",
@@ -207,9 +217,7 @@ const BookTicket = () => {
         confirmButtonText: "Try Again",
       });
     }
-
-  }
-
+  };
 
   return (
     <>
@@ -477,7 +485,14 @@ const BookTicket = () => {
 
                       <div className="flex justify-center mt-4">
                         {counter > 0 && (
-                          <button className="btn btn-block brand-btn" onClick={() => document.getElementById('my_modal_4').showModal()}>Book Ticket</button>
+                          <button
+                            className="btn btn-block brand-btn"
+                            onClick={() =>
+                              document.getElementById("my_modal_4").showModal()
+                            }
+                          >
+                            Book Ticket
+                          </button>
                         )}
                       </div>
                     </div>
@@ -488,17 +503,24 @@ const BookTicket = () => {
           </div>
         </div>
 
-        {/* Modal Section */}
         <dialog id="my_modal_4" className="modal">
           <div className="modal-box w-8/12 md:w-3/12">
-            <h3 className="font-bold text-xl font-bold text-center p-2 brand-color underline">Please Pay Here</h3>
-            <h3 className="font-bold text-lg font-bold text-center mt-3">Amount for {selectedSeats.length}  Seat: <span className="brand-color">{amount}</span> BDT</h3>
-            <h3 className="font-bold text-lg font-bold text-center pb-3">Seat Number: {selectedSeats.map((seat, index) => (
-              <span className="brand-color" key={index}>
-                {seat}
-                {index < selectedSeats.length - 1 && ' '} {/* Add a space after all elements except the last one */}
-              </span>
-            ))}
+            <h3 className="font-bold text-xl  text-center p-2 brand-color underline">
+              Please Pay Here
+            </h3>
+            <h3 className="font-bold text-lg text-center mt-3">
+              Amount for {selectedSeats.length} Seat:{" "}
+              <span className="brand-color">{amount}</span> BDT
+            </h3>
+            <h3 className="font-bold text-lg text-center pb-3">
+              Seat Number:{" "}
+              {selectedSeats.map((seat, index) => (
+                <span className="brand-color" key={index}>
+                  {seat}
+                  {index < selectedSeats.length - 1 && " "}{" "}
+                  {/* Add a space after all elements except the last one */}
+                </span>
+              ))}
             </h3>
             <img src={payment} alt="" />
             <form onChange={handleCard}>
@@ -506,13 +528,23 @@ const BookTicket = () => {
                 <label className="label">
                   <span className="label-text">Enter Card Number</span>
                 </label>
-                <input type="text" name="cardNumber" placeholder="4242 4242 4242" className="input input-bordered w-full max-w-xs" />
+                <input
+                  type="text"
+                  name="cardNumber"
+                  placeholder="4242 4242 4242"
+                  className="input input-bordered w-full max-w-xs"
+                />
               </div>
               <div className="form-control w-full m-2">
                 <label className="label">
                   <span className="label-text">Enter Password</span>
                 </label>
-                <input type="text" name="cardPass" placeholder="123456" className="input input-bordered w-full max-w-xs" />
+                <input
+                  type="text"
+                  name="cardPass"
+                  placeholder="123456"
+                  className="input input-bordered w-full max-w-xs"
+                />
               </div>
             </form>
             <div className="">
@@ -521,8 +553,12 @@ const BookTicket = () => {
                 <button
                   onClick={() => handleBookTicket(searchBus)}
                   className="btn btn-block brand-btn mt-2"
-                >Pay</button>
-                <button className="btn btn-block bg-black text-white mt-2 hover:bg-black hover:text-orange-500">Close</button>
+                >
+                  Pay
+                </button>
+                <button className="btn btn-block bg-black text-white mt-2 hover:bg-black hover:text-orange-500">
+                  Close
+                </button>
               </form>
             </div>
           </div>

@@ -14,7 +14,7 @@ function BusPostForm() {
       "Gazipur",
       "Narayanganj",
       "Tangail",
-      "Kishoreganj",
+      "Lakshmipur",
       "Manikganj",
       "Munshiganj",
       "Narsingdi",
@@ -81,7 +81,7 @@ function BusPostForm() {
     console.log(data);
     const t = data.to;
 
-    fetch("http://localhost:5000/post-bus", {
+    fetch("https://dhaka-bus-ticket-server-two.vercel.app/post-bus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -115,7 +115,7 @@ function BusPostForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="lg:h-[90vh] p-10 flex items-center justify-center">
       <div className="bg-white shadow-md rounded p-6 w-full max-w-md">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
@@ -148,7 +148,7 @@ function BusPostForm() {
               <option disabled value="default">
                 Select a subcategory
               </option>
-              {bangladeshDivisions[(selectedDivision) || "Dhaka Division"]?.map(
+              {bangladeshDivisions[selectedDivision || "Dhaka Division"]?.map(
                 (subCategory, index) => {
                   return (
                     <option key={index} value={subCategory}>

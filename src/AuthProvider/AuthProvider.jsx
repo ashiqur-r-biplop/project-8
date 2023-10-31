@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 
 import app from "../Firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -67,30 +68,31 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
   };
-
   // Manage user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-      if (currentUser && currentUser.email) {
-        const loggedUser = {
-          email: currentUser.email,
-        };
-        fetch(`http://localhost:5000/jwt`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("access-token", data.token);
+      if (currentUser) {
+        // console.log("data");
+        axios
+          .post("https://dhaka-bus-ticket-server-two.vercel.app/jwt", {
+            email: currentUser.email,
           })
-          .catch((error) => console.log(error));
+          .then((data) => {
+            setUser(currentUser);
+            console.log(data.data.token, "");
+            localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
+            setLoading(false);
+          })
+          .catch((err) => {
+            setUser(currentUser);
+            setLoading(false);
+          });
       } else {
+        console.log("logout successfully");
         localStorage.removeItem("access-token");
+        setUser(currentUser);
+        setLoading(false);
       }
     });
     return () => {

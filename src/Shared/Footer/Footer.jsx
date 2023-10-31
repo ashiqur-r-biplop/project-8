@@ -6,28 +6,30 @@ import {
   FaFacebook,
   FaLinkedin,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
- 
- 
- 
 const Footer = () => {
   return (
     <>
-      <div className="px-4 bg-gray-900 pt-8">
-        <div className="container mx-5 md:mx-auto">
+      <div className=" bg-gray-900 pt-8">
+        <div className="container  md:mx-auto">
           {/* Footer for Large Screens */}
           <footer className="text-white lg:my-10 py-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-2 gap-2 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-2 gap-2 justify-center w-full">
               {/* Legal Section */}
               <div className="">
-                <div className="flex items-center">
-        <i className="brand-color text-3xl">Dhaka</i>
-        <img className="h-6 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
-        <i className="brand-color  text-3xl">Ticket</i>
-      </div>
+                <div className="flex w-full justify-center items-center">
+                  <i className="brand-color text-xl md:text-3xl">Dhaka</i>
+                  <img
+                    className="h-4 md:h-6 ms-1 rounded-sm -me-1"
+                    src="https://i.ibb.co/qWzZ2NC/bus3.png"
+                    alt=""
+                  />
+                  <i className="brand-color text-xl md:text-3xl">Ticket</i>
+                </div>
 
                 <div className="mt-2">
-                  <p className="py-1 text-[12px] text-gray-400">
+                  <p className="py-1 text-justify text-[12px] text-gray-400">
                     TicketQuest is your one-stop destination for all your bus
                     ticket needs. Whether you are planning a weekend getaway or
                     a cross-country adventure, we have got you covered. Our
@@ -35,7 +37,7 @@ const Footer = () => {
                     and book bus tickets to countless destinations.
                   </p>
 
-                  <div className="py-4 flex gap-5">
+                  <div className="py-4 w-full justify-center flex gap-5">
                     <FaFacebook className="w-7 h-7 cursor-pointer brand-color rounded"></FaFacebook>
                     <FaTwitterSquare className="w-7 h-7 cursor-pointer brand-color rounded"></FaTwitterSquare>
                     <FaLinkedin className="w-7 h-7 cursor-pointer brand-color rounded"></FaLinkedin>
@@ -44,7 +46,7 @@ const Footer = () => {
               </div>
 
               {/* About us Section */}
-              <div className="md:mx-auto">
+              <div className="md:mx-auto w-full text-center mx-auto ">
                 <span className="brand-color text-xl block mb-4">About us</span>
                 <div className="mt-2">
                   <a className="link link-hover block text-base py-1 lg:text-lg">
@@ -56,14 +58,14 @@ const Footer = () => {
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     Terms of Use
                   </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to="/contact" className="link link-hover block text-base py-1 lg:text-lg">
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
 
               {/* Services Section */}
-              <div className="md:mx-auto">
+              <div className="md:mx-auto text-center ">
                 <span className="brand-color text-xl block mb-4">Services</span>
                 <div className="mt-2">
                   <a className="link link-hover block text-base py-1 lg:text-lg">
@@ -75,13 +77,13 @@ const Footer = () => {
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     Train Tickets
                   </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to='/faq' className="link link-hover block text-base py-1 lg:text-lg">
                     FAQ
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* Quick links Section */}
-              <div className="md:mx-auto">
+              <div className="md:mx-auto w-full text-center ">
                 <span className="brand-color text-xl block mb-4">
                   Quick links
                 </span>

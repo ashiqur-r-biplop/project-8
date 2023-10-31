@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto+Condensed:wght@500&family=Roboto+Slab:wght@600&family=Roboto:wght@500&display=swap');
 
 .banner-content{
-    background:  /* top, transparent black, faked with gradient */ 
+    background:  /* top, transparent black, faked with gradient */
     linear-gradient(
-      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7),
       rgba(0, 0, 0, 0.7)
     ),
     /* bottom, image */
@@ -37,6 +37,37 @@ body{
     background-color: rgb(251, 83, 22);
     color: black;
     font-weight: bold;
-    border: 2px solid orangered;  
-    
+    border: 2px solid orangered;
+
 }
+
+.group:hover{
+transition: background-color 1s ease;
+background-color: orangered;
+color:white;
+transform:scale(1.1);
+
+}
+.group:hover h1{
+    color:white;
+}
+.group:hover .childDiv{
+    background-color: white;
+    color:orangered;
+}
+.first-child {
+  transform: scale(1.1);
+  background-color: orangered;
+  color:white;
+}
+.first-child>.childDiv{
+    background-color: white;
+    color:orangered;
+
+}
+.first-child>h1{
+    color:white;
+}
+/* .heading:hover{
+    color:white;
+} */

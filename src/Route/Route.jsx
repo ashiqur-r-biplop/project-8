@@ -19,6 +19,8 @@ import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import PrivateRoute from "../Hook/PrivateRoute";
+import Faq from "../Pages/Main/Faq/Faq";
+import AdminRoute from "../Hook/AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -39,16 +41,24 @@ export const router = createBrowserRouter([
         element: <About></About>,
       },
       {
+        path: "/faq",
+        element: <Faq></Faq>,
+      },
+      {
         path: "/book-ticket",
-        element: <PrivateRoute>
-          <BookTicketComponent></BookTicketComponent>
-        </PrivateRoute> // done
+        element: (
+          <PrivateRoute>
+            <BookTicketComponent></BookTicketComponent>
+          </PrivateRoute>
+        ), // done
       },
       {
         path: "/book-bus",
-        element: <PrivateRoute>
-          <BookBusComponent></BookBusComponent>
-        </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <BookBusComponent></BookBusComponent>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/user-profile",
@@ -56,7 +66,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/user-feedback",
-        element: <Feedback></Feedback>
+        element: <Feedback></Feedback>,
       },
       {
         path: "/login",
@@ -70,32 +80,60 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <MainDashBoard></MainDashBoard>,
+    element: (
+      <AdminRoute>
+        <MainDashBoard></MainDashBoard>
+      </AdminRoute>
+    ),
     errorElement: <Error></Error>,
     children: [
       {
         path: "/dashboard/profile",
-        element: <DashboardHome></DashboardHome>,
+        element: (
+          <AdminRoute>
+            <DashboardHome></DashboardHome>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/postBus",
-        element: <BusPostForm></BusPostForm>,
+        element: (
+          <AdminRoute>
+            <BusPostForm></BusPostForm>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/my-ticket",
-        element: <Myticket></Myticket>,
+        element: (
+          <AdminRoute>
+            <Myticket></Myticket>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/all-ticket",
-        element: <AllTicket></AllTicket> //For Admin
+        element: (
+          <AdminRoute>
+            <AllTicket></AllTicket>
+          </AdminRoute>
+        ), //For Admin
       },
       {
         path: "/dashboard/all-user",
-        element: <AllUsers></AllUsers> //For Admin
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ), //For Admin
       },
       {
         path: "/dashboard/post-notice",
-        element: <PostNotes></PostNotes>,
+        element: (
+          <AdminRoute>
+            <PostNotes></PostNotes>,
+          </AdminRoute>
+        ),
       },
     ],
   },
