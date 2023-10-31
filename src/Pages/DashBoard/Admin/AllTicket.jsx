@@ -12,8 +12,12 @@ const AllTicket = () => {
   }, [allTicket])
 
   console.log(allTicket);
+  if (!allTicket) {
+    return <div className="flex justify-end items-center">
+      <p className="text-center">Loading...</p>
+    </div>
+  }
   return (
-
     <div className="md:w-[1200px] md:mx-auto bg-orange-50">
       <div className="p-4">
         <h1 className="text-center text-xl font-extrabold p-3">All Tickets Of</h1>
