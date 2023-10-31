@@ -23,6 +23,7 @@ const BookTicket = () => {
       .then((res) => res.json())
       .then((data) => {
         setAllBus(data);
+        // console.log(data);
       });
   }, [control, bookedSeat, displaySelectSeat]);
 

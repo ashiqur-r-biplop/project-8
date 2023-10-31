@@ -45,7 +45,7 @@ const Services = () => {
 
     return (
       <div className="max-w-[1200px] mx-5 md:mx-auto">
-        <div className="w-6/12 mx-auto my-6 text-center">
+        <div className="w-full md:w-6/12 mx-auto my-6 text-center">
           <h1 className="capitalize font-thin pb-2">Services</h1>
           <h1 className="capitalize md:text-3xl brand-color">
             {" "}
@@ -56,7 +56,7 @@ const Services = () => {
             never compromise with our quality
           </p>
         </div>
-        <div className="grid items-center grid-cols-1 md:grid-cols-3 py-6 gap-6 mb-8">
+        <div className="grid items-center grid-cols-1 md:grid-cols-3 py-6 gap-x-8 gap-y-8 mb-8">
           {steps.map((step, index) => (
             <div
               key={index}
@@ -64,13 +64,13 @@ const Services = () => {
                 index === 1 ? "first-child" : ""
               }`}
             >
-              <div className="childDiv mx-auto rounded-sm text-white text-center flex items-center justify-center w-[50px] h-[40px] my-4 bg-orange-500">
+              <div className="childDiv mx-auto rounded-sm text-white text-center flex items-center justify-center w-[50px] h-[40px] my-4 py-2 bg-orange-500">
                 <p>{step.serial}</p>
               </div>
               <h1 className="brand-color capitalize text-center pb-2 heading">
                 {step.title}
               </h1>
-              <p className="text-xs text-center">{step.description}</p>
+              <p className="text-xs text-center pb-3 px-3">{step.description}</p>
             </div>
           ))}
         </div>

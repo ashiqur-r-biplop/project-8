@@ -32,13 +32,13 @@ const TicketBookingSteps = () => {
     // console.log(steps)
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
-      <div className="w-6/12 mx-auto my-6 text-center">
+      <div className=" w-full md:w-6/12 mx-auto my-6 text-center">
         <h1 className="capitalize font-thin pb-2">How it works!</h1>
         <h1 className="capitalize md:text-3xl brand-color">
           {" "}
           4 Steps to booking our bus
         </h1>
-        <p className="text-sm pt-2">
+        <p className="text-sm pt-2 ">
           It's an easy way to get the expected ticket on expexted date with
           expexted bus
         </p>
@@ -47,7 +47,7 @@ const TicketBookingSteps = () => {
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`group shadow-xl rounded-md md:py-8 md:px-4 ${
+            className={`group shadow-xl rounded-md my-4 md:py-8 md:px-4 ${
               index === 0 ? "first-child" : ""
               }`}
 
@@ -58,7 +58,7 @@ const TicketBookingSteps = () => {
             <h1 className="brand-color capitalize text-center pb-2 heading">
               {step.title}
             </h1>
-            <p className="text-xs text-center">{step.description}</p>
+            <p className="text-xs text-center px-2 py-2">{step.description}</p>
           </div>
         ))}
       </div>
