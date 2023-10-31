@@ -19,6 +19,7 @@ import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import PrivateRoute from "../Hook/PrivateRoute";
+import Faq from "../Pages/Main/Faq/Faq";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+          path:'/faq',
+          element:<Faq></Faq>
       },
       {
         path: "/book-ticket",
