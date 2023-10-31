@@ -24,7 +24,7 @@ const BookTicket = () => {
   const [allBus, setAllBus] = useState([]);
   const [control, setControl] = useState(false);
   useEffect(() => {
-    fetch("https://dhaka-bus-ticket-server.vercel.app/all-bus")
+    fetch("http://localhost:5000/all-bus")
       .then((res) => res.json())
       .then((data) => {
         setAllBus(data);
@@ -78,7 +78,6 @@ const BookTicket = () => {
       setCounter(counter + 1);
     } else {
       setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
-
       setCounter(counter - 1);
     }
   };
@@ -150,7 +149,7 @@ const BookTicket = () => {
         bus_id: busId,
         updateBookedSeat: updateBookedSeat,
       };
-      fetch("https://dhaka-bus-ticket-server.vercel.app/book-ticket", {
+      fetch("http://localhost:5000/book-ticket", {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(updateTicketBooking),
@@ -176,7 +175,7 @@ const BookTicket = () => {
         .catch(err => console.log(err))
 
       // Booked Seat and Post it with User Information:
-      fetch('https://dhaka-bus-ticket-server.vercel.app/book-my-ticket', {
+      fetch('http://localhost:5000/book-my-ticket', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(bookedTicketUsingUserInformation)
@@ -286,8 +285,8 @@ const BookTicket = () => {
                             placeholder="Date"
                             name="date"
                             className="input input-bordered rounded-md border-orange-400"
-                            min={currentDate.toISOString().split("T")[0]} // Set min date to today
-                            max={maxDate.toISOString().split("T")[0]} // Set max date to 3 days from today
+                          // min={currentDate.toISOString().split("T")[0]} // Set min date to today
+                          // max={maxDate.toISOString().split("T")[0]} // Set max date to 3 days from today
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-2 ">
