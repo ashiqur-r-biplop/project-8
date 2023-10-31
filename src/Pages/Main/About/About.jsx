@@ -3,7 +3,7 @@ import React from "react";
 import PageBanner from "../../../Component/Main/About/PageBanner";
 
 import Parallax from "../../../Component/Main/About/Parallax";
-import MissionVission from '../../../Component/Main/About/MissionVission';
+import MissionVission from "../../../Component/Main/About/MissionVission";
 
 const About = () => {
   const datas = [
@@ -171,7 +171,7 @@ const About = () => {
         />
       </div>
       <div>
-        <MissionVission/>
+        <MissionVission />
       </div>
     </div>
   );

@@ -32,4 +32,5 @@ body {
 }
 
 .profile-content {
-    clip-path: polygon(0 0, 100% 0%, 100% 70%, 50% 100%, 0 70%);}
+    clip-path: polygon(0 0, 100% 0%, 100% 70%, 50% 100%, 0 70%);
+}
