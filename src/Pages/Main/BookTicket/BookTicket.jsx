@@ -14,6 +14,8 @@ const BookTicket = () => {
   const [bookedSeat, setBookedSeat] = useState([]);
   const [displaySelectSeat, setDisplaySelectSeat] = useState(false);
   const [searchBus, setSearchBus] = useState(null);
+  // console.log(selectedSeats)
+  console.log(user);
 
   // Load All Bus:
   const [allBus, setAllBus] = useState([]);
@@ -128,10 +130,32 @@ const BookTicket = () => {
   const amount = selectedSeats.length * 650;
   const [cardNumber, setCardNumber] = useState("");
   const [cardPass, setCardPass] = useState("");
+
   const handleCard = (e) => {
     setCardNumber(e.target.form.cardNumber.value);
     setCardPass(e.target.form.cardPass.value);
   };
+
+  // sslcommerz
+  const item = {
+    username: user.displayName,
+    email: user.email,
+    price: amount,
+  };
+
+  const pay = (item) => {
+    fetch(`http://localhost:5000/order`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(item),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.replace(data.url);
+        console.log(data);
+      });
+  };
+
   const handleBookTicket = (bus) => {
     if (cardNumber === "424242424242" && cardPass === "123456") {
       const busId = bus._id;
@@ -548,7 +572,7 @@ const BookTicket = () => {
               <form method="dialog">
                 {/* if there is a button, it will close the modal */}
                 <button
-                  onClick={() => handleBookTicket(searchBus)}
+                  onClick={() => pay(item)}
                   className="btn btn-block brand-btn mt-2"
                 >
                   Pay
