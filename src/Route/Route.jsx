@@ -16,6 +16,8 @@ import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
 import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import PrivateRoute from "../Hook/PrivateRoute";
+import Faq from "../Pages/Main/Faq/Faq";
+import AdminRoute from "../Hook/AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
       },
       {
         path: "/book-ticket",
@@ -59,24 +65,44 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <MainDashBoard></MainDashBoard>,
+    element: (
+      <AdminRoute>
+        <MainDashBoard></MainDashBoard>
+      </AdminRoute>
+    ),
     errorElement: <Error></Error>,
     children: [
       {
         path: "/dashboard/profile",
-        element: <DashboardHome></DashboardHome>,
+        element: (
+          <AdminRoute>
+            <DashboardHome></DashboardHome>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/postBus",
-        element: <BusPostForm></BusPostForm>,
+        element: (
+          <AdminRoute>
+            <BusPostForm></BusPostForm>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/my-ticket",
-        element: <Myticket></Myticket>,
+        element: (
+          <AdminRoute>
+            <Myticket></Myticket>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/post-notice",
-        element: <PostNotes></PostNotes>,
+        element: (
+          <AdminRoute>
+            <PostNotes></PostNotes>,
+          </AdminRoute>
+        ),
       },
     ],
   },

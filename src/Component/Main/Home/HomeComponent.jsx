@@ -4,7 +4,10 @@ import OurMoto from "./OurMoto.jsx";
 import Banner from "./Banner.jsx";
 import Count from "./Count.jsx";
 import HomeMarquee from "./HomeMarquee.jsx";
-import BusRoute from "../../../Shared/BusRoute/BusRoute.jsx";
+import TicketBookingSteps from "./TicketBookingSteps.jsx";
+import Services from "./Services.jsx";
+import NewsLetter from "./NewsLetter.jsx";
+import Featured from "./Featured.jsx";
 const HomeComponent = () => {
   return (
     <div className="mt-[20px]">
@@ -13,7 +16,10 @@ const HomeComponent = () => {
       <Count></Count>
       <OurMoto></OurMoto>
       <Testimonial></Testimonial>
-      <BusRoute></BusRoute>
+      <TicketBookingSteps></TicketBookingSteps>
+      <Services></Services>
+      <Featured></Featured>
+      <NewsLetter></NewsLetter>
     </div>
   );
 };

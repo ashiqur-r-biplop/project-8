@@ -6,7 +6,6 @@ const ActiveLink = ({ to, children }) => {
     <NavLink
       to={to}
       className="active-link"
-      activeClassName="active"
     >
       {children}
     </NavLink>

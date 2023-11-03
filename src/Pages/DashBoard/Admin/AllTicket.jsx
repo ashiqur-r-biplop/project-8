@@ -4,7 +4,7 @@ const AllTicket = () => {
   const [allTicket, setAllTicket] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/all-ticket')
+    fetch('https://dhaka-bus-ticket-server-two.vercel.app/all-ticket')
       .then(res => res.json())
       .then(data => {
         setAllTicket(data)
@@ -12,8 +12,12 @@ const AllTicket = () => {
   }, [allTicket])
 
   console.log(allTicket);
+  if (!allTicket) {
+    return <div className="flex justify-end items-center">
+      <p className="text-center">Loading...</p>
+    </div>
+  }
   return (
-
     <div className="md:w-[1200px] md:mx-auto bg-orange-50">
       <div className="p-4">
         <h1 className="text-center text-xl font-extrabold p-3">All Tickets Of</h1>
