@@ -14,8 +14,9 @@ const BookTicket = () => {
   const [bookedSeat, setBookedSeat] = useState([]);
   const [displaySelectSeat, setDisplaySelectSeat] = useState(false);
   const [searchBus, setSearchBus] = useState(null);
+  // console.log(searchBus)
   // console.log(selectedSeats)
-  console.log(user);
+  // console.log(user);
 
   // Load All Bus:
   const [allBus, setAllBus] = useState([]);
@@ -85,6 +86,7 @@ const BookTicket = () => {
     bookedTicketUsingUserInformation,
     setBookedTicketUsingUserInformation,
   ] = useState({});
+
   const handleData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -141,6 +143,7 @@ const BookTicket = () => {
     username: user.displayName,
     email: user.email,
     price: amount,
+    totalBookSeats:selectedSeats,
   };
 
   const pay = (item) => {
@@ -152,7 +155,7 @@ const BookTicket = () => {
       .then((res) => res.json())
       .then((data) => {
         window.location.replace(data.url);
-        console.log(data);
+        // console.log(data);
       });
   };
 
