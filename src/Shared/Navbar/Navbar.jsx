@@ -60,9 +60,9 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full  z-[50] fixed top-0">
+    <header className="w-full z-[50] fixed top-0">
       <nav
-        className={`py-4  lg:px-14 px-4 bg-gray-900 ${
+        className={`py-4 bg-gray-900 ${
           isSticky ? "shadow" : ""
         }`}
       >

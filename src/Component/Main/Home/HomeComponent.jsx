@@ -15,10 +15,10 @@ const HomeComponent = () => {
       <HomeMarquee></HomeMarquee>
       <Count></Count>
       <OurMoto></OurMoto>
-      <Testimonial></Testimonial>
       <TicketBookingSteps></TicketBookingSteps>
       <Services></Services>
       <Featured></Featured>
+      <Testimonial></Testimonial>
       <NewsLetter></NewsLetter>
     </div>
   );
