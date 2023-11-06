@@ -88,6 +88,7 @@ const Testimonial = () => {
                     // changeRating={this.changeRating}
                     numberOfStars={5}
                     name="rating"
+                    
                   />
                 </div>
               </div>
