@@ -1,9 +1,10 @@
 
+import { useState } from 'react';
 import './Banner';
 
 const TicketBookingSteps = () => {
 
-
+     const [bgColor, setBgColor] = useState("Booking & Confirm");
 
 
 
@@ -30,6 +31,9 @@ const TicketBookingSteps = () => {
       },
     ];
     // console.log(steps)
+    const handleHover = (title) => {
+     setBgColor(title);
+   };
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div className=" w-full md:w-6/12 mx-auto my-6 text-center">
@@ -43,16 +47,17 @@ const TicketBookingSteps = () => {
           expexted bus
         </p>
       </div>
-      <div className="grid items-center grid-cols-1 md:grid-cols-4 py-6 gap-x-6 mb-8" >
+      <div className="grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-6 gap-x-6 gap-y-6 mb-8" >
         {steps.map((step, index) => (
           <div
             key={index}
-            className={`group shadow-xl rounded-md my-4 md:py-8 md:px-4 ${
-              index === 0 ? "first-child" : ""
-              }`}
+            onMouseEnter={() => handleHover(step?.title)}
+            className={`group shadow-xl rounded-md md:py-8 md:px-4 ${
+              bgColor === step?.title ? "first-child cursor-pointer" : ""
+            }`}
 
           >
-            <div className="childDiv mx-auto rounded-sm text-white text-center flex items-center justify-center w-[50px] h-[40px] my-4 bg-orange-500">
+            <div className="childDiv mx-auto rounded-sm text-white text-center flex items-center justify-center w-[50px] h-[35px] md:h-[40px] my-4 bg-orange-500">
               <p>{step.serial}</p>
             </div>
             <h1 className="brand-color capitalize text-center pb-2 heading">
