@@ -18,6 +18,7 @@ import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import PrivateRoute from "../Hook/PrivateRoute";
 import Faq from "../Pages/Main/Faq/Faq";
 import AdminRoute from "../Hook/AdminRoute";
+import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 
 export const router = createBrowserRouter([
   {
@@ -93,6 +94,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <Myticket></Myticket>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/all-ticket",
+        element: (
+          <AdminRoute>
+            <AllTicket></AllTicket>
           </AdminRoute>
         ),
       },
