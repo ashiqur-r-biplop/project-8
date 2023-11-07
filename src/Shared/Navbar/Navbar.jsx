@@ -10,7 +10,7 @@ const Navbar = () => {
   const { user, logOut } = loadUser;
   const navigate = useNavigate();
 
-  console.log(user);
+  // console.log(user);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -60,12 +60,8 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full  z-[50] fixed top-0">
-      <nav
-        className={`py-4  lg:px-14 px-4 bg-gray-900 ${
-          isSticky ? "shadow" : ""
-        }`}
-      >
+    <header className="w-full z-[50] fixed top-0">
+      <nav className={`py-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
             <Link to="/" className="flex items-center">

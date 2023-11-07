@@ -3,7 +3,7 @@ import React from "react";
 import PageBanner from "../../../Component/Main/About/PageBanner";
 
 import Parallax from "../../../Component/Main/About/Parallax";
-import MissionVission from '../../../Component/Main/About/MissionVission';
+import MissionVission from "../../../Component/Main/About/MissionVission";
 
 const About = () => {
   const datas = [
@@ -59,33 +59,14 @@ const About = () => {
             />
           </div>
 
-          <div className="md:w-[50%]">
-            <div className="space-y-4">
-              <details
-                className="group [&_summary::-webkit-details-marker]:hidden"
-                open
-              >
-                <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
-                  <h2 className="font-medium">What We Offer</h2>
-
-                  <svg
-                    className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </summary>
-
-                <p className="mt-4 px-4 leading-relaxed text-gray-700">
-                  DhakaTicket.com enables consumers to purchase tickets from any
+          <div className="space-y-3 w-[50%]">
+            <div className="collapse">
+              <input type="radio" name="my-accordion-1" checked="checked" />
+              <div className="collapse-title text-xl font-medium text-orange-600">
+              What We Offer?
+              </div>
+              <div className="collapse-content">
+                <p> DhakaTicket.com enables consumers to purchase tickets from any
                   location at any time, just by using your mobile phone. You can
                   rest assured that your payment will be transfer safely through
                   a highly secured payment channel. A customer can purchase
@@ -95,41 +76,24 @@ const About = () => {
                   few clicks, you can purchase tickets from anywhere! An SMS is
                   sent to the user once the purchase is confirmed. This SMS has
                   the reference number along with other ticket related
-                  information
-                </p>
-              </details>
-
-              <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900">
-                  <h2 className="font-medium">About Us?</h2>
-
-                  <svg
-                    className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </summary>
-
-                <p className="mt-4 px-4 leading-relaxed text-gray-700">
-                  DhakaTicket.com is a premium online booking portal which
+                  information</p>
+              </div>
+            </div>
+            <div className="collapse">
+              <input type="radio" name="my-accordion-1" />
+              <div className="collapse-title text-xl font-medium text-orange-600">
+              About Us?
+              </div>
+              <div className="collapse-content">
+                <p>DhakaTicket.com is a premium online booking portal which
                   allows you to purchase tickets for various bus services,
                   launch services, movies and events across the country. It also
                   lets you purchase travel tickets in the simplest, easiest,
                   smartest and most convenient way. Search for bus availability,
                   choose your preferred seat, purchase bus tickets with utmost
                   convenience using your mobile phone. It can't get simpler than
-                  this!
-                </p>
-              </details>
+                  this!</p>
+              </div>
             </div>
           </div>
         </div>
@@ -144,7 +108,7 @@ const About = () => {
                   key={index}
                 >
                   <div className="flex justify-center items-center">
-                    <img src={item.logo} alt="" />
+                    <img className="my-image" src={item.logo} alt="" />
                   </div>
                   <div className="space-y-3">
                     <h4 className="text-[24px] text-orange-600">
@@ -171,7 +135,7 @@ const About = () => {
         />
       </div>
       <div>
-        <MissionVission/>
+        <MissionVission />
       </div>
     </div>
   );

@@ -2,49 +2,28 @@ import React from 'react'
 
 
 const NewsLetter = () => {
+
  return (
-   <div className="max-w-[1200px]  py-6  mx-auto">
-     <section className="brand-bg opacity-90">
-       <div className="p-8 md:p-10 lg:px-12 lg:py-20">
-         <div className="mx-auto max-w-lg text-center">
-           <h2 className="text-2xl font-bold  text-white md:text-3xl">
-             We are Experts in Bus Charter Service company Since 1995
-           </h2>
+   <div className="max-w-[1200px] mb-8 brand-bg opacity-80 px-6 py-8 md:py-12 md:px-10  mx-auto">
+     <div className="w-full md:w-6/12 md:mx-auto">
+       <h1 className="text-lg md:text-3xl  text-white pb-2">
+         Subscribe To Our Newsletter
+       </h1>
 
-           <p className="hidden text-white sm:mt-4 sm:block">
-             In this edition of our newsletter, we want to shine a spotlight on
-             you, our valued customer. Your trust in our Company  means
-             the world to us, and we want to take a moment to celebrate your
-             loyalty and support.
-           </p>
+       <div className="flex flex-col md:flex-row   ">
+         <div className='w-full md:w-8/12'>
+           <input
+             className="w-full  px-2 py-2 rounded  mb-2 md:mb-0"
+             type="text"
+             placeholder="Enter your Email"
+           />
          </div>
-
-         <div className="mx-auto mt-8 max-w-xl">
-           <form action="#" className="sm:flex sm:gap-4">
-             <div className="sm:flex-1">
-               <label htmlFor="email" className="sr-only">
-                 Email
-               </label>
-
-               <input
-                 type="email"
-                 placeholder="Email address"
-                 className="w-full rounded-md border-gray-200 bg-white p-3 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-black  dark:border-gray-700 dark:bg-gray-800 dark:text-white"
-               />
-             </div>
-
-             <button
-               type="submit"
-               className="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-black px-5 py-3 text-white  focus:outline-none focus:ring focus:ring-black sm:mt-0 sm:w-auto"
-             >
-               <span className="text-sm font-medium"> Send Email </span>
-
-
-             </button>
-           </form>
+         <div className='md:ml-2'>
+           {" "}
+           <button className='bg-black rounded text-white px-3 py-2'>Subscribe</button>
          </div>
        </div>
-     </section>
+     </div>
    </div>
  );
 }
