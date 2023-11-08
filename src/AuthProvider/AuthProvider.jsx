@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [NoticeControl, setNoticeControl] = useState(false);
-  const [reload, setReload] = useState(false);
+  const [reload, setReload] = useState(true);
 
   // Google provider
   const googleProvider = new GoogleAuthProvider();
