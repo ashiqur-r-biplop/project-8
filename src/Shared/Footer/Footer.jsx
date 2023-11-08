@@ -88,9 +88,9 @@ const Footer = () => {
                   Quick links
                 </span>
                 <div className="mt-2">
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to='/blog' className="link link-hover block text-base py-1 lg:text-lg">
                     Blog
-                  </a>
+                  </Link>
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     Bus Companies
                   </a>

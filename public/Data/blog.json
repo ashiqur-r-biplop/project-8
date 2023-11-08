@@ -1,0 +1,51 @@
+[
+     {
+       "id": 1,
+       "type": "admin",
+       "date": "JAN. 18, 2021",
+       "title": "Exploring Double-Decker Buses",
+       "desc": "Take a deep dive into the world of double-decker buses, their history, and how they've become an iconic part of public transportation.",
+       "cover": "https://i.ibb.co/ry2z88w/view-traffic-london-city.jpg"
+     },
+     {
+       "id": 2,
+       "type": "admin",
+       "date": "API. 25, 2022",
+       "title": "The Evolution of Electric Buses",
+       "desc": "Discover the latest advancements in electric bus technology and how it's contributing to a greener and more sustainable future.",
+       "cover": "https://i.ibb.co/XF4mNj6/News-and-Media.jpg"
+     },
+     {
+       "id": 3,
+       "type": "user",
+       "date": "MAY. 15, 2022",
+       "title": "Historical Bus Journeys: A Trip Down Memory Lane",
+       "desc": "Travel back in time and explore some of the most remarkable historical bus journeys that shaped transportation history.",
+       "cover": "https://i.ibb.co/NjbyBgn/5b6ad6de-bf35-4d94-8834-f8a949bc6b9e.jpg"
+     },
+     {
+       "id": 4,
+       "type": "admin",
+       "date": "JAN. 02, 2022",
+       "title": "Articulated Buses: The Future of Urban Mobility",
+       "desc": "Learn about the benefits of articulated buses in urban settings and how they are revolutionizing public transportation.",
+       "cover": "https://i.ibb.co/7VQ8NN8/DEXCA-TRANSPORT.jpg"
+     },
+     {
+       "id": 5,
+       "type": "admin",
+       "date": "DEC. 14, 2022",
+       "title": "Luxury Bus Travel: Comfort on the Road",
+       "desc": "Explore the world of luxury bus travel and how modern buses are providing a premium travel experience.",
+       "cover": "https://i.ibb.co/KGkWySQ/6966f0a2-7988-4222-846e-3c0968811227.jpg"
+     },
+     {
+       "id": 6,
+       "type": "user",
+       "date": "JAN. 18, 2021",
+       "title": "The Iconic Routemaster Bus of London",
+       "desc": "Discover the rich history and cultural significance of London's iconic Routemaster bus, a symbol of the city's heritage.",
+       "cover": "https://i.ibb.co/vJ1S7Yb/London-s-Futuristic-New-Double-Decker-Bus-Hits-The.jpg"
+     }
+   ]
+   

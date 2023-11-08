@@ -21,6 +21,7 @@ import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import PrivateRoute from "../Hook/PrivateRoute";
 import Faq from "../Pages/Main/Faq/Faq";
 import AdminRoute from "../Hook/AdminRoute";
+import Blog from "../Pages/Main/Blog/Blog";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         element: <Faq></Faq>,
+      },
+      {
+          path:'/blog',
+          element:<Blog></Blog>
       },
       {
         path: "/book-ticket",
