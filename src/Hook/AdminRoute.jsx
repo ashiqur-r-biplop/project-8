@@ -9,6 +9,8 @@ const AdminRoute = ({ children }) => {
   console.log(user);
   console.log(isAdmin);
   const location = useLocation();
+
+
   if (loading || isAdminLoading) {
     return (
       <div className="h-screen w-full flex justify-center items-center">
