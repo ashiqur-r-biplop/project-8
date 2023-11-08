@@ -28,11 +28,11 @@ const Featured = () => {
           </div>
         </div>
         <div className="bg-black p-4 md:p-6 w-full h-full">
-          <p className="brand-color text-sm capitalize text-center">Why choose us</p>
-          <h1 className="text-white mt-2 md:text-2xl text-center">
+          <p className="brand-color text-xl capitalize text-center">Why choose us</p>
+          <h1 className="text-white mt-2 md:text-4xl  ">
             We are experts in bus charters company since 1989!
           </h1>
-          <p className="text-white text-[16px] py-2 text-justify">
+          <p className="text-white text-[24px] py-2 ">
             In this edition of our newsletter, we want to shine a spotlight on
             you, our valued customer. Your trust in our Company means the world
             to us, and we want to take a moment to celebrate your loyalty and
