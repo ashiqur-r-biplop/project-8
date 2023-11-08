@@ -13,15 +13,14 @@ import BookBusComponent from "../Component/Main/BookBus/BookBusComponent";
 import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
 import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
-import Feedback from "../Component/Main/Home/Feedback";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
-import Myticket from '../Pages/Dashboard/Myticket/Myticket';
-import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
-import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
+import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import PrivateRoute from "../Hook/PrivateRoute";
 import Faq from "../Pages/Main/Faq/Faq";
 import AdminRoute from "../Hook/AdminRoute";
+import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import Blog from "../Pages/Main/Blog/Blog";
+import Feedback from "../Component/Main/Home/Feedback";
 
 export const router = createBrowserRouter([
   {
@@ -51,19 +50,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/book-ticket",
-        element: (
-          <PrivateRoute>
-            <BookTicketComponent></BookTicketComponent>
-          </PrivateRoute>
-        ), // done
+        element: <BookTicketComponent></BookTicketComponent>, // done
       },
       {
         path: "/book-bus",
-        element: (
-          <PrivateRoute>
-            <BookBusComponent></BookBusComponent>
-          </PrivateRoute>
-        ),
+        element: <PrivateRoute><BookBusComponent></BookBusComponent></PrivateRoute>,
       },
       {
         path: "/user-profile",
@@ -118,15 +109,7 @@ export const router = createBrowserRouter([
           <AdminRoute>
             <AllTicket></AllTicket>
           </AdminRoute>
-        ), //For Admin
-      },
-      {
-        path: "/dashboard/all-user",
-        element: (
-          <AdminRoute>
-            <AllUsers></AllUsers>
-          </AdminRoute>
-        ), //For Admin
+        ),
       },
       {
         path: "/dashboard/post-notice",
