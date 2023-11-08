@@ -199,7 +199,7 @@ const BookBusComponent = () => {
                   <option>Chattogram</option>
                   <option>Khulna</option>
                   <option>Rajshahi</option>
-                  <option>Barisha</option>
+                  <option>Barishal</option>
                   <option>Sylhet</option>
                   <option>Rangpur</option>
                   <option>Mymensingh</option>
@@ -256,7 +256,7 @@ const BookBusComponent = () => {
             </div>
           </div>
 
-          <h1 className="text-4xl mt-8 text-center brand-color pb-2">Contact Details</h1>
+          <h1 className="text-4xl mt-8 text-center brand-color py-7">Contact Details</h1>
           <hr />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 mt-7">
             <div className="form-control">

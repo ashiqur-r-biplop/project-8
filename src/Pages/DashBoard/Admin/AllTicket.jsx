@@ -40,19 +40,19 @@ const AllTicket = () => {
               >
                 <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Name: </span>{user.name}</td>
                 <hr className="font-bold" />
-                <td className="text-xl flex"><span  className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Email: </span>{user.email}</td>
+                <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Email: </span>{user.email}</td>
                 <hr className="font-bold" />
-                <td className="text-xl flex"><span  className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Phone: </span>{user.phone}</td>
+                <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Phone: </span>{user.phone}</td>
                 <hr className="font-bold" />
-                <td className="text-xl flex"><span  className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>BusType: </span>{user.busType}</td>
+                <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>BusType: </span>{user.busType}</td>
                 <hr className="font-bold" />
-                <td className="text-xl flex"><span  className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Pick: </span>{user.pick}</td>
+                <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Pick: </span>{user.pick}</td>
                 <hr className="font-bold" />
-                <td className="text-xl flex"><span  className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Destination: </span>{user.to}</td>
+                <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Destination: </span>{user.to}</td>
                 <hr className="font-bold" />
-                <td className="text-xl flex"><span  className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Schedule: </span>{user.schedule}</td>
+                <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Schedule: </span>{user.schedule}</td>
                 <hr className="font-bold" />
-                <td className="text-xl flex"><span  className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Date: </span>{user.bookedDate}</td>
+                <td className="text-xl flex"><span className='text-white font-bold w-[30%] bg-orange-600 flex items-center justify-center -my-2 me-3'>Date: </span>{user.bookedDate}</td>
                 <hr className="font-bold border-2 border-white" />
               </tr>
             ))}
