@@ -28,7 +28,7 @@ const AllTicket = () => {
         </div>
       </div>
       <div className="md:hidden">
-        <table className="table w-full table-sm ">
+        <table className="table w-full table-sm">
 
           <tbody className="item-center">
             {allTicket.map((user, index) => (
@@ -65,13 +65,13 @@ const AllTicket = () => {
           {/* head */}
           <thead className=''>
             <tr className="md:text-sm lg:text-lg xl:text-2xl text-white bg-[#FF4500]">
-              <th className=" ">Name</th>
-              <th className=" ">Email&Number</th>
-              <th className=" ">BusType</th>
-              <th className=" ">Pick</th>
-              <th className=" ">Destination</th>
-              <th className=" ">Schedule</th>
-              <th className=" ">Date</th>
+              <th className="">Name</th>
+              <th className="">Email&Number</th>
+              <th className="">BusType</th>
+              <th className="">Pick</th>
+              <th className="">Destination</th>
+              <th className="">Schedule</th>
+              <th className="">Date</th>
               {/* <th className="text-xl md:text-2xl">Status</th> */}
             </tr>
           </thead>
