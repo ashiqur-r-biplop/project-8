@@ -15,7 +15,7 @@ import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
 import Feedback from "../Component/Main/Home/Feedback";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
-import Myticket from '../Pages/Dashboard/Myticket/Myticket';
+import Myticket from "../Pages/Dashboard/Myticket/Myticket";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import PrivateRoute from "../Hook/PrivateRoute";
@@ -46,11 +46,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/book-ticket",
-        element: (
-          <PrivateRoute>
-            <BookTicketComponent></BookTicketComponent>
-          </PrivateRoute>
-        ), // done
+        element: <BookTicketComponent></BookTicketComponent>, // done
       },
       {
         path: "/book-bus",
