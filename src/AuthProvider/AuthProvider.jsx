@@ -22,6 +22,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [NoticeControl, setNoticeControl] = useState(false);
+  const [reload, setReload] = useState(false);
 
   // Google provider
   const googleProvider = new GoogleAuthProvider();
@@ -34,6 +35,7 @@ const AuthProvider = ({ children }) => {
 
   // Update a user's profile
   const updateUserProfileName = (displayName) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: displayName,
     });
@@ -70,7 +72,9 @@ const AuthProvider = ({ children }) => {
   };
   // Manage user
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
       if (currentUser) {
         // console.log("data");
         axios
@@ -78,31 +82,22 @@ const AuthProvider = ({ children }) => {
             email: currentUser.email,
           })
           .then((data) => {
-            setUser(currentUser);
-            console.log(data.data.token, "");
             localStorage.setItem("access-token", data.data.token);
             setLoading(false);
-            setLoading(false);
-          })
-          .catch((err) => {
-            setUser(currentUser);
-            setLoading(false);
+            setReload(false);
           });
       } else {
-        console.log("logout successfully");
         localStorage.removeItem("access-token");
-        setUser(currentUser);
         setLoading(false);
       }
     });
     return () => {
-      unsubscribe();
+      unSubscribe();
     };
-  }, []);
+  }, [reload]);
 
   const authInfo = {
     user,
-    loading,
     createUserWithEmail,
     updateUserProfileName,
     signIn,
@@ -112,6 +107,10 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     NoticeControl,
     setNoticeControl,
+    reload,
+    setReload,
+    loading,
+    setLoading,
   };
 
   return (
