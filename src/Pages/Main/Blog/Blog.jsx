@@ -35,9 +35,9 @@ const Blog = () => {
            </div>
           ))}
           </div>
-             <section className="my-5 w-full">
+             {/* <section className="my-5 w-full">
              <NewsLetter></NewsLetter>
-             </section>
+             </section> */}
      </section>
   )
 }
