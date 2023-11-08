@@ -19,6 +19,8 @@ import PrivateRoute from "../Hook/PrivateRoute";
 import Faq from "../Pages/Main/Faq/Faq";
 import AdminRoute from "../Hook/AdminRoute";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
+import Blog from "../Pages/Main/Blog/Blog";
+import Feedback from "../Component/Main/Home/Feedback";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +45,10 @@ export const router = createBrowserRouter([
         element: <Faq></Faq>,
       },
       {
+          path:'/blog',
+          element:<Blog></Blog>
+      },
+      {
         path: "/book-ticket",
         element: <BookTicketComponent></BookTicketComponent>, // done
       },
@@ -53,6 +59,14 @@ export const router = createBrowserRouter([
       {
         path: "/user-profile",
         element: <UserProfile></UserProfile>, // done
+      },
+      {
+        path: "/my-ticket",
+        element: <Myticket></Myticket>,
+      },
+      {
+        path: "/user-feedback",
+        element: <Feedback></Feedback>,
       },
       {
         path: "/login",
@@ -86,14 +100,6 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <BusPostForm></BusPostForm>
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-ticket",
-        element: (
-          <AdminRoute>
-            <Myticket></Myticket>
           </AdminRoute>
         ),
       },

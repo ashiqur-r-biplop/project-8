@@ -3,14 +3,27 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaUserAlt } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import useUserRole from "../../Hook/useUserRole";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const loadUser = useContext(AuthContext);
-  const { user, logOut } = loadUser;
+  const [currentUser, setCurrentUser] = useState({});
+  const { role } = useUserRole();
+  const { user, logOut, setLoading, loading } = useContext(AuthContext);
   const navigate = useNavigate();
+  console.log(role);
+  const url = "https://dhaka-bus-ticket-server-two.vercel.app";
 
-  // console.log(user);
+  useEffect(() => {
+    if (user) {
+      const cu = async () => {
+        const res = await fetch(`${url}/getUserByEmail/${user?.email}`);
+        const data = await res.json();
+        setCurrentUser(data);
+      };
+      cu();
+    }
+  }, [loading, user, url]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -47,9 +60,11 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 2000,
         });
+        setLoading(false);
         navigate("/"); // Redirect to the home page after logout
       })
       .catch((error) => {
+        setLoading(false);
         console.error(error);
         Swal.fire({
           icon: "error",
@@ -60,8 +75,12 @@ const Navbar = () => {
   };
 
   return (
-    <header className="w-full z-[50] fixed top-0">
-      <nav className={`py-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
+    <header className="w-full  z-[50] fixed top-0">
+      <nav
+        className={`py-4  lg:px-14 px-4 bg-gray-900 ${
+          isSticky ? "shadow" : ""
+        }`}
+      >
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
             <Link to="/" className="flex items-center">
@@ -95,7 +114,7 @@ const Navbar = () => {
             </ul>
 
             {/* btn for large device */}
-            <div>
+            <div className="lg:block hidden">
               {user ? (
                 <div className="dropdown dropdown-end">
                   <label
@@ -110,12 +129,36 @@ const Navbar = () => {
                     tabIndex={0}
                     className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
                   >
-                    <li className="text-white mb-3">
-                      <Link to={`user-profile`} className="justify-between">
-                        Profile
-                      </Link>
-                    </li>
-
+                    {role == "admin" ? (
+                      <>
+                        <li className="text-white mb-3">
+                          <Link
+                            to="/dashboard/profile"
+                            className="justify-between"
+                          >
+                            Dashboard
+                          </Link>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="text-white mb-3">
+                          <Link to={`user-profile`} className="justify-between">
+                            Profile
+                          </Link>
+                        </li>
+                        <li className="text-white mb-3">
+                          <Link to="my-ticket" className="justify-between">
+                            My Ticket
+                          </Link>
+                        </li>
+                        <li className="text-white mb-3">
+                          <Link to="" className="justify-between">
+                            Booked Bus
+                          </Link>
+                        </li>
+                      </>
+                    )}
                     <li className="text-white mb-3">
                       <button onClick={handleLogout}>Logout</button>
                     </li>
@@ -141,7 +184,7 @@ const Navbar = () => {
 
           {/* items for mobile device*/}
           <div
-            className={`space-y-4 px-4 mt-16 bg-gray-800 ${
+            className={`space-y-4 px-4 mt-16 brand-bg ${
               isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
             }`}
           >
@@ -163,6 +206,63 @@ const Navbar = () => {
                 {link}
               </NavLink>
             ))}
+
+            <div className="lg:hidden block">
+              {user ? (
+                <div className="dropdown">
+                  <label
+                    tabIndex={0}
+                    className="w-full h-full rounded-full cursor-pointer"
+                  >
+                    <div className="w-10 rounded-full flex justify-center items-center">
+                      <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-gray-950 rounded-box w-52"
+                  >
+                    {currentUser?.role == "admin" ? (
+                      <>
+                        <li className="text-white mb-3">
+                          <Link
+                            to="/dashboard/profile"
+                            className="justify-between"
+                          >
+                            Dashboard
+                          </Link>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="text-white mb-3">
+                          <Link to={`user-profile`} className="justify-between">
+                            Profile
+                          </Link>
+                        </li>
+                        <li className="text-white mb-3">
+                          <Link to="my-ticket" className="justify-between">
+                            My Ticket
+                          </Link>
+                        </li>
+                        <li className="text-white mb-3">
+                          <Link to="" className="justify-between">
+                            Booked Bus
+                          </Link>
+                        </li>
+                      </>
+                    )}
+                    <li className="text-white mb-3">
+                      <button onClick={handleLogout}>Logout</button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <li className="text-white mb-3 list-none">
+                  <Link to="/login">Login</Link>
+                </li>
+              )}
+            </div>
           </div>
         </div>
       </nav>

@@ -100,14 +100,14 @@ const MainDashBoard = () => {
 
   const adminOptions = (
     <>
+      <ActiveLink to="/">
+        <li>Home</li>
+      </ActiveLink>
       <ActiveLink to="/dashboard/postBus">
         <li>Post Bus</li>
       </ActiveLink>
       <ActiveLink to="/dashboard/all-ticket">
         <li>All Ticket</li>
-      </ActiveLink>
-      <ActiveLink to="/dashboard/my-ticket">
-        <li>My Ticket</li>
       </ActiveLink>
       <ActiveLink to="/dashboard/all-user">
         <li>All User</li>
@@ -138,15 +138,20 @@ const MainDashBoard = () => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content lg:flex">
           <div className="w-full lg:h-screen lg:w-2/12 bg-gray-800 brand-color overflow-y-auto">
-            <Link to="/" className="flex items-center justify-center h-[10vh]">
-              <span className="brand-color text-3xl">Dhaka</span>
-              <img
-                className="h-6 ms-1 rounded-sm -me-1"
-                src="https://i.ibb.co/qWzZ2NC/bus3.png"
-                alt=""
-              />
-              <span className="brand-color  text-3xl">Ticket</span>
-            </Link>
+            <div className="flex">
+              <div className="flex-none lg:hidden">
+                <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
+                  <GrMenu className="w-6 h-6" />
+                </label>
+              </div>
+              <div>
+                <Link to="/" className="flex items-center justify-center h-[10vh]">
+                  <span className="brand-color text-2xl">Dhaka</span>
+                  <img className="h-6 w-12 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
+                  <span className="brand-color  text-2xl">Ticket</span>
+                </Link>
+              </div>
+            </div>
             <div className="flex-none hidden lg:block mt-4">
               <ul className="menu-vertical">
                 <ActiveLink to="/dashboard/profile">
@@ -164,10 +169,7 @@ const MainDashBoard = () => {
           </div>
         </div>
         <div className="drawer-side">
-          <label
-            htmlFor="my-drawer-3"
-            className="drawer-overlay overflow-x-auto max-h-[100vh]"
-          ></label>
+          <label htmlFor="my-drawer-3" className="drawer-overlay overflow-x-auto max-h-[100vh]"></label>
           <ul className="p-4 w-52 bg-gray-800 text-white overflow-y-auto">
             <ActiveLink to="/dashboard/profile">
               <li>Profile</li>
