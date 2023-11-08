@@ -65,6 +65,10 @@ export const router = createBrowserRouter([
         element: <UserProfile></UserProfile>, // done
       },
       {
+        path: "/my-ticket",
+        element: <Myticket></Myticket>,
+      },
+      {
         path: "/user-feedback",
         element: <Feedback></Feedback>,
       },
@@ -100,14 +104,6 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <BusPostForm></BusPostForm>
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "/dashboard/my-ticket",
-        element: (
-          <AdminRoute>
-            <Myticket></Myticket>
           </AdminRoute>
         ),
       },

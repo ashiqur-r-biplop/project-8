@@ -5,26 +5,25 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const useUserRole = () => {
   const { axiosSecure } = UseAxiosSecure();
   const [role, setRole] = useState("");
-  const [loading, setLoading] = useState(true);
-  const { user } = useContext(AuthContext);
-  console.log(user?.email);
+  const [isAdminLoading, setIsAdminLoading] = useState(true);
+  const { user, setLoading } = useContext(AuthContext);
   useEffect(() => {
+    console.log(user);
     if (user) {
       axiosSecure
         .get(`/admin/${user?.email}`)
         .then((res) => {
-          console.log(res);
+          console.log(res.data.role);
           setRole(res.data.role);
-          setLoading(false);
+          setIsAdminLoading(false);
         })
         .catch((e) => {
           console.log(e.message);
-          // setLoading(false)
+          setIsAdminLoading(false);
         });
     }
-    // }
   }, [user]);
-  return { role, loading };
+  return { role, isAdminLoading };
 };
 
 export default useUserRole;
