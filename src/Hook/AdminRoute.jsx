@@ -7,6 +7,8 @@ const AdminRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const { role: isAdmin, loading: isAdminLoading } = useUserRole();
   const location = useLocation();
+
+
   if (loading || isAdminLoading) {
     return (
       <div className="h-screen w-full flex justify-center items-center">
