@@ -26,14 +26,13 @@ const UseAxiosSecure = () => {
           error.response &&
           (error.response.status === 401 || error.response.status === 403)
         ) {
-          localStorage.removeItem("access-token");
           await logOut();
           navigate("/login");
         }
         return Promise.reject(error);
       }
     );
-  }, [logOut, navigate]);
+  }, [logOut, navigate, axiosSecure]);
 
   return { axiosSecure };
 };

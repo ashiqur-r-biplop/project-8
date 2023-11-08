@@ -15,7 +15,7 @@ const BookTicket = () => {
   const [displaySelectSeat, setDisplaySelectSeat] = useState(false);
   const [searchBus, setSearchBus] = useState(null);
   // console.log(selectedSeats)
-  console.log(user);
+  // console.log(user);
 
   // ****************Date Handle****************************
   const currentDate = new Date();
@@ -136,118 +136,93 @@ const BookTicket = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [cardPass, setCardPass] = useState("");
 
-  // const handleCard = (e) => {
-  //   setCardNumber(e.target.form.cardNumber.value);
-  //   setCardPass(e.target.form.cardPass.value);
-  // };
-
-  // sslcommerz
-  const item = {
-    username: user.displayName,
-    email: user.email,
-    price: amount,
+  const handleCard = (e) => {
+    setCardNumber(e.target.form.cardNumber.value);
+    setCardPass(e.target.form.cardPass.value);
   };
 
-  const pay = (item) => {
-    fetch(`https://dhaka-bus-ticket-server-two.vercel.app/order`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(item),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        window.location.replace(data.url);
-        console.log(data, 160);
-        Swal.fire({
-          title: "Ticket Booked Successfully!",
-          text: "",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
+
+  const handleBookTicket = (bus) => {
+    if (cardNumber === "424242424242" && cardPass === "123456") {
+      const busId = bus._id;
+      const oldBookedSeat = bus.bookedSeat;
+      console.log(oldBookedSeat);
+      const newBookedSeat = selectedSeats;
+      console.log(newBookedSeat);
+      const updateBookedSeat = [...oldBookedSeat, ...newBookedSeat];
+      console.log(updateBookedSeat);
+      bookedTicketUsingUserInformation.bookedSeat = newBookedSeat;
+      bookedTicketUsingUserInformation.payment = "done";
+      bookedTicketUsingUserInformation.amount = amount;
+      bookedTicketUsingUserInformation.bookedDate = new Date()
+        .toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })
+        .replace(/\//g, "-");
+      console.log(bookedTicketUsingUserInformation);
+
+      const updateTicketBooking = {
+        bus_id: busId,
+        updateBookedSeat: updateBookedSeat,
+      };
+      fetch("https://dhaka-bus-ticket-server-two.vercel.app/book-ticket", {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(updateTicketBooking),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+
+          if (data.matchedCount > 0) {
+            setDisplaySelectSeat(false);
+            setControl(!control);
+            setCounter(0);
+            Swal.fire({
+              title: "Ticket Booked Successfully!",
+              text: "",
+              icon: "success",
+              confirmButtonText: "Cool",
+            });
+          }
+          navigate("/dashboard/my-ticket");
+        })
+        .catch((err) => console.log(err));
+
+      // Booked Seat and Post it with User Information:
+      fetch("https://dhaka-bus-ticket-server-two.vercel.app/book-my-ticket", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(bookedTicketUsingUserInformation),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.matchedCount > 0) {
+            setDisplaySelectSeat(false);
+            setControl(!control);
+            setCounter(0);
+            Swal.fire({
+              title: "Ticket Booked Successfully!",
+              text: "",
+              icon: "success",
+              confirmButtonText: "Thank You",
+            });
+            setCardNumber("");
+            setCardPass("");
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      return Swal.fire({
+        title: "Card and Password doesn't match! Try again!",
+        text: "",
+        icon: "error",
+        confirmButtonText: "Try Again",
       });
+    }
   };
-
-  // const handleBookTicket = (bus) => {
-  //   if (cardNumber === "424242424242" && cardPass === "123456") {
-  //     const busId = bus._id;
-  //     const oldBookedSeat = bus.bookedSeat;
-  //     console.log(oldBookedSeat);
-  //     const newBookedSeat = selectedSeats;
-  //     console.log(newBookedSeat);
-  //     const updateBookedSeat = [...oldBookedSeat, ...newBookedSeat];
-  //     console.log(updateBookedSeat);
-  //     bookedTicketUsingUserInformation.bookedSeat = newBookedSeat;
-  //     bookedTicketUsingUserInformation.payment = "done";
-  //     bookedTicketUsingUserInformation.amount = amount;
-  //     bookedTicketUsingUserInformation.bookedDate = new Date()
-  //       .toLocaleDateString("en-GB", {
-  //         day: "2-digit",
-  //         month: "2-digit",
-  //         year: "numeric",
-  //       })
-  //       .replace(/\//g, "-");
-  //     console.log(bookedTicketUsingUserInformation);
-
-  //     const updateTicketBooking = {
-  //       bus_id: busId,
-  //       updateBookedSeat: updateBookedSeat,
-  //     };
-  //     fetch("https://dhaka-bus-ticket-server-two.vercel.app/book-ticket", {
-  //       method: "PUT",
-  //       headers: { "content-type": "application/json" },
-  //       body: JSON.stringify(updateTicketBooking),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-
-  //         if (data.matchedCount > 0) {
-  //           setDisplaySelectSeat(false);
-  //           setControl(!control);
-  //           setCounter(0);
-  //           Swal.fire({
-  //             title: "Ticket Booked Successfully!",
-  //             text: "",
-  //             icon: "success",
-  //             confirmButtonText: "Cool",
-  //           });
-  //         }
-  //         navigate("/dashboard/my-ticket");
-  //       })
-  //       .catch((err) => console.log(err));
-
-  //     // Booked Seat and Post it with User Information:
-  //     fetch("https://dhaka-bus-ticket-server-two.vercel.app/book-my-ticket", {
-  //       method: "POST",
-  //       headers: { "content-type": "application/json" },
-  //       body: JSON.stringify(bookedTicketUsingUserInformation),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.matchedCount > 0) {
-  //           setDisplaySelectSeat(false);
-  //           setControl(!control);
-  //           setCounter(0);
-  //           Swal.fire({
-  //             title: "Ticket Booked Successfully!",
-  //             text: "",
-  //             icon: "success",
-  //             confirmButtonText: "Thank You",
-  //           });
-  //           setCardNumber("");
-  //           setCardPass("");
-  //         }
-  //       })
-  //       .catch((err) => console.log(err));
-  //   } else {
-  //     return Swal.fire({
-  //       title: "Card and Password doesn't match! Try again!",
-  //       text: "",
-  //       icon: "error",
-  //       confirmButtonText: "Try Again",
-  //     });
-  //   }
-  // };
 
   return (
     <>
@@ -552,7 +527,7 @@ const BookTicket = () => {
               ))}
             </h3>
             <img src={payment} alt="" />
-            {/* <form onChange={handleCard}>
+            <form onChange={handleCard}>
               <div className="form-control w-full m-2">
                 <label className="label">
                   <span className="label-text">Enter Card Number</span>
@@ -575,11 +550,11 @@ const BookTicket = () => {
                   className="input input-bordered w-full max-w-xs"
                 />
               </div>
-            </form> */}
+            </form>
             <div className="">
               <form method="dialog">
                 {/* if there is a button, it will close the modal */}
-                <button onClick={() => pay(item)} className="btn btn-block brand-btn mt-2">
+                <button onClick={()=>handleBookTicket(searchBus)} className="btn btn-block brand-btn mt-2">
                   Pay
                 </button>
                 <button className="btn btn-block bg-black text-white mt-2 hover:bg-black hover:text-orange-500">
