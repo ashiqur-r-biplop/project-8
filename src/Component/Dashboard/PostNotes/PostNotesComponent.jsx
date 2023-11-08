@@ -23,7 +23,9 @@ const PostNotesComponent = () => {
   console.log(notices);
   const handleDelete = (id) => {
     axios
-      .delete(`https://dhaka-bus-ticket-server-two.vercel.app/delete-notice/${id}`)
+      .delete(
+        `https://dhaka-bus-ticket-server-two.vercel.app/delete-notice/${id}`
+      )
       .then((res) => {
         if (res.data?.deletedCount > 0) {
           setNoticeControl(!NoticeControl);
@@ -53,23 +55,26 @@ const PostNotesComponent = () => {
               const { notice, createNoteDate, _id } = n;
               return (
                 <div key={i} className="border p-10">
-                  <div className="flex justify-between items-center gap-5">
-                    <span>{createNoteDate} :</span> <span>{notice}</span>
-                    <span className="flex gap-5">
-                      <label
-                        htmlFor="my_modal_8"
-                        onClick={() => handleUpdate(_id)}
-                        className="cursor-pointer"
-                      >
-                        <MdOutlineEdit></MdOutlineEdit>{" "}
-                      </label>
-                      <span
-                        onClick={() => handleDelete(_id)}
-                        className="cursor-pointer"
-                      >
-                        <BsTrash></BsTrash>
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-5">
+                    <span>{createNoteDate} :</span>{" "}
+                    <div className="flex justify-between items-center gap-5">
+                      <span className="text-justify">{notice}</span>
+                      <span className="flex gap-5">
+                        <label
+                          htmlFor="my_modal_8"
+                          onClick={() => handleUpdate(_id)}
+                          className="cursor-pointer"
+                        >
+                          <MdOutlineEdit></MdOutlineEdit>{" "}
+                        </label>
+                        <span
+                          onClick={() => handleDelete(_id)}
+                          className="cursor-pointer"
+                        >
+                          <BsTrash></BsTrash>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               );

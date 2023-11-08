@@ -144,7 +144,7 @@ const About = () => {
                   key={index}
                 >
                   <div className="flex justify-center items-center">
-                    <img src={item.logo} alt="" />
+                    <img className="my-image" src={item.logo} alt="" />
                   </div>
                   <div className="space-y-3">
                     <h4 className="text-[24px] text-orange-600">
