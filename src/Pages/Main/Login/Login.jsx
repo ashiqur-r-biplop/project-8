@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Login = () => {
@@ -12,34 +11,29 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
-  const { signIn, user, createUserWithGoogle } = useContext(AuthContext);
+  const { signIn, user, createUserWithGoogle, loading, setLoading } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const [isLoading, setIsLoading] = useState(false);
-
   const onSubmit = (data) => {
-    setIsLoading(true);
-
     signIn(data.email, data.loginPassword)
-      .then(() => {
-        navigate(from, { replace: true });
-        setIsLoading(false);
+      .then((res) => {
         Swal.fire({
           icon: "success",
           title: "Login Successful",
           showConfirmButton: false,
           timer: 3000,
         });
-        // reset();
+        setLoading(false);
+        navigate(from, { replace: true });
+        reset();
       })
       .catch((error) => {
-        navigate(from, { replace: true });
-        setIsLoading(false);
-        console.log(error);
         Swal.fire({
           icon: "warning",
           title: "Login Failed",
@@ -51,11 +45,9 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = () => {
-    setIsLoading(true);
-
     createUserWithGoogle()
       .then((result) => {
-        setIsLoading(false);
+        setLoading(false);
         const loggedInUser = result.user;
         const saveUser = {
           name: loggedInUser.displayName,
@@ -72,11 +64,12 @@ const Login = () => {
           .then((res) => res.json())
           .then(() => {
             navigate(from, { replace: true });
+            setLoading(false);
           });
       })
       .catch((error) => {
         navigate(from, { replace: true });
-        setIsLoading(false);
+        setLoading(false);
         console.log(error);
         Swal.fire({
           icon: "warning",
@@ -98,33 +91,47 @@ const Login = () => {
 
       <div className="bg-orange-50 flex justify-center items-center">
         <div className="w-full h-auto absolute z-10 lg:max-w-md lg:mx-auto p-4 rounded-md bg-orange-50">
-          <form id="loginForm" onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div className="text-center text-3xl font-bold text-black mb-4">Login</div>
+          <form
+            id="loginForm"
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-4"
+          >
+            <div className="text-center text-3xl font-bold text-black mb-4">
+              Login
+            </div>
 
             <div className="flex flex-col">
               <input
                 type="email"
                 name="email"
-                className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${errors.email && "border-red-500"
-                  }`}
+                className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${
+                  errors.email && "border-red-500"
+                }`}
                 {...register("email", { required: "Email is required" })}
                 placeholder="Email or Username"
               />
-              {errors.email && <span className="text-red-500">{errors.email.message}</span>}
+              {errors.email && (
+                <span className="text-red-500">{errors.email.message}</span>
+              )}
             </div>
 
             <div className="flex flex-col">
               <input
                 type="password"
                 name="loginPassword"
-                className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${errors.loginPassword && "border-red-500"
-                  }`}
+                className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${
+                  errors.loginPassword && "border-red-500"
+                }`}
                 {...register("loginPassword", {
                   required: "Password is required",
                 })}
                 placeholder="Password"
               />
-              {errors.loginPassword && <span className="text-red-500">{errors.loginPassword.message}</span>}
+              {errors.loginPassword && (
+                <span className="text-red-500">
+                  {errors.loginPassword.message}
+                </span>
+              )}
             </div>
 
             <div>

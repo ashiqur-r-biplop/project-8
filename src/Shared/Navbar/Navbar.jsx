@@ -9,22 +9,21 @@ const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const { role } = useUserRole();
-  const loadUser = useContext(AuthContext);
-  const { user, logOut } = loadUser;
+  const { user, logOut, setLoading, loading } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  console.log(role);
   const url = "https://dhaka-bus-ticket-server-two.vercel.app";
 
   useEffect(() => {
-    const cu = async () => {
-      const res = await fetch(`${url}/getUserByEmail/${user?.email}`);
-      const data = await res.json();
-      setCurrentUser(data);
-    };
-    cu();
-  }, [user, url]);
-
-  console.log(currentUser);
+    if (user) {
+      const cu = async () => {
+        const res = await fetch(`${url}/getUserByEmail/${user?.email}`);
+        const data = await res.json();
+        setCurrentUser(data);
+      };
+      cu();
+    }
+  }, [loading, user, url]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -61,9 +60,11 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 2000,
         });
+        setLoading(false);
         navigate("/"); // Redirect to the home page after logout
       })
       .catch((error) => {
+        setLoading(false);
         console.error(error);
         Swal.fire({
           icon: "error",
@@ -73,16 +74,22 @@ const Navbar = () => {
       });
   };
 
-  console.log(role);
-
   return (
     <header className="w-full  z-[50] fixed top-0">
-      <nav className={`py-4  lg:px-14 px-4 bg-gray-900 ${isSticky ? "shadow" : ""}`}>
+      <nav
+        className={`py-4  lg:px-14 px-4 bg-gray-900 ${
+          isSticky ? "shadow" : ""
+        }`}
+      >
         <div className="container mx-auto">
           <div className="flex justify-between items-center gap-8">
             <Link to="/" className="flex items-center">
               <span className="brand-color text-3xl">Dhaka</span>
-              <img className="h-6 ms-1 rounded-sm -me-1" src="https://i.ibb.co/qWzZ2NC/bus3.png" alt="" />
+              <img
+                className="h-6 ms-1 rounded-sm -me-1"
+                src="https://i.ibb.co/qWzZ2NC/bus3.png"
+                alt=""
+              />
               <span className="brand-color  text-3xl">Ticket</span>
             </Link>
             <ul className="md:flex space-x-12 hidden">
@@ -95,7 +102,9 @@ const Navbar = () => {
                   className={({ isActive }) => {
                     return (
                       "px-2 py-2 rounded-md" +
-                      (isActive ? "transition-all rounded-md brand-color  duration-500 " : " text-white hover:rounded-md")
+                      (isActive
+                        ? "transition-all rounded-md brand-color  duration-500 "
+                        : " text-white hover:rounded-md")
                     );
                   }}
                 >
@@ -108,7 +117,10 @@ const Navbar = () => {
             <div className="lg:block hidden">
               {user ? (
                 <div className="dropdown dropdown-end">
-                  <label tabIndex={0} className="w-full h-full rounded-full cursor-pointer">
+                  <label
+                    tabIndex={0}
+                    className="w-full h-full rounded-full cursor-pointer"
+                  >
                     <div className="w-10 rounded-full flex justify-center items-center">
                       <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
                     </div>
@@ -120,7 +132,10 @@ const Navbar = () => {
                     {role == "admin" ? (
                       <>
                         <li className="text-white mb-3">
-                          <Link to="/dashboard/profile" className="justify-between">
+                          <Link
+                            to="/dashboard/profile"
+                            className="justify-between"
+                          >
                             Dashboard
                           </Link>
                         </li>
@@ -158,14 +173,21 @@ const Navbar = () => {
 
             {/* menu btn for only mobile device */}
             <div className="md:hidden">
-              <button onClick={toggleMenu} className="focus:outline-none focus:text-gray-500">
+              <button
+                onClick={toggleMenu}
+                className="focus:outline-none focus:text-gray-500"
+              >
                 {isMenuOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
               </button>
             </div>
           </div>
 
           {/* items for mobile device*/}
-          <div className={`space-y-4 px-4 mt-16 brand-bg ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+          <div
+            className={`space-y-4 px-4 mt-16 brand-bg ${
+              isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
+            }`}
+          >
             {navItem.map(({ link, path }) => (
               <NavLink
                 to={path}
@@ -175,7 +197,9 @@ const Navbar = () => {
                 className={({ isActive }) => {
                   return (
                     "grid p-2 my-3 rounded-md " +
-                    (isActive ? "transition-all rounded-md brand-color  duration-500 " : " text-white hover:rounded-md")
+                    (isActive
+                      ? "transition-all rounded-md brand-color  duration-500 "
+                      : " text-white hover:rounded-md")
                   );
                 }}
               >
@@ -186,7 +210,10 @@ const Navbar = () => {
             <div className="lg:hidden block">
               {user ? (
                 <div className="dropdown">
-                  <label tabIndex={0} className="w-full h-full rounded-full cursor-pointer">
+                  <label
+                    tabIndex={0}
+                    className="w-full h-full rounded-full cursor-pointer"
+                  >
                     <div className="w-10 rounded-full flex justify-center items-center">
                       <FaUserAlt className="bg-white text-orange-500 w-8 h-8 rounded-full"></FaUserAlt>
                     </div>
@@ -198,7 +225,10 @@ const Navbar = () => {
                     {currentUser?.role == "admin" ? (
                       <>
                         <li className="text-white mb-3">
-                          <Link to="/dashboard/profile" className="justify-between">
+                          <Link
+                            to="/dashboard/profile"
+                            className="justify-between"
+                          >
                             Dashboard
                           </Link>
                         </li>
