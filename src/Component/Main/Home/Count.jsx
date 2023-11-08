@@ -8,11 +8,12 @@ const Count = () => {
   return (
     <div className="max-w-[1200px] mx-5 md:mx-auto">
       <div className="mt-12 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4   gap-8">
           {[
             { end: 100, postFix: "Million+", text: "Tickets Sold" },
             { end: 300, postFix: "+", text: "Routes" },
             { end: 10, postFix: "Million+", text: "Happy Users" },
+            { end: 100, postFix: "Million+", text: "Subscribe" },
           ].map((s, i) => {
             return (
               <ScrollAnimation

@@ -85,6 +85,7 @@ const Testimonial = () => {
                   <StarRatings
                     rating={parseInt(`${slide?.rating}`)}
                     starRatedColor="#FF4500"
+                    starDimension="22px"
                     // changeRating={this.changeRating}
                     numberOfStars={5}
                     name="rating"
