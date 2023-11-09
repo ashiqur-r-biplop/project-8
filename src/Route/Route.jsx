@@ -21,6 +21,8 @@ import AdminRoute from "../Hook/AdminRoute";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import Blog from "../Pages/Main/Blog/Blog";
 import Feedback from "../Component/Main/Home/Feedback";
+import TravelTips from "../Pages/Main/TravelTips/TravelTips";
+import BusComplain from "../Pages/Main/BusComplain/BusComplain";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ export const router = createBrowserRouter([
       {
           path:'/blog',
           element:<Blog></Blog>
+      },
+      {
+          path:'/travel',
+          element:<TravelTips></TravelTips>
+      },
+      {
+          path:'/bus-complain',
+          element:<BusComplain></BusComplain>
       },
       {
         path: "/book-ticket",

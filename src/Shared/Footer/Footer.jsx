@@ -91,12 +91,12 @@ const Footer = () => {
                   <Link to='/blog' className="link link-hover block text-base py-1 lg:text-lg">
                     Blog
                   </Link>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to='/bus-complain' className="link link-hover block text-base py-1 lg:text-lg">
                     Bus Companies
-                  </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  </Link>
+                  <Link to='/travel' className="link link-hover block text-base py-1 lg:text-lg">
                     Travel Tips
-                  </a>
+                  </Link>
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     My Account
                   </a>
