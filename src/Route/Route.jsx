@@ -14,15 +14,16 @@ import DashboardHome from "../Pages/DashBoard/DashboardHome/DashboardHome";
 import MainDashBoard from "../Layout/Dashboard/MainDashBoard/MainDashBoard";
 import PostNotes from "../Pages/DashBoard/PostNotes/PostNotes";
 import BusPostForm from "../Pages/Main/BusManaged/BusPostForm";
-import Myticket from "../Pages/DashBoard/Myticket/Myticket";
 import PrivateRoute from "../Hook/PrivateRoute";
 import Faq from "../Pages/Main/Faq/Faq";
 import AdminRoute from "../Hook/AdminRoute";
 import AllTicket from "../Pages/DashBoard/Admin/AllTicket";
 import Blog from "../Pages/Main/Blog/Blog";
 import Feedback from "../Component/Main/Home/Feedback";
-import TravelTips from "../Pages/Main/TravelTips/TravelTips";
-import BusComplain from "../Pages/Main/BusComplain/BusComplain";
+import Myticket from "../Pages/Dashboard/Myticket/Myticket";
+import OurTeam from "../Pages/Main/OurTeam/OurTeam";
+import TermsCondition from "../Component/Main/Terms&Condition/TermsCondition";
+import PrivacyAndPolicy from "../Component/Main/PrivacyAndPolicy/PrivacyAndPolicy";
 
 export const router = createBrowserRouter([
   {
@@ -51,12 +52,16 @@ export const router = createBrowserRouter([
           element:<Blog></Blog>
       },
       {
-          path:'/travel',
-          element:<TravelTips></TravelTips>
+          path:'/ourTeam',
+          element:<OurTeam/>
       },
       {
-          path:'/bus-complain',
-          element:<BusComplain></BusComplain>
+          path:'/termsCondition',
+          element:<TermsCondition/>
+      },
+      {
+          path:'/privacyAndPolicy',
+          element:<PrivacyAndPolicy/>
       },
       {
         path: "/book-ticket",

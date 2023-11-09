@@ -49,16 +49,28 @@ const Footer = () => {
               <div className="md:mx-auto w-full text-center mx-auto ">
                 <span className="brand-color text-xl block mb-4">About us</span>
                 <div className="mt-2">
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link
+                    to="/ourTeam"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     Our Team
-                  </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  </Link>
+                  <Link
+                    to="/PrivacyAndPolicy"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     Privacy Policy
-                  </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
-                    Terms of Use
-                  </a>
-                  <Link to="/contact" className="link link-hover block text-base py-1 lg:text-lg">
+                  </Link>
+                  <Link
+                    to="/termsCondition"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
+                    Terms And Conditions
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     Contact Us
                   </Link>
                 </div>
@@ -77,7 +89,10 @@ const Footer = () => {
                   <a className="link link-hover block text-base py-1 lg:text-lg">
                     Train Tickets
                   </a>
-                  <Link to='/faq' className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link
+                    to="/faq"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     FAQ
                   </Link>
                 </div>
@@ -88,7 +103,10 @@ const Footer = () => {
                   Quick links
                 </span>
                 <div className="mt-2">
-                  <Link to='/blog' className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link
+                    to="/blog"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     Blog
                   </Link>
                   <Link to='/bus-complain' className="link link-hover block text-base py-1 lg:text-lg">
