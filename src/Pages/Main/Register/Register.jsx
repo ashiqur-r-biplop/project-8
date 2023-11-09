@@ -20,6 +20,7 @@ const Register = () => {
     createUserWithGoogle,
     user,
     setLoading,
+    setReload,
   } = useContext(AuthContext);
 
   const [isAgreed, setIsAgreed] = useState(false);
@@ -81,13 +82,20 @@ const Register = () => {
                   navigate(from, { replace: true });
                 }
                 reset();
+              })
+              .catch((error) => {
+                Swal.fire({
+                  icon: "warning",
+                  title: `${userData.name} User Registering Failed`,
+                  showConfirmButton: false,
+                  timer: 3000,
+                });
               });
-            reset();
           })
           .catch((error) => {
             Swal.fire({
               icon: "warning",
-              title: `${userData.name} Login Failed`,
+              title: `${userData.name} update Failed`,
               showConfirmButton: false,
               timer: 3000,
             });
