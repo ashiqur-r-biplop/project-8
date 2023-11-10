@@ -110,12 +110,12 @@ const Footer = () => {
                   >
                     Blog
                   </Link>
-                  {/* <Link to='/bus-complain' className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link to='/bus-complain' className="link link-hover block text-base py-1 lg:text-lg">
                     Bus Companies
-                  </Link> */}
-                  {/* <Link to='/travel' className="link link-hover block text-base py-1 lg:text-lg">
+                  </Link>
+                  <Link to='/travel' className="link link-hover block text-base py-1 lg:text-lg">
                     Travel Tips
-                  </Link> */}
+                  </Link>
                   {/* <a className="link link-hover block text-base py-1 lg:text-lg">
                     My Account
                   </a> */}
