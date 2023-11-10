@@ -29,8 +29,8 @@ const Blog = () => {
                  </span>
                  
                </div>
-               <h1 className="text-[22px] font-[400] brand-color">{val.title}</h1>
-               <p className="text-gray-600">{val.desc}</p>
+               <h1 className="text-[22px] font-[400] brand-color p-2">{val.title}</h1>
+               <p className="text-gray-600 p-2">{val.desc}</p>
              </div>
            </div>
           ))}

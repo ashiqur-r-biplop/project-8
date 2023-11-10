@@ -24,6 +24,8 @@ import Myticket from "../Pages/Dashboard/Myticket/Myticket";
 import OurTeam from "../Pages/Main/OurTeam/OurTeam";
 import TermsCondition from "../Component/Main/Terms&Condition/TermsCondition";
 import PrivacyAndPolicy from "../Component/Main/PrivacyAndPolicy/PrivacyAndPolicy";
+import BusComplain from "../Pages/Main/BusComplain/BusComplain";
+import TravelTips from "../Pages/Main/TravelTips/TravelTips";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +52,14 @@ export const router = createBrowserRouter([
       {
           path:'/blog',
           element:<Blog></Blog>
+      },
+      {
+          path:'/bus-complain',
+          element:<BusComplain></BusComplain>
+      },
+      {
+          path:'/travel',
+          element: <TravelTips></TravelTips>
       },
       {
           path:'/ourTeam',
