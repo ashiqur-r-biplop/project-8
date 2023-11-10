@@ -21,7 +21,7 @@ const UserProfile = () => {
     try {
       if (userEmail) {
         const response = await fetch(
-          `https://dhaka-bus-ticket-server-two.vercel.app/single-user?email=${userEmail}`
+          `http://localhost:5000/single-user?email=${userEmail}`
         );
         if (!response.ok) {
           throw new Error("failed to fetch");
@@ -60,7 +60,7 @@ const UserProfile = () => {
     const url = ""
     try {
       axios
-        .patch(`https://dhaka-bus-ticket-server-two.vercel.app/single-user/${currentUser._id}`, userInfo)
+        .patch(`http://localhost:5000/single-user/${currentUser._id}`, userInfo)
         .then((res) => {
           console.log(res.data);
 

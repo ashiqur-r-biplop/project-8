@@ -26,6 +26,7 @@ import TermsCondition from "../Component/Main/Terms&Condition/TermsCondition";
 import PrivacyAndPolicy from "../Component/Main/PrivacyAndPolicy/PrivacyAndPolicy";
 import BusComplain from "../Pages/Main/BusComplain/BusComplain";
 import TravelTips from "../Pages/Main/TravelTips/TravelTips";
+import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -50,28 +51,28 @@ export const router = createBrowserRouter([
         element: <Faq></Faq>,
       },
       {
-          path:'/blog',
-          element:<Blog></Blog>
+        path: '/blog',
+        element: <Blog></Blog>
       },
       {
-          path:'/bus-complain',
-          element:<BusComplain></BusComplain>
+        path: '/bus-complain',
+        element: <BusComplain></BusComplain>
       },
       {
-          path:'/travel',
-          element: <TravelTips></TravelTips>
+        path: '/travel',
+        element: <TravelTips></TravelTips>
       },
       {
-          path:'/ourTeam',
-          element:<OurTeam/>
+        path: '/ourTeam',
+        element: <OurTeam />
       },
       {
-          path:'/termsCondition',
-          element:<TermsCondition/>
+        path: '/termsCondition',
+        element: <TermsCondition />
       },
       {
-          path:'/privacyAndPolicy',
-          element:<PrivacyAndPolicy/>
+        path: '/privacyAndPolicy',
+        element: <PrivacyAndPolicy />
       },
       {
         path: "/book-ticket",
@@ -125,6 +126,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <BusPostForm></BusPostForm>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/all-user",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
           </AdminRoute>
         ),
       },
