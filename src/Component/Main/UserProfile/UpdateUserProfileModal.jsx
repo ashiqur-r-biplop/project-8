@@ -1,5 +1,6 @@
  
  
+ 
 import { useForm } from "react-hook-form";
 
 const UpdateUserProfileModal = ({currentUser,}) => {
@@ -9,7 +10,7 @@ const UpdateUserProfileModal = ({currentUser,}) => {
   const onSubmit = data =>{ 
      console.log(data)
 
-     
+      
 
 
 
