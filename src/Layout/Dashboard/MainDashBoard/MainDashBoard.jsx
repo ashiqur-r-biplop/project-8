@@ -162,8 +162,8 @@ const MainDashBoard = () => {
               </ul>
             </div>
           </div>
-          <div className="lg:w-9/12">
-            <div className="overflow-y-auto max-h-[95vh]">
+          <div className="lg:w-full">
+            <div className="overflow-y-auto max-h-[95vh] ">
               <Outlet />
             </div>
           </div>

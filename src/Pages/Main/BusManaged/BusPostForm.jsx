@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import Select from "react-select";
+// import Select from "react-select";
 import { useState } from "react";
 
 function BusPostForm() {
@@ -81,7 +81,7 @@ function BusPostForm() {
     console.log(data);
     const t = data.to;
 
-    fetch("https://dhaka-bus-ticket-server-two.vercel.app/post-bus", {
+    fetch("http://localhost:5000/post-bus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

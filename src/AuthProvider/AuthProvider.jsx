@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [NoticeControl, setNoticeControl] = useState(false);
-  const [reload, setReload] = useState(false);
+  const [reload, setReload] = useState(true);
 
   // Google provider
   const googleProvider = new GoogleAuthProvider();
@@ -78,7 +78,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         // console.log("data");
         axios
-          .post("https://dhaka-bus-ticket-server-two.vercel.app/jwt", {
+          .post("http://localhost:5000/jwt", {
             email: currentUser.email,
           })
           .then((data) => {
