@@ -5,6 +5,7 @@ import axios from "axios";
 import UpdateUserProfileModal from "./UpdateUserProfileModal";
 
 const UserProfile = () => {
+     const [selectedContact, setSelectedContact] = useState(null);
   const defaultPhotoURL =
     "https://i.pinimg.com/1200x/0f/66/bc/0f66bc842998ed2c6f82f85f702b0e44.jpg";
 
@@ -15,7 +16,7 @@ const UserProfile = () => {
   // console.log(userEmail);
 
   const [control, setControl] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState('');
 
   const fetchData = async () => {
     try {
@@ -34,12 +35,9 @@ const UserProfile = () => {
       console.log("Error fetching data", error);
     }
   };
-  console.log(userEmail);
   useEffect(() => {
-    fetchData();
-  }, [userEmail, control]);
-
-  console.log(currentUser, "35");
+     fetchData();
+   }, [userEmail, control]);
 
   const time = new Date();
   const year = time.getFullYear();
@@ -50,35 +48,11 @@ const UserProfile = () => {
     month,
     year,
   };
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const number = form.phone.value;
-    const userInfo = { name, number };
-    console.log(userInfo);
-    const url = ""
-    try {
-      axios
-        .patch(`http://localhost:5000/single-user/${currentUser._id}`, userInfo)
-        .then((res) => {
-          console.log(res.data);
-
-          // Swal.fire({
-          //   position: "top",
-          //   icon: "success",
-          //   title: "User Profile Updated",
-          //   showConfirmButton: false,
-          //   timer: 1500,
-          // });
-        })
-        .catch((error) => { });
-    } catch (error) {
-      console.error("Error posting data:", error);
-    }
-    // form.reset();
-  };
-  const handleUpdate = () => { };
+  const handleViewClick = (contact) => {
+     setSelectedContact(contact);
+     const modal = document.getElementById("my_modal_1");
+     modal.showModal();
+   };
 
   return (
     <>
@@ -117,15 +91,15 @@ const UserProfile = () => {
 
             <button
               className="flex items-center justify-center w-full p-3 font-semibold  rounded-md bg-orange-600 text-gray-50"
-              onClick={() => document.getElementById("my_modal_3").showModal()}
+              onClick={() => handleViewClick()}
             >
               {" "}
               Update Profile
             </button>
           </div>
+           
         </div>
-
-        <div className="shadow-lg rounded-md bg-slate-50">
+          <div className="shadow-lg rounded-md bg-slate-50">
           <div className=" p-2">
             <p className="text-center rounded-md py-2 bg-white text-orange-600">
               My Billings
@@ -133,10 +107,15 @@ const UserProfile = () => {
             <div>{/* maping kore info show korty pari */}</div>
           </div>
         </div>
+
+       {/* some change of note */}
+       
+
+        
       </div>
       <UpdateUserProfileModal
         currentUser={currentUser}
-        handleFormSubmit={handleFormSubmit}
+         
       ></UpdateUserProfileModal>
     </>
   );
