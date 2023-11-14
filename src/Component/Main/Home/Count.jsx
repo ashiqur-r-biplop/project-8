@@ -21,7 +21,7 @@ const Count = () => {
             { end: 100, postFix: "Million+", text: "Tickets Sold" },
             { end: 300, postFix: "+", text: "Routes" },
             { end: 10, postFix: "Million+", text: "Happy Users" },
-            { end: subscriberCount, postFix: "Million+", text: "Subscribe" },
+            { end: subscriberCount, postFix: "+", text: "Subscribers" },
           ].map((s, i) => {
             return (
               <ScrollAnimation

@@ -25,6 +25,7 @@ const AuthProvider = ({ children }) => {
   const [NoticeControl, setNoticeControl] = useState(false);
   const [reload, setReload] = useState(true);
   const {subscriberCount,setSubcriberCount}=SubscriberCount();
+  const [subscribeControl,setSubcribeControl] = useState(true);
   
 
   // Google provider
@@ -81,7 +82,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         // console.log("data");
         axios
-          .post("https://dhaka-bus-ticket-server-two.vercel.app/jwt", {
+          .post("http://localhost:5000/jwt", {
             email: currentUser.email,
           })
           .then((data) => {
@@ -116,6 +117,8 @@ const AuthProvider = ({ children }) => {
     setLoading,
     subscriberCount,
     setSubcriberCount,
+    subscribeControl,
+    setSubcribeControl,
   };
 
   return (

@@ -6,8 +6,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const NewsLetter = () => {
   const [email, setEmail] = useState("");
-  const { subscriberCount, setSubcriberCount } = useContext(AuthContext);
-  console.log(subscriberCount);
+  // const {setSubcriberCount}=useContext(AuthContext);
 
   const handleInputChange = (e) => {
     setEmail(e.target.value); // this value  is user email
@@ -20,7 +19,7 @@ const NewsLetter = () => {
          
           if(res.data.acknowledged===true){
              Swal.fire("Thank you for Subscription!", "You will Recieve our latest update", "success");
-             setSubcriberCount(subscriberCount+1);
+            
           }
 
         })

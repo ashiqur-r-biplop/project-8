@@ -19,7 +19,7 @@ const UserProfile = () => {
     try {
       if (userEmail) {
         const response = await fetch(
-          `https://dhaka-bus-ticket-server-two.vercel.app/single-user?email=${userEmail}`
+          `http://localhost:5000/single-user?email=${userEmail}`
         );
         if (!response.ok) {
           throw new Error("failed to fetch");

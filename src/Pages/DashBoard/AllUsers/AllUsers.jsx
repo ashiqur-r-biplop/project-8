@@ -6,7 +6,7 @@ const AllUsers = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://dhaka-bus-ticket-server-two.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);

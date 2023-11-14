@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 const Footer = () => {
   return (
     <>
@@ -38,9 +39,22 @@ const Footer = () => {
                   </p>
 
                   <div className="py-4 w-full justify-center flex gap-5">
-                    <FaFacebook className="w-7 h-7 cursor-pointer brand-color rounded"></FaFacebook>
-                    <FaTwitterSquare className="w-7 h-7 cursor-pointer brand-color rounded"></FaTwitterSquare>
-                    <FaLinkedin className="w-7 h-7 cursor-pointer brand-color rounded"></FaLinkedin>
+                    <Link
+                      to="https://www.facebook.com/"
+                      target="_blank"
+                      title="Facebook"
+                    >
+                      <FaFacebook className="w-7 h-7 cursor-pointer brand-color rounded"></FaFacebook>
+                    </Link>
+                    <Link to="https://twitter.com/?lang=en" title="Twitter">
+                      <FaTwitterSquare className="w-7 h-7 cursor-pointer brand-color rounded"></FaTwitterSquare>
+                    </Link>
+                    <Link
+                      to="https://www.linkedin.com/learning?trk=homepage-learning_nav-header-logo"
+                      title="Linkedin"
+                    >
+                      <FaLinkedin className="w-7 h-7 cursor-pointer brand-color rounded"></FaLinkedin>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -67,12 +81,6 @@ const Footer = () => {
                   >
                     Terms And Conditions
                   </Link>
-                  <Link
-                    to="/contact"
-                    className="link link-hover block text-base py-1 lg:text-lg"
-                  >
-                    Contact Us
-                  </Link>
                 </div>
               </div>
 
@@ -80,20 +88,29 @@ const Footer = () => {
               <div className="md:mx-auto text-center ">
                 <span className="brand-color text-xl block mb-4">Services</span>
                 <div className="mt-2">
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link
+                    to="/book-ticket"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     Bus Tickets
-                  </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  </Link>
+                  {/* <a className="link link-hover block text-base py-1 lg:text-lg">
                     Launch Tickets
-                  </a>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  </a> */}
+                  {/* <a className="link link-hover block text-base py-1 lg:text-lg">
                     Train Tickets
-                  </a>
+                  </a> */}
                   <Link
                     to="/faq"
                     className="link link-hover block text-base py-1 lg:text-lg"
                   >
                     FAQ
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
+                    Contact Us
                   </Link>
                 </div>
               </div>
@@ -109,15 +126,21 @@ const Footer = () => {
                   >
                     Blog
                   </Link>
-                  <Link to='/bus-complain' className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link
+                    to="/bus-complain"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     Bus Companies
                   </Link>
-                  <Link to='/travel' className="link link-hover block text-base py-1 lg:text-lg">
+                  <Link
+                    to="/travel"
+                    className="link link-hover block text-base py-1 lg:text-lg"
+                  >
                     Travel Tips
                   </Link>
-                  <a className="link link-hover block text-base py-1 lg:text-lg">
+                  {/* <a className="link link-hover block text-base py-1 lg:text-lg">
                     My Account
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
