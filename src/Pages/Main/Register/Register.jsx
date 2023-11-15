@@ -60,7 +60,7 @@ const Register = () => {
               role: userData.role,
             };
 
-            fetch(`http://localhost:5000/users`, {
+            fetch(`https://dhaka-bus-ticket-server-two.vercel.app/users`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -125,7 +125,7 @@ const Register = () => {
           role: "user",
         };
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://dhaka-bus-ticket-server-two.vercel.app/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -234,14 +234,14 @@ const Register = () => {
               )}
             </div>
             <div className="flex flex-col">
-              <input
+              {/* <input
                 type="email"
                 name="email"
                 className={`bg-white rounded p-2 border focus:outline-none focus:border-orange-500 ${errors.email && "border-red-500"
                   }`}
                 {...register("email", { required: "Email is required" })}
                 placeholder="Email or Username"
-              />
+              /> */}
               {errors.email && (
                 <span className="text-red-500">{errors.email.message}</span>
               )}
