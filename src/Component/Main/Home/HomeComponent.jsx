@@ -18,7 +18,7 @@ const HomeComponent = () => {
       <TicketBookingSteps></TicketBookingSteps>
       <Services></Services>
       <Featured></Featured>
-      <Testimonial></Testimonial>
+      {/* <Testimonial></Testimonial> */}
       <NewsLetter></NewsLetter>
     </div>
   );

@@ -29,7 +29,7 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="max-w-[1200px] mb-8 brand-bg opacity-80 px-6 p-8 md:py-12 md:px-10  mx-auto">
+    <div className="max-w-[1200px] mb-8 brand-bg opacity-80 px-6 p-8 md:py-12 md:px-10  mx-auto mt-[30px]">
       <div className="w-full md:w-6/12 md:mx-auto">
         <h1 className="text-lg md:text-3xl  text-white pb-2">
           Subscribe To Our Newsletter
